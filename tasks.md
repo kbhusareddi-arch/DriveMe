@@ -1,0 +1,312 @@
+# DriveMe Master Dashboard Unification - Implementation Plan
+
+## Task 1: Create Root index.html (Home Page Front Door)
+- **Status**: `pending`
+- **Priority**: high
+- **Depends On**: None
+- **Description**:
+  - Copy the home page content from `driveme_home_page/code.html` and create a new `index.html` at project root
+  - Update all navigation links:
+    - Logo click → `index.html`
+    - "Login" button → `driveme_learner_login/code.html`
+    - "Get Started → I want to Learn" → `driveme_learner_login/code.html`
+    - "Get Started → I want to Teach" → `driveme_trainer_login/code.html`
+    - "Start Learning" card CTA → `driveme_learner_login/code.html`
+    - "Become a Trainer" card CTA → `driveme_trainer_login/code.html`
+    - "Find a Trainer" buttons → `driveme_learner_login/code.html` (must login first)
+    - "Book Lesson" on trainer cards → `driveme_learner_login/code.html`
+    - "How It Works" → `#how-it-works` (anchor)
+    - "Find a Trainer" → `#trainers` (anchor)
+    - "Exam Guide" → `#exam-guide` (anchor)
+    - "Help" → `driveme_support/code.html`
+    - Footer "Become a Trainer" → `driveme_trainer_login/code.html`
+    - Footer "Curriculum" → `driveme_trainer_curriculum/code.html`
+    - Footer "DMV Resources" → `driveme_dl_test_tracks/code.html`
+  - Update switchWorkflow() JS to work correctly (tab switching)
+  - Ensure all relative image paths work (they are Google URLs so absolute)
+- **Acceptance Criteria Addressed**: AC-1, AC-4, AC-5
+- **Test Requirements**:
+  - `rule` TR-1.1: `index.html` file exists at project root and contains the DriveMe landing page content with hero section, journey cards, how-it-works, trainer grid, and curriculum sections; evidence = file listing + 200 open in browser
+  - `rule` TR-1.2: Logo click navigates to `index.html`, "I want to Learn" navigates to `driveme_learner_login/code.html`, "I want to Teach" navigates to `driveme_trainer_login/code.html`; evidence = manual click-through of all home page CTAs
+  - `rubric` TR-1.3: Visual fidelity of home page vs design spec; scale 1-5; anchors 1=broken styles, 3=mostly correct with minor padding discrepancies, 5=pixel-perfect match to source design; threshold >= 4; evidence = side-by-side screenshot comparison of root index.html with source home page
+
+## Task 2: Wire Learner Flow Pages (Part 1: Login → Profile → Goal → Trainer)
+- **Status**: `pending`
+- **Priority**: high
+- **Depends On**: Task 1
+- **Description**:
+  - **Learner Login** (`driveme_learner_login/code.html`):
+    - Logo → `index.html`
+    - "Back to Home" → `index.html`
+    - "Send OTP" click expands OTP section (existing behavior)
+    - "Verify & Continue" → `../driveme_profile_setup/code.html`
+    - "Continue as Trainer" → `../driveme_trainer_login/code.html`
+    - Help → `../driveme_support/code.html`
+  - **Profile Setup** (`driveme_profile_setup/code.html`):
+    - Logo → `../index.html`
+    - "Back" → `../driveme_learner_login/code.html`
+    - Primary "Save & Continue" → `../driveme_choose_goal/code.html`
+    - Footer links → appropriate destinations
+  - **Choose Goal** (`driveme_choose_goal/code.html`):
+    - Logo → `../index.html`
+    - "Back" → `../driveme_profile_setup/code.html`
+    - Goal card select + "Continue" → `../driveme_find_trainer/code.html`
+  - **Find Trainer** (`driveme_find_trainer/code.html`):
+    - Logo → `../index.html`
+    - "Back" → `../driveme_choose_goal/code.html`
+    - Each trainer "Book Lesson" button → `../driveme_select_vehicle/code.html`
+    - Filter/search buttons remain interactive (visual only)
+- **Acceptance Criteria Addressed**: AC-2, AC-4, AC-5
+- **Test Requirements**:
+  - `rule` TR-2.1: Learner Login → Verify → Profile Setup → Goal → Find Trainer navigation chain works in both forward and back directions; evidence = traversal recording of all 4 pages
+  - `rule` TR-2.2: Every `href="#"` CTA is replaced with actual relative navigation and no broken 404 links occur; evidence = grep output confirming no placeholder # links on action buttons
+  - `rubric` TR-2.3: Back navigation consistency; scale 1-5; anchors 1=back buttons missing or broken, 3=back works from most pages but 1 missing, 5=every page has working back link returning to exact previous step; threshold >= 4; evidence = manual reverse traversal
+
+## Task 3: Wire Learner Flow Pages (Part 2: Vehicle → Time → Pickup → Review → Payment → Confirmation)
+- **Status**: `pending`
+- **Priority**: high
+- **Depends On**: Task 2
+- **Description**:
+  - **Select Vehicle** (`driveme_select_vehicle/code.html`):
+    - Logo → `../index.html`
+    - "Back" → `../driveme_find_trainer/code.html`
+    - Vehicle select + "Continue" → `../driveme_select_time/code.html`
+  - **Select Time** (`driveme_select_time/code.html`):
+    - Logo → `../index.html`
+    - "Back" → `../driveme_select_vehicle/code.html`
+    - Time slot + "Confirm Time" → `../driveme_pickup_location/code.html`
+  - **Pickup Location** (`driveme_pickup_location/code.html`):
+    - Logo → `../index.html`
+    - "Back" → `../driveme_select_time/code.html`
+    - Save address + "Continue" → `../driveme_review_booking/code.html`
+  - **Review Booking** (`driveme_review_booking/code.html`):
+    - Logo → `../index.html`
+    - "Back" or "Edit" links → return to appropriate step (Time/Vehicle/Pickup as labeled)
+    - "Proceed to Payment" → `../driveme_payment/code.html`
+  - **Payment** (`driveme_payment/code.html`):
+    - Logo → `../index.html`
+    - "Back" → `../driveme_review_booking/code.html`
+    - "Pay Now" / "Confirm Payment" → `../driveme_booking_confirmation/code.html`
+  - **Booking Confirmation** (`driveme_booking_confirmation/code.html`):
+    - Logo → `../index.html`
+    - "View Upcoming Lessons" → `../driveme_upcoming_lesson/code.html`
+    - "Start Lesson" (when date arrives) → `../driveme_live_lesson/code.html`
+    - "Back to Home" → `../index.html`
+  - **Upcoming Lesson** (`driveme_upcoming_lesson/code.html`):
+    - Logo → `../index.html`
+    - "Start Lesson" → `../driveme_live_lesson/code.html`
+    - Back nav → `../driveme_booking_confirmation/code.html`
+- **Acceptance Criteria Addressed**: AC-2, AC-4, AC-5
+- **Test Requirements**:
+  - `rule` TR-3.1: Booking chain traversal works: Vehicle → Time → Pickup → Review → Payment → Confirmation → Upcoming → Live Lesson; evidence = recorded click-through sequence
+  - `rule` TR-3.2: All "Edit" links on Review Booking page navigate to the correct step being edited (e.g., Edit Time → Select Time page); evidence = each edit link clicked and validated
+  - `rubric` TR-3.3: Navigation context preservation; scale 1-5; anchors 1=back links always go to wrong pages, 3=back navigation returns to correct page in most cases but loses context, 5=back links always return to the previous step with visual flow continuity; threshold >= 4; evidence = spot check of 3 back navigations
+
+## Task 4: Wire Learner Flow Pages (Part 3: Lesson → Progress → Exam → History)
+- **Status**: `pending`
+- **Priority**: high
+- **Depends On**: Task 3
+- **Description**:
+  - **Live Lesson** (`driveme_live_lesson/code.html`):
+    - Logo → `../index.html`
+    - "End Lesson" / "Complete Session" → `../driveme_learner_progress/code.html`
+    - In-lesson help/support → `../driveme_support/code.html`
+  - **Learner Progress** (`driveme_learner_progress/code.html`):
+    - Logo → `../index.html`
+    - "Back" → `../driveme_live_lesson/code.html` (or Upcoming)
+    - "Exam Preparation" / "Driving Test Prep" CTA → `../driveme_driving_exam_guide/code.html`
+    - "View All Lessons" / "Lesson History" → `../driveme_lesson_history/code.html`
+    - "Book Next Lesson" → `../driveme_find_trainer/code.html`
+    - Notifications icon → `../driveme_notifications/code.html`
+  - **Driving Exam Guide** (`driveme_driving_exam_guide/code.html`):
+    - Logo → `../index.html`
+    - "Back" → `../driveme_learner_progress/code.html`
+    - "DL Test Tracks" tab/link → `../driveme_dl_test_tracks/code.html`
+    - "Traffic Signals" tab/link → `../driveme_traffic_signals/code.html`
+    - "Practice Exam" or similar CTA → `../driveme_dl_test_tracks/code.html`
+  - **DL Test Tracks** (`driveme_dl_test_tracks/code.html`):
+    - Logo → `../index.html`
+    - "Back" → `../driveme_driving_exam_guide/code.html`
+  - **Traffic Signals** (`driveme_traffic_signals/code.html`):
+    - Logo → `../index.html`
+    - "Back" → `../driveme_driving_exam_guide/code.html`
+  - **Lesson History** (`driveme_lesson_history/code.html`):
+    - Logo → `../index.html`
+    - "Back" → `../driveme_learner_progress/code.html`
+    - "Book New Lesson" → `../driveme_find_trainer/code.html`
+    - History item "View Details" → `../driveme_learner_progress/code.html`
+- **Acceptance Criteria Addressed**: AC-2, AC-4, AC-5, AC-7
+- **Test Requirements**:
+  - `rule` TR-4.1: Post-booking chain works: Live Lesson → Progress → Exam Guide → (Test Tracks / Traffic Signals sub-pages) → History; evidence = full traversal confirmed
+  - `rule` TR-4.2: Exam Guide sub-navigation links correctly to DL Test Tracks and Traffic Signals pages with working back navigation; evidence = sub-pages opened and return to Exam Guide
+  - `rubric` TR-4.3: Learning progression flow intuitiveness; scale 1-5; anchors 1=confusing jumps between unrelated pages, 3=logical flow but minor gaps, 5=intuitive educational progression completing the learner arc; threshold >= 4; evidence = review of the progress → exam → history → rebook loop
+
+## Task 5: Wire Trainer Flow Pages (Part 1: Login → Registration → Verification → Admin Review → Dashboard)
+- **Status**: `pending`
+- **Priority**: high
+- **Depends On**: Task 1
+- **Description**:
+  - **Trainer Login** (`driveme_trainer_login/code.html`):
+    - Logo → `../index.html`
+    - "Send OTP" → visual feedback (existing inline behavior)
+    - After OTP verify (submit button) → `../driveme_trainer_dashboard/code.html`
+    - "Continue as Learner" → `../driveme_learner_login/code.html`
+    - "Register as Instructor / Apply Now" → `../driveme_trainer_registration/code.html`
+    - Contact Support → `../driveme_support/code.html`
+  - **Trainer Registration** (`driveme_trainer_registration/code.html`):
+    - Logo → `../index.html`
+    - "Back" → `../driveme_trainer_login/code.html`
+    - "Submit Registration" / "Continue" → `../driveme_trainer_verification/code.html`
+  - **Trainer Verification** (`driveme_trainer_verification/code.html`):
+    - Logo → `../index.html`
+    - "Back" → `../driveme_trainer_registration/code.html`
+    - "Upload & Submit Documents" / "Complete Verification" → `../driveme_trainer_admin_review_status/code.html`
+  - **Admin Review Status** (`driveme_trainer_admin_review_status/code.html`):
+    - Logo → `../index.html`
+    - "Back" → `../driveme_trainer_verification/code.html`
+    - "Go to Dashboard" (when approved) → `../driveme_trainer_dashboard/code.html`
+  - **Trainer Dashboard** (`driveme_trainer_dashboard/code.html`):
+    - Logo → `../index.html`
+    - Sidebar: Dashboard → current / self (visual highlight)
+    - Sidebar: Schedule → `../driveme_trainer_schedule/code.html`
+    - Sidebar: Lessons → `../driveme_trainer_lessons/code.html`
+    - Sidebar: Earnings → `../driveme_trainer_earnings/code.html`
+    - Sidebar: Profile → `../driveme_trainer_profile/code.html`
+    - Sidebar: Vehicles → `../driveme_trainer_vehicles/code.html`
+    - Sidebar: Notifications → `../driveme_notifications/code.html`
+    - Sidebar: Support → `../driveme_support/code.html`
+    - Sidebar: Incident Report → `../driveme_trainer_incident_report/code.html`
+    - Sidebar: Logout → `../index.html`
+    - Quick actions on dashboard cards: "View Schedule" → `../driveme_trainer_schedule/code.html`, "View Lessons" → `../driveme_trainer_lessons/code.html`
+- **Acceptance Criteria Addressed**: AC-3, AC-4, AC-5
+- **Test Requirements**:
+  - `rule` TR-5.1: Onboarding chain: Login → Registration → Verification → Admin Review → Dashboard; evidence = click-through of all 5 stages (forward + back)
+  - `rule` TR-5.2: Trainer Dashboard sidebar has 8+ working navigation links (Dashboard, Schedule, Lessons, Earnings, Profile, Vehicles, Notifications, Support, Incident, Logout) all resolving to correct pages; evidence = each sidebar link clicked once
+  - `rubric` TR-5.3: Sidebar navigation consistency; scale 1-5; anchors 1=sidebar links broken or missing, 3=sidebar works on Dashboard but not propagated to sub-pages, 5=every trainer page has working sidebar/nav returning to all destinations; threshold >= 4; evidence = spot check sidebar on 3+ pages
+
+## Task 6: Wire Trainer Flow Pages (Part 2: Schedule → Lessons → Navigation → Verify Student → Start)
+- **Status**: `pending`
+- **Priority**: high
+- **Depends On**: Task 5
+- **Description**:
+  - **Trainer Schedule** (`driveme_trainer_schedule/code.html`):
+    - Logo → `../index.html`
+    - Sidebar nav → same links as Task 5 (all dashboard pages)
+    - "Back" or breadcrumb → `../driveme_trainer_dashboard/code.html`
+    - "View Lessons" / clicking a slot → `../driveme_trainer_lessons/code.html`
+    - "Add Availability" → visual feedback
+  - **Trainer Lessons** (`driveme_trainer_lessons/code.html`):
+    - Logo → `../index.html`
+    - Sidebar nav → all dashboard pages
+    - "Back" → `../driveme_trainer_schedule/code.html` or `../driveme_trainer_dashboard/code.html`
+    - Lesson card "Navigate to Pickup" / "Start Route" → `../driveme_trainer_navigation/code.html`
+    - Lesson card "Mark Complete" → `../driveme_end_lesson_confirmation/code.html` (only post-lesson)
+  - **Trainer Navigation** (`driveme_trainer_navigation/code.html`):
+    - Logo → `../index.html`
+    - Sidebar nav → all dashboard pages
+    - "Cancel" / "Back to Lessons" → `../driveme_trainer_lessons/code.html`
+    - "Arrived at Pickup" / "Verify Student" → `../driveme_verify_student/code.html`
+  - **Verify Student** (`driveme_verify_student/code.html`):
+    - Logo → `../index.html`
+    - Sidebar nav → all dashboard pages
+    - "Back" → `../driveme_trainer_navigation/code.html`
+    - "Verify & Start Lesson" → `../driveme_start_lesson/code.html`
+  - **Start Lesson** (`driveme_start_lesson/code.html`):
+    - Logo → `../index.html`
+    - Sidebar nav → all dashboard pages
+    - "Back" → `../driveme_verify_student/code.html`
+    - "Start Driving Session" / "Begin Lesson" → `../driveme_trainer_live_tracking/code.html`
+- **Acceptance Criteria Addressed**: AC-3, AC-4, AC-5
+- **Test Requirements**:
+  - `rule` TR-6.1: Lesson execution chain: Schedule → Lessons → Navigation → Verify Student → Start Lesson → Live Tracking; evidence = full forward traversal confirmed
+  - `rule` TR-6.2: Each page in chain contains working back link to previous step; evidence = reverse traversal of all 5 pages
+  - `rubric` TR-6.3: Session handoff intuitiveness; scale 1-5; anchors 1=jarring jumps lose context of which lesson is active, 3=lesson identity maintained mostly, 5=seamless lesson ID/student context preserved through entire chain; threshold >= 4; evidence = review of lesson detail cards continuity across 4 consecutive pages
+
+## Task 7: Wire Trainer Flow Pages (Part 3: Live Tracking → Curriculum → End → Earnings → Supplementary)
+- **Status**: `pending`
+- **Priority**: high
+- **Depends On**: Task 6
+- **Description**:
+  - **Trainer Live Tracking** (`driveme_trainer_live_tracking/code.html`):
+    - Logo → `../index.html`
+    - Sidebar nav → all dashboard pages
+    - "View Curriculum" / "Training Syllabus" → `../driveme_trainer_curriculum/code.html`
+    - "End Session" / "Complete Lesson" → `../driveme_end_lesson_confirmation/code.html`
+    - Emergency/Incident button → `../driveme_trainer_incident_report/code.html`
+  - **Trainer Curriculum** (`driveme_trainer_curriculum/code.html`):
+    - Logo → `../index.html`
+    - Sidebar nav → all dashboard pages
+    - "Back" → `../driveme_trainer_live_tracking/code.html`
+    - "Mark Skill Complete" / "Return to Session" → `../driveme_trainer_live_tracking/code.html`
+  - **End Lesson Confirmation** (`driveme_end_lesson_confirmation/code.html`):
+    - Logo → `../index.html`
+    - Sidebar nav → all dashboard pages
+    - "Back" (cancel end) → `../driveme_trainer_live_tracking/code.html`
+    - "Confirm End Lesson" → `../driveme_trainer_earnings/code.html` (shows updated earnings) or `../driveme_trainer_dashboard/code.html`
+  - **Trainer Earnings** (`driveme_trainer_earnings/code.html`):
+    - Logo → `../index.html`
+    - Sidebar nav → all dashboard pages
+    - "Back" → `../driveme_trainer_dashboard/code.html`
+    - "View Lessons" → `../driveme_trainer_lessons/code.html`
+  - Supplementary pages (sidebar-accessed):
+    - **Trainer Profile** (`driveme_trainer_profile/code.html`): Logo → index.html; Back/Cancel → Dashboard; Save → back to Dashboard
+    - **Trainer Vehicles** (`driveme_trainer_vehicles/code.html`): Logo → index.html; Back → Dashboard
+    - **Notifications** (`driveme_notifications/code.html`): Logo → index.html; Back → previous dashboard page (Dashboard for both learner/trainer access)
+    - **Incident Report** (`driveme_trainer_incident_report/code.html`): Logo → index.html; Back → Live Tracking or Dashboard
+    - **Support** (`driveme_support/code.html`): Logo → index.html; Back → any previous page (dashboard or flow)
+- **Acceptance Criteria Addressed**: AC-3, AC-4, AC-5, AC-7
+- **Test Requirements**:
+  - `rule` TR-7.1: In-lesson chain: Live Tracking ↔ Curriculum, Live Tracking → End Lesson → Earnings → Dashboard; evidence = traversal of all 4 terminal pages
+  - `rule` TR-7.2: All 5 supplementary pages (Profile, Vehicles, Notifications, Incident Report, Support) are reachable via sidebar or contextual links with working return navigation; evidence = each supplementary page opened from dashboard and back link verified
+  - `rubric` TR-7.3: Dashboard exit/return flow; scale 1-5; anchors 1=logout or exit buttons broken, 3=logout works but some exit from sub-pages missing, 5=clean dashboard exits to home, sub-pages always have clear return to master dashboard; threshold >= 4; evidence = 4 exit scenarios tested (logout from dashboard, close from earnings, back from curriculum, return from profile)
+
+## Task 8: Cross-Cutting Navigation Pass (All Pages — Logo, Role Switch, Footer, Support)
+- **Status**: `pending`
+- **Priority**: medium
+- **Depends On**: Tasks 2-7
+- **Description**:
+  - Pass through every HTML file in the project and ensure:
+    - Every DriveMe logo/brand mark in the header has `href="..."` pointing to `index.html` (adjust relative path based on page depth)
+    - Every learner login page has a visible "Trainer Login" or "Continue as Trainer" link to `driveme_trainer_login/code.html`
+    - Every trainer login/onboarding page has a "Learner Login" link (or switch_account button) to `driveme_learner_login/code.html`
+    - Every footer has the standard DriveMe links: About Us (→ index.html#about), Safety Standards (→ index.html#trust), Become a Trainer (→ driveme_trainer_login/code.html), Curriculum (→ driveme_trainer_curriculum/code.html), Privacy Policy (→ # or index.html), Terms of Service (→ # or index.html), DMV Resources (→ driveme_dl_test_tracks/code.html)
+    - Every "Help" button/icon routes to `driveme_support/code.html`
+    - OTP variant pages are reviewed: if used, wire them into the login flow; otherwise leave but ensure links to them don't exist on critical paths
+- **Acceptance Criteria Addressed**: AC-4, AC-5, AC-6, AC-7
+- **Test Requirements**:
+  - `rule` TR-8.1: Logo header on every single page resolves to `index.html` with correct relative path (0 broken logo links across all pages); evidence = grep for logo anchors + spot-check 10 random pages
+  - `rule` TR-8.2: Role switch links exist on both login pages (Learner ↔ Trainer switch); evidence = open both login pages and confirm role-switch link is visible and functional
+  - `rubric` TR-8.3: Footer/utility link uniformity; scale 1-5; anchors 1=inconsistent footers, some pages missing, 3=most pages have footer but minor differences, 5=every page has the same standardized footer with all 7 links resolving correctly; threshold >= 4; evidence = footer comparison on 5 pages from each flow
+
+## Task 9: Validation Pass — Remove Remaining Placeholder Links & Verify No Broken Navigations
+- **Status**: `pending`
+- **Priority**: high
+- **Depends On**: Task 8
+- **Description**:
+  - Run a project-wide search for `href="#"` occurrences on button/primary action elements
+  - Replace every remaining placeholder `href="#"` on CTAs, action buttons, and nav items with correct navigations
+  - Leave `href="#"` only on in-page anchors (tabs, accordions that trigger JS toggle only — no page navigation)
+  - Verify every `<button>` that previously had `alert()` or JS-only handlers now navigates to a real page
+  - Do a sanity check: click through both full flows end-to-end from home to final page (Learner: History, Trainer: Earnings)
+  - Document any remaining JS alert() calls that show "Under construction" type messages — replace them with actual page navigations
+- **Acceptance Criteria Addressed**: AC-2, AC-3, AC-4
+- **Test Requirements**:
+  - `rule` TR-9.1: Project-wide grep for `href="#"` on CTA buttons returns 0 results for primary-action/nav elements (in-page JS toggles OK); evidence = grep command output saved
+  - `rule` TR-9.2: Full Learner end-to-end traversal (Login → History) has 0 broken links or missing pages; evidence = completed traversal checklist (14+ pages)
+  - `rule` TR-9.3: Full Trainer end-to-end traversal (Login → Earnings) has 0 broken links or missing pages; evidence = completed traversal checklist (18+ pages)
+  - `rubric` TR-9.4: End-to-end journey smoothness; scale 1-5; anchors 1=many dead ends, 3=minor dead ends fixed with back links, 5=both journeys feel like a cohesive product with zero friction points; threshold >= 4; evidence = end-to-end UX walkthrough notes
+
+## Task 10: Create a Quick-Start Navigation Cheat Sheet (README-style embedded helper)
+- **Status**: `pending`
+- **Priority**: low
+- **Depends On**: Task 9
+- **Description**:
+  - Add a simple navigation map as a standalone page or inline comment block inside `index.html` (bottom) that lists:
+    - Root index → two login entries
+    - Learner 14-step flow with page names + paths
+    - Trainer 18-step flow with page names + paths
+    - Supplementary pages list with entry points
+  - (This is for QA / reviewer reference; not visible to end users.)
+- **Acceptance Criteria Addressed**: (documentation, no AC directly; aids verification of AC-2, AC-3)
+- **Test Requirements**:
+  - `rule` TR-10.1: Navigation map lists all required Learner steps, Trainer steps, and supplementary pages with correct relative file paths; evidence = reviewer can use the map to jump to any page

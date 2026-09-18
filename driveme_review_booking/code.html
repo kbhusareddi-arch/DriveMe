@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DriveMe - Review Booking</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#faf8ff",
+            "tertiary-fixed": "#6ffbbe",
+            "tertiary-container": "#002416",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary": "#000412",
+            "surface": "#faf8ff",
+            "on-tertiary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "inverse-surface": "#283044",
+            "on-error": "#ffffff",
+            "surface-tint": "#515f7a",
+            "on-tertiary-fixed": "#002113",
+            "secondary": "#a14000",
+            "inverse-on-surface": "#eef0ff",
+            "on-error-container": "#93000a",
+            "on-surface": "#131b2e",
+            "primary-fixed-dim": "#b8c7e6",
+            "secondary-fixed-dim": "#ffb694",
+            "surface-bright": "#faf8ff",
+            "outline-variant": "#c5c6ce",
+            "on-secondary-fixed-variant": "#7b2f00",
+            "on-tertiary-container": "#009969",
+            "surface-container-high": "#e2e7ff",
+            "on-primary": "#ffffff",
+            "inverse-primary": "#b8c7e6",
+            "on-surface-variant": "#44474d",
+            "primary-fixed": "#d7e3ff",
+            "primary-container": "#0f1e36",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed": "#351000",
+            "surface-container": "#eaedff",
+            "on-primary-fixed": "#0c1b33",
+            "on-primary-fixed-variant": "#394761",
+            "surface-container-low": "#f2f3ff",
+            "surface-variant": "#dae2fd",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#5b2100",
+            "outline": "#75777e",
+            "on-tertiary-fixed-variant": "#005236",
+            "tertiary": "#000703",
+            "on-primary-container": "#7886a3",
+            "secondary-container": "#fc7123",
+            "surface-dim": "#d2d9f4",
+            "error-container": "#ffdad6",
+            "on-background": "#131b2e",
+            "secondary-fixed": "#ffdbcc",
+            "surface-container-highest": "#dae2fd"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "spacing-3xl": "4rem",
+            "gutter-desktop": "1.5rem",
+            "spacing-xl": "2rem",
+            "spacing-2xs": "0.25rem",
+            "spacing-xs": "0.5rem",
+            "spacing-sm": "0.75rem",
+            "container-max": "1280px",
+            "spacing-lg": "1.5rem",
+            "spacing-md": "1rem",
+            "gutter-mobile": "1rem",
+            "spacing-2xl": "3rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-medium": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "badge-micro": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-base": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "800" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "badge-micro": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-base": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface font-body-base antialiased min-h-screen flex flex-col selection:bg-secondary selection:text-on-secondary">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-surface-container-lowest dark:bg-primary border-b border-outline-variant/30 dark:border-outline/20 shadow-sm dark:shadow-none sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-6 lg:px-12 max-w-container-max mx-auto h-20">
+<!-- Brand Logo -->
+<a class="flex items-center gap-3" href="../driveme_home_page/code.html">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-surface-container-lowest font-black text-headline-sm shadow-sm relative overflow-hidden">
+<span class="text-secondary-container text-headline-md leading-none mr-0.5">D</span>
+<span class="text-surface-container-lowest text-label-sm font-bold">M</span>
+<div class="absolute bottom-0 w-full h-1 bg-secondary-container"></div>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-md font-headline-md font-extrabold tracking-tight text-primary dark:text-surface">DriveMe</span>
+<span class="text-[10px] tracking-widest uppercase font-bold text-on-surface-variant -mt-1">Academy</span>
+</div>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150 text-label-lg font-label-lg" href="../driveme_home_page/code.html">Home</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150 text-label-lg font-label-lg" href="#">How It Works</a>
+<a class="text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary dark:border-secondary-fixed pb-1 text-label-lg font-label-lg" href="../driveme_find_trainer/code.html">Find a Trainer</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150 text-label-lg font-label-lg" href="../driveme_driving_exam_guide/code.html">Exam Guide</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150 text-label-lg font-label-lg" href="#">Help</a>
+</nav>
+<!-- Trailing Action Buttons -->
+<div class="flex items-center gap-4">
+<button class="text-on-surface font-semibold text-label-lg hover:text-secondary transition-colors px-3 py-2">
+          Login
+        </button>
+<button class="bg-secondary-container hover:bg-secondary text-on-primary font-semibold text-label-lg px-5 py-2.5 rounded-xl shadow-sm transition-all active:scale-[0.98]">
+          Get Started
+        </button>
+</div>
+</div>
+</header>
+<!-- Step Progression Bar (01 to 07) -->
+<section class="bg-surface-container-lowest border-b border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-6 lg:px-12 py-3.5">
+<div class="flex items-center justify-between overflow-x-auto no-scrollbar gap-2 sm:gap-4 text-xs font-semibold text-on-surface-variant">
+<!-- Step 1 Done -->
+<div class="flex items-center gap-2 whitespace-nowrap text-on-tertiary-container">
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary-container font-bold text-[11px]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</span>
+<span class="hidden sm:inline">01 Profile</span>
+</div>
+<span class="text-outline-variant">›</span>
+<!-- Step 2 Done -->
+<div class="flex items-center gap-2 whitespace-nowrap text-on-tertiary-container">
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary-container font-bold text-[11px]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</span>
+<span class="hidden sm:inline">02 Goal</span>
+</div>
+<span class="text-outline-variant">›</span>
+<!-- Step 3 Done -->
+<div class="flex items-center gap-2 whitespace-nowrap text-on-tertiary-container">
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary-container font-bold text-[11px]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</span>
+<span class="hidden sm:inline">03 Trainer</span>
+</div>
+<span class="text-outline-variant">›</span>
+<!-- Step 4 Done -->
+<div class="flex items-center gap-2 whitespace-nowrap text-on-tertiary-container">
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary-container font-bold text-[11px]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</span>
+<span class="hidden sm:inline">04 Vehicle</span>
+</div>
+<span class="text-outline-variant">›</span>
+<!-- Step 5 Done -->
+<div class="flex items-center gap-2 whitespace-nowrap text-on-tertiary-container">
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary-container font-bold text-[11px]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</span>
+<span class="hidden sm:inline">05 Time</span>
+</div>
+<span class="text-outline-variant">›</span>
+<!-- Step 6 Done -->
+<div class="flex items-center gap-2 whitespace-nowrap text-on-tertiary-container">
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary-container font-bold text-[11px]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</span>
+<span class="hidden sm:inline">06 Pickup</span>
+</div>
+<span class="text-outline-variant">›</span>
+<!-- Step 7 Current -->
+<div class="flex items-center gap-2 whitespace-nowrap text-secondary font-bold bg-secondary-fixed/40 px-3 py-1 rounded-full">
+<span class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-[11px]">07</span>
+<span>07 Review Booking <span class="hidden md:inline font-extrabold text-[10px] tracking-wide text-secondary uppercase">(Final Step)</span></span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Canvas -->
+<main class="flex-grow max-w-container-max mx-auto w-full px-6 lg:px-12 py-8 lg:py-10">
+<!-- Top Back Navigation & Page Heading -->
+<div class="mb-8">
+<a class="inline-flex items-center gap-2 text-label-lg font-label-lg text-primary-container hover:text-secondary transition-colors group mb-4" href="#">
+<span class="material-symbols-outlined text-sm group-hover:-translate-x-1 transition-transform">arrow_back</span>
+<span>Back to Pickup Location</span>
+</a>
+<div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
+<div>
+<h1 class="text-headline-lg font-headline-lg text-primary tracking-tight">Review your booking</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-1 max-w-2xl">
+            Please verify your lesson itinerary, assigned instructor, and doorstep location before proceeding to secure payment.
+          </p>
+</div>
+<div class="flex items-center gap-2 bg-emerald-50 text-emerald-800 border border-emerald-200 px-3.5 py-1.5 rounded-full text-label-sm font-label-sm w-fit self-start sm:self-auto">
+<span class="material-symbols-outlined text-emerald-600 text-base" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span>100% RTO &amp; Insurance Covered</span>
+</div>
+</div>
+</div>
+<!-- Two-Column Grid Architecture -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT COLUMN: Structured Booking Cards (8 Cols) -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- 1. Assigned Trainer Card -->
+<section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 p-6 shadow-sm hover:border-outline-variant transition-colors">
+<div class="flex items-start justify-between pb-4 border-b border-outline-variant/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">sports_score</span>
+<div>
+<span class="text-badge-micro font-badge-micro uppercase tracking-wider text-secondary font-bold">Step 03 Verified</span>
+<h2 class="text-headline-sm font-headline-sm text-primary">Assigned Trainer</h2>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 text-label-lg font-label-lg text-secondary hover:text-on-secondary-container hover:underline font-bold transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">edit</span>
+<span>Edit Trainer</span>
+</a>
+</div>
+<div class="mt-5 flex flex-col sm:flex-row items-center sm:items-start gap-5">
+<!-- Trainer Avatar -->
+<div class="relative shrink-0">
+<img class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover border-2 border-outline-variant/30 shadow-inner" data-alt="A professional Indian male driving instructor in his early forties with warm confident expression, wearing a neat navy DriveMe Academy collared polo shirt, well lit against modern urban training car backdrop, photographic realism with balanced high-key daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY_eN7z23DRBdJjcpl60TpPEmmZTF_nqCe8vxDM_jOxZua89OKOiIzivP6x3m0juHSqIIc2ZVbC77jU-ngq025oe50fov86-pe0x8fa2O3CGXvWvOUpNM8XNZTyoxv2LvPz-9p9QVR-xa7g17W77YqDaW2vA49pVWNHBWeKRLqtRR4YdovWV58-N09BPFcOvxnJqvU3YnEYSbzRvF6jTFl2cKlH8VQ5IneycR0s2bTqxE-fQ5j3zDE"/>
+<span class="absolute -bottom-2 -right-2 bg-emerald-600 text-white rounded-full p-1 shadow">
+<span class="material-symbols-outlined text-xs block" style="font-variation-settings: 'FILL' 1;">check</span>
+</span>
+</div>
+<!-- Trainer Info -->
+<div class="flex-grow text-center sm:text-left space-y-2">
+<div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+<h3 class="text-headline-sm font-headline-sm text-primary">Rajesh Kumar</h3>
+<span class="inline-flex items-center gap-1 bg-emerald-50 text-emerald-800 px-2.5 py-0.5 rounded-full text-badge-micro font-bold border border-emerald-200">
+<span class="material-symbols-outlined text-xs text-emerald-600" style="font-variation-settings: 'FILL' 1;">security</span>
+                  Police Background Cleared
+                </span>
+</div>
+<div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-body-medium font-body-medium text-on-surface-variant">
+<div class="flex items-center gap-1 font-semibold text-primary">
+<span class="material-symbols-outlined text-amber-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.95</span>
+<span class="text-on-surface-variant font-normal">(340+ sessions)</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-outline">badge</span>
+<span>License: <strong class="text-primary font-semibold">KA-03-2012-004</strong></span>
+</div>
+</div>
+<p class="text-body-base font-body-base text-on-surface-variant pt-1">
+                Senior Dual-Control Certified Coach. 12+ years master training experience specializing in defensive driving, RTO parallel parking mastery, and heavy traffic acclimatization.
+              </p>
+<div class="pt-2 flex flex-wrap gap-2 justify-center sm:justify-start">
+<span class="bg-surface-container text-on-surface text-label-sm font-label-sm px-2.5 py-1 rounded-lg">English</span>
+<span class="bg-surface-container text-on-surface text-label-sm font-label-sm px-2.5 py-1 rounded-lg">Kannada</span>
+<span class="bg-surface-container text-on-surface text-label-sm font-label-sm px-2.5 py-1 rounded-lg">Hindi</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Training Vehicle Card -->
+<section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 p-6 shadow-sm hover:border-outline-variant transition-colors">
+<div class="flex items-start justify-between pb-4 border-b border-outline-variant/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">directions_car</span>
+<div>
+<span class="text-badge-micro font-badge-micro uppercase tracking-wider text-secondary font-bold">Step 04 Verified</span>
+<h2 class="text-headline-sm font-headline-sm text-primary">Training Vehicle</h2>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 text-label-lg font-label-lg text-secondary hover:text-on-secondary-container hover:underline font-bold transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">edit</span>
+<span>Edit Vehicle</span>
+</a>
+</div>
+<div class="mt-5 grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+<!-- Vehicle Image -->
+<div class="sm:col-span-4 relative rounded-xl overflow-hidden bg-surface-container border border-outline-variant/30 aspect-video flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A clean modern white Maruti Suzuki Swift Dzire training sedan parked in front of an authorized RTO testing facility with subtle dual-control learner signage, clean daylight lighting, crisp automotive commercial style photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuBMBPcmtf2Exa5wz9dWNYvFnwQdN6gbUYEHFny6Wz29PGsocccVjte5AqCvDRig9WWdVkWpdVxxhLDBQR7MgDDmB5-VjKVKs9XOMwEI5r9kRqk8KmLpFLm1tXkdN-yuidkofHSAto6sMchLzp4uu5ZHnyAPk4ewYINS_MmhnTJa8EpoS8lA4uYkKv7wK8zQLxMcHtmI6_qqLqM6eJC0QjayeF8DFRLL77WtoaVW0Dfh7xQ0ORReb5"/>
+<span class="absolute top-2 left-2 bg-primary-container text-surface text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                MANUAL 5-SPEED
+              </span>
+</div>
+<!-- Vehicle Attributes -->
+<div class="sm:col-span-8 space-y-3">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<h3 class="text-headline-sm font-headline-sm text-primary">Maruti Suzuki Swift Dzire</h3>
+<span class="bg-surface-container-high text-primary px-2.5 py-1 rounded-lg text-label-sm font-label-sm font-mono font-bold tracking-wider">
+                  KA-03-MB-4412
+                </span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+<div class="bg-surface-container-low p-2.5 rounded-xl border border-outline-variant/20">
+<span class="text-badge-micro font-badge-micro uppercase text-on-surface-variant block">Transmission</span>
+<span class="text-body-medium font-body-medium font-bold text-primary">Manual 5-Speed</span>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-xl border border-outline-variant/20">
+<span class="text-badge-micro font-badge-micro uppercase text-on-surface-variant block">Fuel Type</span>
+<span class="text-body-medium font-body-medium font-bold text-primary">Petrol + CNG</span>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-xl border border-outline-variant/20 col-span-2 sm:col-span-1">
+<span class="text-badge-micro font-badge-micro uppercase text-on-surface-variant block">Safety Rating</span>
+<span class="text-body-medium font-body-medium font-bold text-emerald-700">Dual-Control Pedals</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-1 text-emerald-800 text-label-sm font-label-sm bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200">
+<span class="material-symbols-outlined text-sm text-emerald-600" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+<span>Dual-control pedals inspected &amp; approved on Oct 18, 2025 by Chief Transport Inspector.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Lesson Schedule Card -->
+<section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 p-6 shadow-sm hover:border-outline-variant transition-colors">
+<div class="flex items-start justify-between pb-4 border-b border-outline-variant/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">calendar_month</span>
+<div>
+<span class="text-badge-micro font-badge-micro uppercase tracking-wider text-secondary font-bold">Step 05 Verified</span>
+<h2 class="text-headline-sm font-headline-sm text-primary">Lesson Schedule</h2>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 text-label-lg font-label-lg text-secondary hover:text-on-secondary-container hover:underline font-bold transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">edit</span>
+<span>Edit Time</span>
+</a>
+</div>
+<div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="flex items-start gap-3 bg-surface-container-low p-4 rounded-xl border border-outline-variant/20">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary shrink-0 shadow-sm">
+<span class="material-symbols-outlined">event</span>
+</div>
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Scheduled Date</span>
+<h3 class="text-headline-sm font-headline-sm text-primary leading-tight mt-0.5">Thursday</h3>
+<span class="text-body-medium font-body-medium text-on-surface font-semibold">Oct 24, 2025</span>
+</div>
+</div>
+<div class="flex items-start gap-3 bg-surface-container-low p-4 rounded-xl border border-outline-variant/20">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary shrink-0 shadow-sm">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Session Window</span>
+<h3 class="text-headline-sm font-headline-sm text-primary leading-tight mt-0.5">07:00 – 09:00 AM</h3>
+<span class="text-body-medium font-body-medium text-emerald-700 font-semibold">Morning Slot (Low Traffic)</span>
+</div>
+</div>
+<div class="flex items-start gap-3 bg-surface-container-low p-4 rounded-xl border border-outline-variant/20">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary shrink-0 shadow-sm">
+<span class="material-symbols-outlined">timelapse</span>
+</div>
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Duration &amp; Focus</span>
+<h3 class="text-headline-sm font-headline-sm text-primary leading-tight mt-0.5">2 Hours</h3>
+<span class="text-body-medium font-body-medium text-on-surface font-medium">RTO Track &amp; Parallel Parking</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Pickup Location Card -->
+<section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 p-6 shadow-sm hover:border-outline-variant transition-colors">
+<div class="flex items-start justify-between pb-4 border-b border-outline-variant/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">location_on</span>
+<div>
+<span class="text-badge-micro font-badge-micro uppercase tracking-wider text-secondary font-bold">Step 06 Verified</span>
+<h2 class="text-headline-sm font-headline-sm text-primary">Doorstep Pickup Location</h2>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 text-label-lg font-label-lg text-secondary hover:text-on-secondary-container hover:underline font-bold transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">edit</span>
+<span>Edit Address</span>
+</a>
+</div>
+<div class="mt-5 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+<!-- Address details -->
+<div class="md:col-span-7 space-y-3">
+<div class="inline-flex items-center gap-1.5 bg-secondary-fixed/50 text-on-secondary-fixed font-bold text-badge-micro px-2.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-xs">home</span>
+                RESIDENTIAL PICKUP
+              </div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">402, Oakwood Residency</h3>
+<p class="text-body-base font-body-base text-on-surface-variant mt-1 leading-relaxed">
+                  12th Main Road, HAL 2nd Stage, Indiranagar, Bengaluru, Karnataka - 560038
+                </p>
+</div>
+<div class="flex items-center gap-2 text-body-medium font-body-medium text-primary-container bg-surface-container-high px-3.5 py-2 rounded-xl">
+<span class="material-symbols-outlined text-secondary text-base">near_me</span>
+<span><strong>Landmark:</strong> Near Indiranagar Metro Station (Exit C Gate)</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1.5 pt-1">
+<span class="material-symbols-outlined text-emerald-600 text-sm">check_circle</span>
+                Trainer will arrive 10 minutes prior to session time at the main gate.
+              </p>
+</div>
+<!-- Mini Map preview -->
+<div class="md:col-span-5 h-44 rounded-xl overflow-hidden relative border border-outline-variant/40 shadow-inner group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A clean modern high-contrast vector cartography map tile of Indiranagar Bengaluru showing roads and blocks in soft slate and cool white tones, with a clean bright orange map location pin centered on 12th Main Road, professional UI map aesthetic." data-location="Bengaluru" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA82hbTI-_j2gq3o-40izv5wdjIyWTmo4CC0FsMOvizr5q2DhKTb7e3nLsvU0obcPJALzsSs-ZLX4KUtkZX8Bg5fLO2VoG1wn6LhGkbu9_57aMqqb_lHiCiytEzc9-MGX8vyIjRwAHnVB_gvdbyjXq2hTuiSFi4tFy0X1uqVmPoNv5txGyWR69NUG2LlcYnGIlvddTSE38fKSnTGS6M6KtWXOv7U8GkhMk98hwwu5eoM8QsT3Qv8_i5"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent pointer-events-none"></div>
+<!-- Pin Overlay Badge -->
+<div class="absolute bottom-2 left-2 right-2 bg-surface-container-lowest/95 backdrop-blur-sm p-2 rounded-lg border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2 truncate">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="text-label-sm font-label-sm font-bold text-primary truncate">Pickup: Oakwood Residency</span>
+</div>
+<span class="material-symbols-outlined text-xs text-secondary shrink-0">pin_drop</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- RIGHT COLUMN: Price Breakdown & Checkout Card (4 Cols Sticky) -->
+<div class="lg:col-span-4">
+<div class="sticky top-28 space-y-6">
+<!-- Price Summary Card -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/50 p-6 shadow-md">
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/20">
+<h2 class="text-headline-md font-headline-md text-primary">Payment Summary</h2>
+<span class="bg-secondary-fixed/50 text-secondary font-bold text-badge-micro px-2 py-0.5 rounded-full">
+                Step 07 of 07
+              </span>
+</div>
+<!-- Itemized Line Items -->
+<div class="py-4 space-y-3.5 text-body-medium font-body-medium border-b border-outline-variant/20">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span>Lesson Fee (2 Hours @ ₹650/hr)</span>
+<span class="material-symbols-outlined text-xs text-outline cursor-help" title="2-hour structured one-on-one session">info</span>
+</div>
+<span class="font-bold text-primary">₹1,300</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span>Dual-Control Vehicle &amp; Fuel</span>
+</div>
+<span class="font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded text-label-sm">₹0 (Included)</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span>Processing &amp; RTO Compliance Fee</span>
+</div>
+<span class="font-bold text-primary">₹99</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span>Taxes (GST @ 18% on service)</span>
+</div>
+<span class="font-bold text-primary">₹72</span>
+</div>
+<!-- Applied Promo Discount -->
+<div class="flex justify-between items-center text-secondary font-semibold bg-secondary-fixed/30 -mx-2 px-2 py-1.5 rounded-lg">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">sell</span>
+<span>Special Discount (DRIVEFIRST)</span>
+</div>
+<span class="font-bold">-₹150</span>
+</div>
+</div>
+<!-- Promo Code Input Form -->
+<div class="py-4 border-b border-outline-variant/20">
+<label class="text-label-sm font-label-sm text-on-surface-variant block mb-1.5">Have a Referral or Discount Code?</label>
+<div class="flex gap-2">
+<div class="relative flex-grow">
+<input class="w-full h-11 bg-surface-container-low border border-outline-variant rounded-xl px-3 text-label-lg font-bold text-primary uppercase focus:ring-2 focus:ring-secondary-container focus:border-transparent outline-none transition-all" placeholder="Enter promo code" type="text" value="DRIVEFIRST"/>
+<span class="absolute right-3 top-3 text-emerald-600 material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<button class="bg-primary-container hover:bg-primary text-surface font-semibold text-label-sm px-4 rounded-xl transition-colors">
+                  Applied
+                </button>
+</div>
+<span class="text-badge-micro font-badge-micro text-emerald-700 mt-1 block">✓ First-time learner discount of ₹150 successfully redeemed!</span>
+</div>
+<!-- Total Amount Pinned -->
+<div class="pt-4 pb-6">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant block">Total Payable Now</span>
+<span class="text-badge-micro text-outline">Inclusive of all duties &amp; safety guarantee</span>
+</div>
+<div class="text-right">
+<span class="text-display-hero-mobile font-headline-lg font-black text-primary">₹1,321</span>
+</div>
+</div>
+</div>
+<!-- Primary Action: Road Orange High-Conversion CTA -->
+<div class="space-y-3">
+<a href="../driveme_payment/code.html" class="w-full bg-secondary-container hover:bg-secondary text-on-primary font-headline-sm text-headline-sm py-4 rounded-xl shadow-lg transition-all active:scale-[0.98] flex items-center justify-center gap-2 group">
+<span>Continue to Payment</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<div class="flex items-center justify-center gap-1.5 text-badge-micro font-badge-micro text-on-surface-variant text-center">
+<span class="material-symbols-outlined text-xs text-emerald-600" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span>100% Secure 256-bit Encrypted Checkout</span>
+</div>
+</div>
+<!-- Secondary Action -->
+<div class="mt-4 pt-4 border-t border-outline-variant/20 text-center">
+<a class="text-label-sm font-label-sm font-bold text-on-surface-variant hover:text-primary transition-colors inline-flex items-center gap-1" href="../driveme_pickup_location/code.html"><span class="material-symbols-outlined text-xs">arrow_back</span><span>Back to Pickup Location</span></a>
+</div>
+</div>
+<!-- Trust & Cancellation Guarantee Shield -->
+<div class="bg-surface-container-low rounded-2xl border border-outline-variant/30 p-5 space-y-3.5">
+<h3 class="text-label-lg font-label-lg font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base">verified</span>
+              DriveMe Academy Guarantee
+            </h3>
+<div class="space-y-2.5 text-body-medium font-body-medium text-on-surface-variant">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-emerald-600 text-sm mt-0.5" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<p><strong class="text-on-surface">Free cancellation</strong> up to 12 hours before session start with 100% instant refund.</p>
+</div>
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-emerald-600 text-sm mt-0.5" style="font-variation-settings: 'FILL' 1;">shield</span>
+<p><strong class="text-on-surface">100% Dual-Pedal Safety Shield</strong> and full passenger commercial insurance covered automatically.</p>
+</div>
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-emerald-600 text-sm mt-0.5" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+<p><strong class="text-on-surface">Dedicated Dispatch Helpline</strong> accessible 24/7 during scheduled lesson hours.</p>
+</div>
+</div>
+</div>
+<!-- Payment Methods Accepted Badge Strip -->
+<div class="flex items-center justify-center gap-3 text-outline-variant opacity-80">
+<span class="text-badge-micro font-bold tracking-wider uppercase text-on-surface-variant">Accepted:</span>
+<span class="bg-surface-container-lowest px-2 py-1 rounded border border-outline-variant/30 text-xs font-bold text-primary">UPI</span>
+<span class="bg-surface-container-lowest px-2 py-1 rounded border border-outline-variant/30 text-xs font-bold text-primary">Cards</span>
+<span class="bg-surface-container-lowest px-2 py-1 rounded border border-outline-variant/30 text-xs font-bold text-primary">NetBanking</span>
+<span class="bg-surface-container-lowest px-2 py-1 rounded border border-outline-variant/30 text-xs font-bold text-primary">Wallets</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-primary-container dark:bg-primary border-t border-outline-variant/20 dark:border-outline/10 mt-20">
+<div class="w-full max-w-container-max mx-auto px-6 lg:px-12 py-16 flex flex-col gap-12">
+<!-- Top Row: Brand Statement and Quick Navigation -->
+<div class="flex flex-col lg:flex-row justify-between items-start gap-8">
+<div class="space-y-4 max-w-sm">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-secondary-container flex items-center justify-center text-primary-container font-black text-headline-sm">
+              D
+            </div>
+<span class="text-headline-md font-headline-md font-black text-surface-container-lowest">DriveMe</span>
+</div>
+<p class="text-surface-dim dark:text-outline-variant text-body-base font-body-base">
+            India's most trusted certified driving instruction network. Safe dual-pedal vehicles, police-vetted trainers, and structured RTO road curriculums delivered right at your doorstep.
+          </p>
+</div>
+<!-- Dynamic Links Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10">
+<div>
+<h4 class="text-surface-container-lowest font-semibold text-label-lg mb-3">About</h4>
+<ul class="space-y-2 text-label-sm font-label-sm">
+<li><a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#">About Us</a></li>
+<li><a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#">Safety Standards</a></li>
+<li><a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#">Become a Trainer</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-surface-container-lowest font-semibold text-label-lg mb-3">Programs</h4>
+<ul class="space-y-2 text-label-sm font-label-sm">
+<li><a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#">Curriculum</a></li>
+<li><a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#">Pricing Plans</a></li>
+<li><a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#">DMV Resources</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-surface-container-lowest font-semibold text-label-lg mb-3">Legal</h4>
+<ul class="space-y-2 text-label-sm font-label-sm">
+<li><a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-surface-container-lowest font-semibold text-label-lg mb-3">Helpline</h4>
+<p class="text-surface-dim text-label-sm font-label-sm">Toll-Free 24x7</p>
+<p class="text-secondary-fixed text-label-lg font-bold mt-1">1800-DRIVE-ME</p>
+<p class="text-surface-dim text-badge-micro mt-2">Bengaluru • Mumbai • Delhi NCR</p>
+</div>
+</div>
+</div>
+<!-- Bottom Copyright & Disclaimers -->
+<div class="pt-8 border-t border-outline/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-label-sm font-label-sm text-surface-dim">
+<p>© 2025 DriveMe Academy Inc. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-emerald-400">lock</span>
+            PCI-DSS Level 1 Secure Platform
+          </span>
+<span>Official RTO Driving Partner</span>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

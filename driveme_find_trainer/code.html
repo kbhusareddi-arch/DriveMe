@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DriveMe - Find Your Verified Trainer</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed-variant": "#005236",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#002416",
+            "surface-container-low": "#f2f3ff",
+            "inverse-surface": "#283044",
+            "secondary-fixed": "#ffdbcc",
+            "primary-container": "#0f1e36",
+            "secondary-fixed-dim": "#ffb694",
+            "surface-container": "#eaedff",
+            "on-primary-container": "#7886a3",
+            "surface-tint": "#515f7a",
+            "on-tertiary-container": "#009969",
+            "secondary-container": "#fc7123",
+            "primary": "#000412",
+            "tertiary": "#000703",
+            "outline": "#75777e",
+            "on-primary-fixed-variant": "#394761",
+            "on-secondary-container": "#5b2100",
+            "surface-dim": "#d2d9f4",
+            "surface-container-highest": "#dae2fd",
+            "primary-fixed-dim": "#b8c7e6",
+            "on-error": "#ffffff",
+            "surface-container-high": "#e2e7ff",
+            "tertiary-fixed": "#6ffbbe",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#131b2e",
+            "on-secondary-fixed": "#351000",
+            "tertiary-fixed-dim": "#4edea3",
+            "inverse-on-surface": "#eef0ff",
+            "surface-bright": "#faf8ff",
+            "primary-fixed": "#d7e3ff",
+            "background": "#faf8ff",
+            "on-primary": "#ffffff",
+            "inverse-primary": "#b8c7e6",
+            "on-secondary-fixed-variant": "#7b2f00",
+            "secondary": "#a14000",
+            "error": "#ba1a1a",
+            "surface-variant": "#dae2fd",
+            "surface": "#faf8ff",
+            "on-primary-fixed": "#0c1b33",
+            "on-surface-variant": "#44474d",
+            "on-error-container": "#93000a",
+            "on-background": "#131b2e",
+            "outline-variant": "#c5c6ce",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "spacing-xl": "2rem",
+            "gutter-desktop": "1.5rem",
+            "spacing-sm": "0.75rem",
+            "container-max": "1280px",
+            "spacing-md": "1rem",
+            "spacing-2xl": "3rem",
+            "spacing-xs": "0.5rem",
+            "gutter-mobile": "1rem",
+            "spacing-2xs": "0.25rem",
+            "spacing-lg": "1.5rem",
+            "spacing-3xl": "4rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-base": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "badge-micro": ["Plus Jakarta Sans"],
+            "body-medium": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-base": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "800" }],
+            "badge-micro": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-background text-on-surface antialiased font-body-base selection:bg-secondary selection:text-white">
+<!-- Interactive Demo State Switcher (System Preview Utility) -->
+<aside class="bg-primary-container text-surface-container-lowest border-b border-outline/20 px-6 py-2">
+<div class="max-w-container-max mx-auto flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container text-[18px]" data-icon="tune">tune</span>
+<span class="font-label-sm text-label-sm text-surface-dim">Interactive Prototype States:</span>
+</div>
+<nav aria-label="Demo States" class="flex flex-wrap items-center gap-2">
+<button class="px-3 py-1 rounded-full font-label-sm text-label-sm bg-secondary-container text-surface-container-lowest font-bold shadow-sm transition-all" id="btn-state-default" onclick="setDemoState('default')" type="button">
+          Default (3 Verified Found)
+        </button>
+<button class="px-3 py-1 rounded-full font-label-sm text-label-sm bg-primary border border-outline-variant/30 text-surface-dim hover:text-surface-container-lowest transition-all" id="btn-state-selected" onclick="setDemoState('selected')" type="button">
+          Selected Trainer State
+        </button>
+<button class="px-3 py-1 rounded-full font-label-sm text-label-sm bg-primary border border-outline-variant/30 text-surface-dim hover:text-surface-container-lowest transition-all" id="btn-state-loading" onclick="setDemoState('loading')" type="button">
+          Loading Search State
+        </button>
+<button class="px-3 py-1 rounded-full font-label-sm text-label-sm bg-primary border border-outline-variant/30 text-surface-dim hover:text-surface-container-lowest transition-all" id="btn-state-empty" onclick="setDemoState('empty')" type="button">
+          No Results State
+        </button>
+</nav>
+</div>
+</aside>
+<!-- TopNavBar (Shared Component JSON) -->
+<header class="bg-surface-container-lowest dark:bg-primary border-b border-outline-variant/30 dark:border-outline/20 shadow-sm dark:shadow-none sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-6 lg:px-12 max-w-container-max mx-auto h-20">
+<!-- Brand & Tagline -->
+<div class="flex items-center gap-6">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container text-2xl font-bold" data-icon="minor_crash">minor_crash</span>
+<span class="text-headline-md font-headline-md font-extrabold tracking-tight text-primary dark:text-surface">DriveMe</span>
+</div>
+<span class="text-[10px] tracking-widest font-extrabold text-on-surface-variant uppercase">LEARN. DRIVE. GROW.</span>
+</div>
+<div class="hidden xl:block h-8 w-px bg-outline-variant/30 mx-2"></div>
+<!-- Back to Goal Selection Link -->
+<a class="hidden xl:flex items-center gap-1.5 text-on-surface-variant hover:text-secondary font-label-sm text-label-sm transition-colors group" href="../driveme_choose_goal/code.html">
+<span class="material-symbols-outlined text-[18px] group-hover:-translate-x-0.5 transition-transform" data-icon="arrow_back">arrow_back</span>
+<span>Back to Goal Selection</span>
+</a>
+</div>
+<!-- Navigation Links from Shared Component JSON: ["Home", "How It Works", "Find a Trainer", "Exam Guide", "Help"] -->
+<!-- Active navigation calculated: 'Find a Trainer' is the current intent -->
+<nav aria-label="Main Navigation" class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-on-surface dark:hover:text-surface hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150" href="../driveme_home_page/code.html">Home</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-on-surface dark:hover:text-surface hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150" href="#how">How It Works</a>
+<a class="text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary dark:border-secondary-fixed pb-1 active:scale-[0.98] transition-transform duration-100" href="#trainers">Find a Trainer</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-on-surface dark:hover:text-surface hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150" href="../driveme_driving_exam_guide/code.html">Exam Guide</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-on-surface dark:hover:text-surface hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150" href="#help">Help</a>
+</nav>
+<!-- Trailing Actions from JSON -->
+<div class="flex items-center gap-4">
+<a class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg px-3 py-2 transition-colors" href="../driveme_learner_login/code.html">Login</a>
+<button class="bg-primary-container text-surface-container-lowest hover:bg-primary px-5 py-2.5 rounded-xl font-label-lg text-label-lg font-bold shadow-sm transition-all active:scale-[0.98]">
+          Get Started
+        </button>
+</div>
+</div>
+</header>
+<!-- Workflow Progress Stepper: CHOOSE GOAL → FIND TRAINER → SELECT VEHICLE -->
+<section aria-label="Booking Progress" class="bg-surface-container-lowest border-b border-outline-variant/30 py-3.5 px-6 lg:px-12">
+<div class="max-w-container-max mx-auto flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-1 sm:gap-2">
+<!-- Step 1 (Completed) -->
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-on-tertiary-container/15 text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] font-bold" data-icon="check">check</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">01 Profile</span>
+</div>
+<div class="w-6 sm:w-12 h-0.5 bg-on-tertiary-container/30"></div>
+<!-- Step 2 (Completed) -->
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-on-tertiary-container/15 text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] font-bold" data-icon="check">check</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">02 Goal: 4-Wheeler</span>
+</div>
+<div class="w-6 sm:w-12 h-0.5 bg-secondary-container"></div>
+<!-- Step 3 (Active) -->
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-surface-container-lowest flex items-center justify-center font-bold text-xs ring-4 ring-secondary-fixed/50">
+            03
+          </div>
+<span class="font-label-sm text-label-sm font-bold text-secondary">03 Find Trainer</span>
+</div>
+<div class="w-6 sm:w-12 h-0.5 bg-outline-variant/40"></div>
+<!-- Step 4 (Upcoming) -->
+<div class="flex items-center gap-2 opacity-60">
+<div class="w-6 h-6 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-bold text-xs">
+            04
+          </div>
+<span class="font-label-sm text-label-sm font-medium text-on-surface-variant">04 Select Vehicle</span>
+</div>
+</div>
+<!-- Quick Help & Verified Hotline shortcut -->
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-secondary-container text-[18px]" data-icon="support_agent">support_agent</span>
+<span>Need guidance? Call Concierge: <strong class="text-primary-container">1800-DRIVE-ME</strong></span>
+</div>
+</div>
+</section>
+<!-- Main Content Canvas -->
+<main class="max-w-container-max mx-auto px-6 lg:px-12 py-8">
+<!-- Header & Search Hub -->
+<header class="mb-8">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-outline-variant/30">
+<div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-primary-fixed-variant font-semibold mb-3">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="verified_user">verified_user</span>
+            RTO &amp; DMV Licensed Academy Network
+          </span>
+<h1 class="text-headline-lg font-headline-lg tracking-tight text-on-surface">Find your verified trainer</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-1.5 max-w-2xl">
+            Browse certified RTO &amp; DMV background-checked driving instructors with dual-control cars near your location.
+          </p>
+</div>
+<!-- Location Box -->
+<div class="w-full lg:w-auto min-w-[340px] bg-surface-container-lowest border border-outline-variant/50 rounded-xl p-2.5 shadow-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary-container flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="near_me">near_me</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Serving Locality</div>
+<div class="font-label-lg text-label-lg text-on-surface font-bold truncate">Indiranagar, Bengaluru / 560038</div>
+</div>
+<button class="px-3 py-1.5 text-secondary hover:bg-surface-container rounded-lg font-label-sm text-label-sm font-bold transition-colors" type="button">
+            Change
+          </button>
+</div>
+</div>
+<!-- Quick Filter Pills & Sorting Controls -->
+<div class="flex flex-wrap items-center justify-between gap-4 pt-5">
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant mr-1">Active criteria:</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest border border-outline-variant/60 font-label-sm text-label-sm text-on-surface shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant" data-icon="directions_car">directions_car</span>
+            Vehicle: 4-Wheeler (Car)
+            <button aria-label="Remove vehicle filter" class="hover:text-error"><span class="material-symbols-outlined text-[14px]" data-icon="close">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest border border-outline-variant/60 font-label-sm text-label-sm text-on-surface shadow-sm">
+            Transmission: All
+            <button aria-label="Remove transmission filter" class="hover:text-error"><span class="material-symbols-outlined text-[14px]" data-icon="close">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest border border-outline-variant/60 font-label-sm text-label-sm text-on-surface shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary" data-icon="calendar_today">calendar_today</span>
+            Availability: This Week
+            <button aria-label="Remove availability filter" class="hover:text-error"><span class="material-symbols-outlined text-[14px]" data-icon="close">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest border border-outline-variant/60 font-label-sm text-label-sm text-on-surface shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-on-tertiary-container" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+            Rating: 4.8+
+            <button aria-label="Remove rating filter" class="hover:text-error"><span class="material-symbols-outlined text-[14px]" data-icon="close">close</span></button>
+</span>
+<button class="text-secondary hover:underline font-label-sm text-label-sm font-semibold ml-2">Reset all</button>
+</div>
+<!-- Sorting Bar -->
+<div class="flex items-center gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="sort-select">Sort by:</label>
+<div class="relative">
+<select class="h-10 pl-3 pr-8 rounded-xl border border-outline-variant/60 bg-surface-container-lowest font-label-sm text-label-sm text-on-surface font-semibold focus:ring-2 focus:ring-secondary focus:outline-none appearance-none cursor-pointer" id="sort-select">
+<option value="top">Top Rated (Default)</option>
+<option value="dist">Distance: Closest first</option>
+<option value="price_asc">Price: Low to High</option>
+<option value="exp">Experience: High to Low</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant absolute right-2.5 top-2.5 pointer-events-none" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Two-Column Responsive Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT COLUMN: Filter Sidebar (w-72 / 280px equivalent on 12-col grid: 4 cols or 3.5) -->
+<aside class="lg:col-span-4 xl:col-span-3 bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-6 shadow-sm sticky top-28">
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]" data-icon="filter_list">filter_list</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Filters</h2>
+</div>
+<button class="text-secondary font-label-sm text-label-sm hover:underline" type="button">Clear Filters</button>
+</div>
+<div class="space-y-6 pt-5">
+<!-- Price Per Hour Slider -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<label class="font-label-sm text-label-sm font-bold text-on-surface">Hourly Rate</label>
+<span class="font-label-sm text-label-sm font-bold text-secondary">₹500 - ₹1,200</span>
+</div>
+<input class="w-full accent-secondary h-2 bg-surface-container rounded-lg cursor-pointer" max="1500" min="500" type="range" value="1200"/>
+<div class="flex justify-between text-[11px] text-on-surface-variant mt-1">
+<span>₹500/hr ($30)</span>
+<span>₹1,500/hr ($80)</span>
+</div>
+</div>
+<!-- Vehicle Type Selection -->
+<div class="pt-4 border-t border-outline-variant/20">
+<label class="block font-label-sm text-label-sm font-bold text-on-surface mb-3">Vehicle Type</label>
+<div class="space-y-2.5">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary cursor-pointer" type="checkbox"/>
+<span class="font-body-base text-body-base text-on-surface group-hover:text-primary font-medium">Sedan (Dual-Control)</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary cursor-pointer" type="checkbox"/>
+<span class="font-body-base text-body-base text-on-surface group-hover:text-primary font-medium">Hatchback</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary cursor-pointer" type="checkbox"/>
+<span class="font-body-base text-body-base text-on-surface group-hover:text-primary font-medium">Compact SUV</span>
+</label>
+</div>
+</div>
+<!-- Transmission Radio Buttons -->
+<div class="pt-4 border-t border-outline-variant/20">
+<label class="block font-label-sm text-label-sm font-bold text-on-surface mb-3">Transmission</label>
+<div class="grid grid-cols-3 gap-2">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="trans" type="radio"/>
+<div class="text-center py-2 px-1 rounded-lg border border-outline-variant peer-checked:bg-primary-container peer-checked:text-surface-container-lowest peer-checked:border-primary-container font-label-sm text-label-sm font-bold transition-all">
+                  All
+                </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="trans" type="radio"/>
+<div class="text-center py-2 px-1 rounded-lg border border-outline-variant peer-checked:bg-primary-container peer-checked:text-surface-container-lowest peer-checked:border-primary-container font-label-sm text-label-sm font-bold transition-all">
+                  Manual
+                </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="trans" type="radio"/>
+<div class="text-center py-2 px-1 rounded-lg border border-outline-variant peer-checked:bg-primary-container peer-checked:text-surface-container-lowest peer-checked:border-primary-container font-label-sm text-label-sm font-bold transition-all">
+                  Auto
+                </div>
+</label>
+</div>
+</div>
+<!-- Spoken Languages -->
+<div class="pt-4 border-t border-outline-variant/20">
+<label class="block font-label-sm text-label-sm font-bold text-on-surface mb-3">Spoken Languages</label>
+<div class="space-y-2">
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2.5">
+<input checked="" class="w-4 h-4 rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="font-body-base text-body-base text-on-surface group-hover:text-primary">English</span>
+</span>
+<span class="text-[11px] text-on-surface-variant">32 trainers</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2.5">
+<input checked="" class="w-4 h-4 rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="font-body-base text-body-base text-on-surface group-hover:text-primary">Hindi</span>
+</span>
+<span class="text-[11px] text-on-surface-variant">28 trainers</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2.5">
+<input checked="" class="w-4 h-4 rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="font-body-base text-body-base text-on-surface group-hover:text-primary">Kannada</span>
+</span>
+<span class="text-[11px] text-on-surface-variant">24 trainers</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2.5">
+<input class="w-4 h-4 rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="font-body-base text-body-base text-on-surface group-hover:text-primary">Tamil</span>
+</span>
+<span class="text-[11px] text-on-surface-variant">14 trainers</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2.5">
+<input class="w-4 h-4 rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="font-body-base text-body-base text-on-surface group-hover:text-primary">Telugu</span>
+</span>
+<span class="text-[11px] text-on-surface-variant">10 trainers</span>
+</label>
+</div>
+</div>
+<!-- Availability Slots -->
+<div class="pt-4 border-t border-outline-variant/20">
+<label class="block font-label-sm text-label-sm font-bold text-on-surface mb-2.5">Time Slots</label>
+<div class="grid grid-cols-2 gap-2 text-xs">
+<label class="p-2 border border-outline-variant/50 rounded-lg cursor-pointer hover:border-secondary transition-colors flex flex-col items-start bg-surface">
+<span class="font-bold text-on-surface">Morning</span>
+<span class="text-[10px] text-on-surface-variant">6 AM - 10 AM</span>
+</label>
+<label class="p-2 border border-outline-variant/50 rounded-lg cursor-pointer hover:border-secondary transition-colors flex flex-col items-start bg-surface">
+<span class="font-bold text-on-surface">Afternoon</span>
+<span class="text-[10px] text-on-surface-variant">11 AM - 4 PM</span>
+</label>
+<label class="p-2 border border-outline-variant/50 rounded-lg cursor-pointer hover:border-secondary transition-colors flex flex-col items-start bg-surface">
+<span class="font-bold text-on-surface">Evening</span>
+<span class="text-[10px] text-on-surface-variant">4 PM - 8 PM</span>
+</label>
+<label class="p-2 border border-outline-variant/50 rounded-lg cursor-pointer hover:border-secondary transition-colors flex flex-col items-start bg-surface">
+<span class="font-bold text-on-surface">Weekend</span>
+<span class="text-[10px] text-on-surface-variant">Sat &amp; Sun only</span>
+</label>
+</div>
+</div>
+<!-- Gender & Badges -->
+<div class="pt-4 border-t border-outline-variant/20 space-y-3">
+<label class="block font-label-sm text-label-sm font-bold text-on-surface">Special Filters</label>
+<label class="flex items-center gap-2.5 cursor-pointer">
+<input class="w-4 h-4 rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="font-body-base text-body-base text-on-surface font-medium">Female Trainer Only</span>
+</label>
+<label class="flex items-center gap-2.5 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="font-body-base text-body-base text-on-surface font-medium">Police &amp; RTO Verified</span>
+</label>
+<label class="flex items-center gap-2.5 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="font-body-base text-body-base text-on-surface font-medium">5+ Years Experience</span>
+</label>
+</div>
+<div class="pt-4">
+<button class="w-full bg-primary-container text-surface-container-lowest font-label-lg text-label-lg py-3 rounded-xl font-bold shadow hover:bg-primary active:scale-[0.98] transition-all">
+              Apply Filters
+            </button>
+</div>
+</div>
+</aside>
+<!-- RIGHT COLUMN: Trainer Results Canvas -->
+<section aria-label="Available Driving Instructors" class="lg:col-span-8 xl:col-span-9 space-y-6">
+<!-- Banner Counter & Real-Time Sync Indicator -->
+<div class="flex items-center justify-between px-4 py-2.5 bg-surface-container rounded-xl">
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container animate-pulse"></span>
+<span><strong>3 Approved Instructors</strong> currently active within 6 km of Indiranagar</span>
+</div>
+<span class="text-on-surface-variant font-label-sm text-label-sm hidden sm:inline">Dual-Control Mandatory Safety</span>
+</div>
+<!-- STATE: LOADING SKELETON (Hidden by default, shown via toggle) -->
+<div class="hidden space-y-4" id="state-loading-view">
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-6 animate-pulse space-y-4">
+<div class="flex gap-6 items-start">
+<div class="w-28 h-28 bg-surface-container rounded-xl"></div>
+<div class="flex-1 space-y-3">
+<div class="h-6 bg-surface-container rounded w-1/3"></div>
+<div class="h-4 bg-surface-container rounded w-1/2"></div>
+<div class="h-4 bg-surface-container rounded w-2/3"></div>
+</div>
+<div class="w-24 h-12 bg-surface-container rounded-xl"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-6 animate-pulse space-y-4">
+<div class="flex gap-6 items-start">
+<div class="w-28 h-28 bg-surface-container rounded-xl"></div>
+<div class="flex-1 space-y-3">
+<div class="h-6 bg-surface-container rounded w-1/3"></div>
+<div class="h-4 bg-surface-container rounded w-1/2"></div>
+<div class="h-4 bg-surface-container rounded w-2/3"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- STATE: NO RESULTS (Hidden by default, shown via toggle) -->
+<div class="hidden bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-12 text-center" id="state-empty-view">
+<div class="w-16 h-16 rounded-full bg-surface-container mx-auto flex items-center justify-center text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-[32px]" data-icon="search_off">search_off</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface">No instructors matched all filters</h3>
+<p class="text-body-base text-body-base text-on-surface-variant mt-2 max-w-md mx-auto">
+            Try broadening your radius, selecting alternative vehicle types, or toggling 'All' transmission options.
+          </p>
+<button class="mt-5 px-6 py-2.5 bg-secondary-container text-surface-container-lowest rounded-xl font-label-lg text-label-lg font-bold" onclick="setDemoState('default')">
+            Reset Filters &amp; View All
+          </button>
+</div>
+<!-- ACTIVE RESULTS CONTAINER -->
+<div class="space-y-6" id="trainer-cards-container">
+<!-- TRAINER CARD 1: Top Recommended & Interactive Selected Demonstration -->
+<article class="bg-surface-container-lowest rounded-xl border-2 border-secondary/80 shadow-md p-6 relative transition-all duration-200" id="card-trainer-1">
+<!-- Pinned Recommendation Chip -->
+<div class="absolute -top-3 left-6 bg-secondary text-surface-container-lowest px-3 py-0.5 rounded-full font-label-sm text-label-sm font-bold shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="recommend">recommend</span>
+              Top Rated &amp; Verified Match
+            </div>
+<div class="flex flex-col md:flex-row gap-6 items-start pt-2">
+<!-- Trainer Portrait & Vehicle Tag -->
+<div class="flex flex-col items-center md:items-start flex-shrink-0">
+<div class="relative">
+<img alt="Rajesh Kumar" class="w-28 h-28 object-cover rounded-xl border border-outline-variant/40 shadow-sm" data-alt="Professional headshot of Rajesh Kumar, an experienced South Asian driving instructor in his late 30s wearing a crisp clean dark navy uniform shirt against a clean neutral studio backdrop with warm soft lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXNgGS6pichd1vsVXld52v0LCurOiN-635dykCv0HyUwQIYXXGry7kyX4OpXcw2YDGKyQBjRgGn2iGnhIZv7abVHH9gitzkuScDCoPdNhnea_n2MvS44YcsEmlcGC3whimz25uqn0gg_Dss_amZNPV9U8UpX8litKw173H9ELCFMOPoJ95DOYcEUZ19MUamyVLninY1U9q_vE7kOFnYMM2fBqir6BQaydZ8hDTPkKBb1Ds2bmETWXm"/>
+<span class="absolute -bottom-2 -right-2 bg-white rounded-full p-0.5 shadow">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+</span>
+</div>
+<span class="mt-3 px-2 py-0.5 bg-surface-container text-primary-container text-[11px] font-bold rounded">
+                  Sedan &amp; Hatchback
+                </span>
+</div>
+<!-- Metadata & Badges -->
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-start justify-between gap-2">
+<div>
+<div class="flex items-center gap-2">
+<h3 class="text-headline-md font-headline-md font-bold text-on-surface">Rajesh Kumar</h3>
+<span class="px-2.5 py-0.5 rounded-full bg-on-tertiary-fixed-variant/10 text-on-tertiary-fixed-variant font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="shield">shield</span>
+                        Police &amp; RTO Cleared
+                      </span>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 font-body-base text-body-base">
+<div class="flex items-center gap-1 font-bold text-on-surface">
+<span class="material-symbols-outlined text-on-tertiary-container text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.95</span>
+<span class="text-on-surface-variant font-normal">(320 reviews)</span>
+</div>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant font-medium">12 Yrs Experience</span>
+<span class="text-outline-variant">•</span>
+<span class="text-secondary font-bold font-label-sm text-label-sm">Top Rated Instructor</span>
+</div>
+</div>
+<!-- Rate Pinned -->
+<div class="text-right">
+<div class="text-headline-md font-headline-md font-extrabold text-primary-container">₹650<span class="text-sm font-normal text-on-surface-variant">/hr</span></div>
+<div class="text-[11px] text-on-tertiary-container font-semibold">Transparent Pricing</div>
+</div>
+</div>
+<!-- Trainer Specifications Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4 mt-4 py-3 border-y border-outline-variant/30 text-xs">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]" data-icon="translate">translate</span>
+<span><strong>Languages:</strong> English, Hindi, Kannada</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]" data-icon="settings">settings</span>
+<span><strong>Transmission:</strong> Manual &amp; Automatic</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface col-span-1 sm:col-span-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]" data-icon="car_repair">car_repair</span>
+<span><strong>Vehicles:</strong> Maruti Suzuki Swift Dzire &amp; Hyundai i20 (Dual-Control Certified)</span>
+</div>
+</div>
+<!-- Footer Action Row -->
+<div class="flex flex-wrap items-center justify-between gap-4 mt-4">
+<!-- Next Available Slot Badge -->
+<div class="flex items-center gap-2 text-on-surface font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span>Next Available Slot: <strong class="text-primary-container">Tomorrow, 7:00 AM</strong></span>
+</div>
+<!-- Buttons -->
+<div class="flex items-center gap-3">
+<a href="../driveme_trainer_profile/code.html" class="px-4 py-2 border border-outline-variant hover:border-primary-container rounded-xl font-label-sm text-label-sm font-bold text-on-surface hover:bg-surface-container transition-all inline-block">View Profile</a>
+<a href="../driveme_trainer_profile/code.html" class="px-5 py-2 bg-secondary-container text-surface-container-lowest hover:bg-secondary rounded-xl font-label-sm text-label-sm font-bold shadow-sm transition-all flex items-center gap-1.5">
+<span>Select Trainer &amp; Continue</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- TRAINER CARD 2 -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/50 shadow-sm hover:shadow-md p-6 transition-all duration-200" id="card-trainer-2">
+<div class="flex flex-col md:flex-row gap-6 items-start">
+<!-- Trainer Portrait & Vehicle Tag -->
+<div class="flex flex-col items-center md:items-start flex-shrink-0">
+<div class="relative">
+<img alt="Sarah Jenkins" class="w-28 h-28 object-cover rounded-xl border border-outline-variant/40 shadow-sm" data-alt="A portrait photograph of Sarah Jenkins, a friendly professional female driving instructor with shoulder length hair smiling with confidence, wearing an instructor polo shirt against a bright modern driving academy background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjSa2UQjXJodD3yOreqVMDonD1YTky-ZIG0B-4nztUhSC48PuCiwpp8gizg-ET5PrIeyiDPLng36DafpsiLNQ-svp87yzCEdMzq6DgUkDdlCXH4rD-h2SK_QBAQn_uaZiC7fwXApf8DRHEgaEOyiPaqDVhYEzQ3J2PehAodKPygbtkJMH1NVh48-cQnFIPzKGhMGoHF02X6RSn_pu4guY79SEClDghnSlwF28EOcbQAWvi7daO6Ne_"/>
+<span class="absolute -bottom-2 -right-2 bg-white rounded-full p-0.5 shadow">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+</span>
+</div>
+<span class="mt-3 px-2 py-0.5 bg-surface-container text-primary-container text-[11px] font-bold rounded">
+                  Dual-Control Sedan
+                </span>
+</div>
+<!-- Metadata -->
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-start justify-between gap-2">
+<div>
+<div class="flex items-center gap-2">
+<h3 class="text-headline-md font-headline-md font-bold text-on-surface">Sarah Jenkins</h3>
+<span class="px-2.5 py-0.5 rounded-full bg-on-tertiary-fixed-variant/10 text-on-tertiary-fixed-variant font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="shield">shield</span>
+                        Police Verified
+                      </span>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 font-body-base text-body-base">
+<div class="flex items-center gap-1 font-bold text-on-surface">
+<span class="material-symbols-outlined text-on-tertiary-container text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.92</span>
+<span class="text-on-surface-variant font-normal">(180 reviews)</span>
+</div>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant font-medium">8 Yrs Experience</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-tertiary-container font-semibold font-label-sm text-label-sm">Automatic Specialist</span>
+</div>
+</div>
+<!-- Rate -->
+<div class="text-right">
+<div class="text-headline-md font-headline-md font-extrabold text-primary-container">₹700<span class="text-sm font-normal text-on-surface-variant">/hr</span></div>
+<div class="text-[11px] text-on-surface-variant">No hidden fees</div>
+</div>
+</div>
+<!-- Specifications -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4 mt-4 py-3 border-y border-outline-variant/30 text-xs">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]" data-icon="translate">translate</span>
+<span><strong>Languages:</strong> English, Hindi</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]" data-icon="settings">settings</span>
+<span><strong>Transmission:</strong> Automatic Only</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface col-span-1 sm:col-span-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]" data-icon="directions_car">directions_car</span>
+<span><strong>Vehicles:</strong> Honda Amaze Dual-Control</span>
+</div>
+</div>
+<!-- Footer Action Row -->
+<div class="flex flex-wrap items-center justify-between gap-4 mt-4">
+<div class="flex items-center gap-2 text-on-surface font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span>Next Available Slot: <strong class="text-primary-container">Today, 4:30 PM</strong></span>
+</div>
+<div class="flex items-center gap-3">
+<a href="../driveme_trainer_profile/code.html" class="px-4 py-2 border border-outline-variant hover:border-primary-container rounded-xl font-label-sm text-label-sm font-bold text-on-surface hover:bg-surface-container transition-all inline-block">View Profile</a>
+<button class="px-5 py-2 bg-primary-container text-surface-container-lowest hover:bg-primary rounded-xl font-label-sm text-label-sm font-bold shadow-sm transition-all" id="btn-select-2" onclick="toggleCardSelection('card-trainer-2')">
+                      Select Trainer
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- TRAINER CARD 3 -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/50 shadow-sm hover:shadow-md p-6 transition-all duration-200" id="card-trainer-3">
+<div class="flex flex-col md:flex-row gap-6 items-start">
+<!-- Trainer Portrait & Vehicle Tag -->
+<div class="flex flex-col items-center md:items-start flex-shrink-0">
+<div class="relative">
+<img alt="Vikramjit Singh" class="w-28 h-28 object-cover rounded-xl border border-outline-variant/40 shadow-sm" data-alt="A portrait shot of Vikramjit Singh, a senior male driving instructor in his late 40s wearing a navy turban and instructor jacket, displaying a warm and commanding instructor demeanor with professional studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3NJRhdQ5ShC_em2EB1Vmbs5fKVMGoKiPU3Bn7Uas14WAF_8bXjSGaOKl991UwHNKL3RmpR3u1k5uGWeDXllFlNwNKvNQJTsOKK0t3CVAsPLoewpZJxTcY5YKNiKMpWxrq_lA7q_uVIrtSNAuMNnTGN25wRxX9eGQE3ofHhzFIBVI8GYEwm6uufdIer8r1Sj-t8Zh0Oz2GN1IK2IaG75wqCh0b7Cf8allskvPgSRi-40B2R5hNtuN-"/>
+<span class="absolute -bottom-2 -right-2 bg-white rounded-full p-0.5 shadow">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+</span>
+</div>
+<span class="mt-3 px-2 py-0.5 bg-surface-container text-primary-container text-[11px] font-bold rounded">
+                  Dual-Brake Hatchback
+                </span>
+</div>
+<!-- Metadata -->
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-start justify-between gap-2">
+<div>
+<div class="flex items-center gap-2">
+<h3 class="text-headline-md font-headline-md font-bold text-on-surface">Vikramjit Singh</h3>
+<span class="px-2.5 py-0.5 rounded-full bg-primary-container text-surface-container-lowest font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="workspace_premium">workspace_premium</span>
+                        Senior Safety Specialist
+                      </span>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 font-body-base text-body-base">
+<div class="flex items-center gap-1 font-bold text-on-surface">
+<span class="material-symbols-outlined text-on-tertiary-container text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.88</span>
+<span class="text-on-surface-variant font-normal">(240 reviews)</span>
+</div>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant font-medium">15 Yrs Experience</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant font-medium">Defensive Driving Cert.</span>
+</div>
+</div>
+<!-- Rate -->
+<div class="text-right">
+<div class="text-headline-md font-headline-md font-extrabold text-primary-container">₹600<span class="text-sm font-normal text-on-surface-variant">/hr</span></div>
+<div class="text-[11px] text-on-surface-variant">Fuel &amp; Car included</div>
+</div>
+</div>
+<!-- Specifications -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4 mt-4 py-3 border-y border-outline-variant/30 text-xs">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]" data-icon="translate">translate</span>
+<span><strong>Languages:</strong> English, Punjabi, Hindi</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]" data-icon="settings">settings</span>
+<span><strong>Transmission:</strong> Manual</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface col-span-1 sm:col-span-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]" data-icon="directions_car">directions_car</span>
+<span><strong>Vehicles:</strong> Tata Altroz (Dual-Control Brake &amp; Clutch System)</span>
+</div>
+</div>
+<!-- Footer Action Row -->
+<div class="flex flex-wrap items-center justify-between gap-4 mt-4">
+<div class="flex items-center gap-2 text-on-surface font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span>Next Available Slot: <strong class="text-primary-container">Tomorrow, 9:30 AM</strong></span>
+</div>
+<div class="flex items-center gap-3">
+<a href="../driveme_trainer_profile/code.html" class="px-4 py-2 border border-outline-variant hover:border-primary-container rounded-xl font-label-sm text-label-sm font-bold text-on-surface hover:bg-surface-container transition-all inline-block">View Profile</a>
+<button class="px-5 py-2 bg-primary-container text-surface-container-lowest hover:bg-primary rounded-xl font-label-sm text-label-sm font-bold shadow-sm transition-all" id="btn-select-3" onclick="toggleCardSelection('card-trainer-3')">
+                      Select Trainer
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination & Navigation Controls -->
+<div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-outline-variant/30">
+<p class="font-body-base text-body-base text-on-surface-variant">
+            Showing <strong class="text-on-surface">1-3</strong> of 3 qualified trainers near Bengaluru 560038
+          </p>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg border border-outline-variant text-on-surface-variant font-label-sm text-label-sm opacity-50 cursor-not-allowed">
+              Previous
+            </button>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-surface-container-lowest font-label-sm text-label-sm font-bold flex items-center justify-center">
+              1
+            </button>
+<button class="px-3 py-1.5 rounded-lg border border-outline-variant hover:border-primary-container text-on-surface font-label-sm text-label-sm transition-colors">
+              Next
+            </button>
+</div>
+</div>
+<!-- Trust Guarantee Banner -->
+<div class="rounded-xl bg-surface-container border border-outline-variant/30 p-5 flex items-start gap-4 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center text-secondary-container flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]" data-icon="verified_user">verified_user</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold">DriveMe 100% Safety &amp; Certification Guarantee</h4>
+<p class="text-body-base text-body-base text-on-surface-variant mt-1">
+              All instructors carry active commercial driving instructor licenses and comprehensive vehicle dual-control indemnity insurance. Every lesson includes verified telemetry route tracking and emergency assistance.
+            </p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer (Shared Component JSON) -->
+<footer class="bg-primary-container dark:bg-primary border-t border-outline-variant/20 dark:border-outline/10 text-surface-container-lowest mt-16">
+<div class="w-full max-w-container-max mx-auto px-6 lg:px-12 py-16 flex flex-col gap-12">
+<div class="flex flex-col lg:flex-row justify-between items-start gap-8">
+<!-- Logo & Mission from JSON -->
+<div class="max-w-sm">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-secondary-container text-3xl font-bold" data-icon="minor_crash">minor_crash</span>
+<span class="text-headline-md font-headline-md font-black text-surface-container-lowest">DriveMe</span>
+</div>
+<p class="text-body-base font-body-base text-surface-dim">
+            Empowering safer roads through background-checked instruction, dual-pedal vehicles, and state exam passing assurance.
+          </p>
+</div>
+<!-- Links Grid verbatim from JSON: ["About Us", "Safety Standards", "Become a Trainer", "Curriculum", "Pricing Plans", "Privacy Policy", "Terms of Service", "DMV Resources"] -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-8 w-full lg:w-auto">
+<div>
+<div class="text-surface-container-lowest font-semibold text-label-lg font-label-lg mb-4">Academy</div>
+<ul class="space-y-2.5 text-label-sm font-label-sm">
+<li><a class="text-surface-dim hover:text-surface-container-lowest hover:underline transition-all" href="#about">About Us</a></li>
+<li><a class="text-surface-dim hover:text-surface-container-lowest hover:underline transition-all" href="#safety">Safety Standards</a></li>
+<li><a class="text-surface-dim hover:text-surface-container-lowest hover:underline transition-all" href="#trainer">Become a Trainer</a></li>
+</ul>
+</div>
+<div>
+<div class="text-surface-container-lowest font-semibold text-label-lg font-label-lg mb-4">Programs</div>
+<ul class="space-y-2.5 text-label-sm font-label-sm">
+<li><a class="text-surface-dim hover:text-surface-container-lowest hover:underline transition-all" href="#curriculum">Curriculum</a></li>
+<li><a class="text-surface-dim hover:text-surface-container-lowest hover:underline transition-all" href="#pricing">Pricing Plans</a></li>
+</ul>
+</div>
+<div>
+<div class="text-surface-container-lowest font-semibold text-label-lg font-label-lg mb-4">Legal &amp; Policy</div>
+<ul class="space-y-2.5 text-label-sm font-label-sm">
+<li><a class="text-surface-dim hover:text-surface-container-lowest hover:underline transition-all" href="#privacy">Privacy Policy</a></li>
+<li><a class="text-surface-dim hover:text-surface-container-lowest hover:underline transition-all" href="#terms">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<div class="text-surface-container-lowest font-semibold text-label-lg font-label-lg mb-4">Resources</div>
+<ul class="space-y-2.5 text-label-sm font-label-sm">
+<li><a class="text-surface-dim hover:text-surface-container-lowest hover:underline transition-all" href="#dmv">DMV Resources</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Footer Bottom Copyright verbatim from JSON -->
+<div class="border-t border-outline-variant/20 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-surface-dim font-label-sm text-label-sm">
+<span>© 2025 DriveMe Academy Inc. All rights reserved.</span>
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-on-tertiary-container" data-icon="lock">lock</span>
+            Encrypted &amp; RTO Accredited
+          </span>
+</div>
+</div>
+</div>
+</footer>
+<!-- Light Vanilla JS Prototype State Management -->
+<script>
+    function setDemoState(state) {
+      const defaultBtn = document.getElementById('btn-state-default');
+      const selectedBtn = document.getElementById('btn-state-selected');
+      const loadingBtn = document.getElementById('btn-state-loading');
+      const emptyBtn = document.getElementById('btn-state-empty');
+
+      const cardsContainer = document.getElementById('trainer-cards-container');
+      const loadingView = document.getElementById('state-loading-view');
+      const emptyView = document.getElementById('state-empty-view');
+
+      const allBtns = [defaultBtn, selectedBtn, loadingBtn, emptyBtn];
+      allBtns.forEach(btn => {
+        btn.className = "px-3 py-1 rounded-full font-label-sm text-label-sm bg-primary border border-outline-variant/30 text-surface-dim hover:text-surface-container-lowest transition-all";
+      });
+
+      // Reset card visual highlights
+      document.getElementById('card-trainer-1').className = "bg-surface-container-lowest rounded-xl border border-outline-variant/50 shadow-sm p-6 relative transition-all duration-200";
+      document.getElementById('card-trainer-2').className = "bg-surface-container-lowest rounded-xl border border-outline-variant/50 shadow-sm p-6 relative transition-all duration-200";
+
+      if (state === 'default') {
+        defaultBtn.className = "px-3 py-1 rounded-full font-label-sm text-label-sm bg-secondary-container text-surface-container-lowest font-bold shadow-sm transition-all";
+        cardsContainer.classList.remove('hidden');
+        loadingView.classList.add('hidden');
+        emptyView.classList.add('hidden');
+      } else if (state === 'selected') {
+        selectedBtn.className = "px-3 py-1 rounded-full font-label-sm text-label-sm bg-secondary-container text-surface-container-lowest font-bold shadow-sm transition-all";
+        cardsContainer.classList.remove('hidden');
+        loadingView.classList.add('hidden');
+        emptyView.classList.add('hidden');
+        // Highlight Card 1 explicitly
+        document.getElementById('card-trainer-1').className = "bg-surface-container-lowest rounded-xl border-2 border-secondary/80 ring-2 ring-secondary-fixed shadow-md p-6 relative transition-all duration-200";
+      } else if (state === 'loading') {
+        loadingBtn.className = "px-3 py-1 rounded-full font-label-sm text-label-sm bg-secondary-container text-surface-container-lowest font-bold shadow-sm transition-all";
+        cardsContainer.classList.add('hidden');
+        loadingView.classList.remove('hidden');
+        emptyView.classList.add('hidden');
+      } else if (state === 'empty') {
+        emptyBtn.className = "px-3 py-1 rounded-full font-label-sm text-label-sm bg-secondary-container text-surface-container-lowest font-bold shadow-sm transition-all";
+        cardsContainer.classList.add('hidden');
+        loadingView.classList.add('hidden');
+        emptyView.classList.remove('hidden');
+      }
+    }
+
+    function toggleCardSelection(cardId) {
+      const card = document.getElementById(cardId);
+      const isAlreadySelected = card.classList.contains('border-secondary');
+      
+      // Clear other selections
+      ['card-trainer-1', 'card-trainer-2', 'card-trainer-3'].forEach(id => {
+        const c = document.getElementById(id);
+        if (c) {
+          c.className = "bg-surface-container-lowest rounded-xl border border-outline-variant/50 shadow-sm p-6 transition-all duration-200";
+        }
+      });
+
+      if (!isAlreadySelected) {
+        card.className = "bg-surface-container-lowest rounded-xl border-2 border-secondary ring-2 ring-secondary-fixed/50 shadow-lg p-6 relative transition-all duration-200";
+      }
+    }
+  </script>
+
+</body></html>

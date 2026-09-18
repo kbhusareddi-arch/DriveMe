@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DriveMe - Pickup Location</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#faf8ff",
+            "tertiary-fixed": "#6ffbbe",
+            "tertiary-container": "#002416",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary": "#000412",
+            "surface": "#faf8ff",
+            "on-tertiary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "inverse-surface": "#283044",
+            "on-error": "#ffffff",
+            "surface-tint": "#515f7a",
+            "on-tertiary-fixed": "#002113",
+            "secondary": "#a14000",
+            "inverse-on-surface": "#eef0ff",
+            "on-error-container": "#93000a",
+            "on-surface": "#131b2e",
+            "primary-fixed-dim": "#b8c7e6",
+            "secondary-fixed-dim": "#ffb694",
+            "surface-bright": "#faf8ff",
+            "outline-variant": "#c5c6ce",
+            "on-secondary-fixed-variant": "#7b2f00",
+            "on-tertiary-container": "#009969",
+            "surface-container-high": "#e2e7ff",
+            "on-primary": "#ffffff",
+            "inverse-primary": "#b8c7e6",
+            "on-surface-variant": "#44474d",
+            "primary-fixed": "#d7e3ff",
+            "primary-container": "#0f1e36",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed": "#351000",
+            "surface-container": "#eaedff",
+            "on-primary-fixed": "#0c1b33",
+            "on-primary-fixed-variant": "#394761",
+            "surface-container-low": "#f2f3ff",
+            "surface-variant": "#dae2fd",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#5b2100",
+            "outline": "#75777e",
+            "on-tertiary-fixed-variant": "#005236",
+            "tertiary": "#000703",
+            "on-primary-container": "#7886a3",
+            "secondary-container": "#fc7123",
+            "surface-dim": "#d2d9f4",
+            "error-container": "#ffdad6",
+            "on-background": "#131b2e",
+            "secondary-fixed": "#ffdbcc",
+            "surface-container-highest": "#dae2fd"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "spacing-3xl": "4rem",
+            "gutter-desktop": "1.5rem",
+            "spacing-xl": "2rem",
+            "spacing-2xs": "0.25rem",
+            "spacing-xs": "0.5rem",
+            "spacing-sm": "0.75rem",
+            "container-max": "1280px",
+            "spacing-lg": "1.5rem",
+            "spacing-md": "1rem",
+            "gutter-mobile": "1rem",
+            "spacing-2xl": "3rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-medium": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "badge-micro": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-base": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "800" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "badge-micro": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-base": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface font-body-base antialiased min-h-screen flex flex-col justify-between selection:bg-secondary selection:text-on-secondary">
+<!-- Top Navigation Anchor from Shared Components -->
+<header class="w-full bg-surface-container-lowest border-b border-outline-variant/30 shadow-sm sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-6 lg:px-12 max-w-container-max mx-auto h-20">
+<!-- Brand Logo Lockup inspired by provided identity -->
+<a class="flex items-center gap-2.5 group" href="#">
+<div class="w-10 h-10 bg-primary-container rounded-xl flex items-center justify-center relative overflow-hidden shadow-sm">
+<span class="font-headline-lg text-headline-lg font-black text-surface-container-lowest leading-none select-none tracking-tighter">D</span>
+<div class="absolute bottom-1 right-1 w-3.5 h-3.5 bg-secondary-container rounded-full flex items-center justify-center">
+<span class="w-1 h-1 bg-surface-container-lowest rounded-full"></span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-md font-headline-md font-extrabold tracking-tight text-primary leading-none">DriveMe</span>
+<span class="text-badge-micro font-badge-micro font-bold text-secondary tracking-widest leading-tight">LEARN. DRIVE. GROW.</span>
+</div>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant font-medium hover:text-on-surface text-label-lg font-label-lg transition-colors duration-150" href="../driveme_home_page/code.html">Home</a>
+<a class="text-on-surface-variant font-medium hover:text-on-surface text-label-lg font-label-lg transition-colors duration-150" href="#">How It Works</a>
+<a class="text-secondary font-bold border-b-2 border-secondary pb-1 text-label-lg font-label-lg" href="../driveme_find_trainer/code.html">Find a Trainer</a>
+<a class="text-on-surface-variant font-medium hover:text-on-surface text-label-lg font-label-lg transition-colors duration-150" href="../driveme_driving_exam_guide/code.html">Exam Guide</a>
+<a class="text-on-surface-variant font-medium hover:text-on-surface text-label-lg font-label-lg transition-colors duration-150" href="#">Help</a>
+</nav>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-4">
+<a class="hidden sm:inline-flex text-label-lg font-label-lg font-semibold text-primary-container hover:text-secondary transition-colors duration-150 px-3 py-2" href="#">
+          Login
+        </a>
+<a class="inline-flex items-center justify-center bg-secondary-container text-on-secondary px-5 py-2.5 rounded-xl font-label-lg text-label-lg font-semibold shadow-sm hover:bg-secondary active:scale-[0.98] transition-all duration-150" href="#">
+          Get Started
+        </a>
+</div>
+</div>
+</header>
+<!-- Progress Stepper Sub-Header (Full Width Authority Line) -->
+<section class="w-full bg-surface-container-lowest border-b border-outline-variant/30 py-3.5">
+<div class="max-w-container-max mx-auto px-6 lg:px-12">
+<div class="flex items-center justify-between overflow-x-auto no-scrollbar gap-4 text-label-sm font-label-sm">
+<!-- Step 01 -->
+<div class="flex items-center gap-2 flex-shrink-0 text-on-tertiary-container">
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed text-tertiary-container flex items-center justify-center text-badge-micro font-badge-micro font-bold">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="font-semibold text-on-surface">01 Profile</span>
+<span class="text-outline-variant">›</span>
+</div>
+<!-- Step 02 -->
+<div class="flex items-center gap-2 flex-shrink-0 text-on-tertiary-container">
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed text-tertiary-container flex items-center justify-center text-badge-micro font-badge-micro font-bold">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="font-semibold text-on-surface">02 Goal</span>
+<span class="text-outline-variant">›</span>
+</div>
+<!-- Step 03 -->
+<div class="flex items-center gap-2 flex-shrink-0 text-on-tertiary-container">
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed text-tertiary-container flex items-center justify-center text-badge-micro font-badge-micro font-bold">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="font-semibold text-on-surface">03 Trainer: Rajesh K.</span>
+<span class="text-outline-variant">›</span>
+</div>
+<!-- Step 04 -->
+<div class="flex items-center gap-2 flex-shrink-0 text-on-tertiary-container">
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed text-tertiary-container flex items-center justify-center text-badge-micro font-badge-micro font-bold">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="font-semibold text-on-surface">04 Vehicle: Swift Dzire</span>
+<span class="text-outline-variant">›</span>
+</div>
+<!-- Step 05 -->
+<div class="flex items-center gap-2 flex-shrink-0 text-on-tertiary-container">
+<span class="w-6 h-6 rounded-full bg-tertiary-fixed text-tertiary-container flex items-center justify-center text-badge-micro font-badge-micro font-bold">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="font-semibold text-on-surface">05 Time: Thu Oct 24, 7 AM</span>
+<span class="text-outline-variant">›</span>
+</div>
+<!-- Step 06 ACTIVE -->
+<div class="flex items-center gap-2 flex-shrink-0">
+<span class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary flex items-center justify-center text-badge-micro font-badge-micro font-bold shadow-sm">
+            06
+          </span>
+<span class="font-bold text-secondary-container">06 Pickup Location</span>
+<span class="text-outline-variant">›</span>
+</div>
+<!-- Step 07 Pending -->
+<div class="flex items-center gap-2 flex-shrink-0 opacity-40">
+<span class="w-6 h-6 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center text-badge-micro font-badge-micro font-semibold">
+            07
+          </span>
+<span class="font-medium text-on-surface-variant">07 Review &amp; Pay</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Booking Canvas -->
+<main class="flex-grow max-w-container-max mx-auto w-full px-6 lg:px-12 py-8 lg:py-12">
+<!-- Top Context & Back Command -->
+<div class="mb-8">
+<a class="inline-flex items-center gap-2 text-label-sm font-label-sm font-semibold text-on-surface-variant hover:text-primary-container transition-colors duration-150 mb-3 group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:-translate-x-0.5 transition-transform duration-150">arrow_back</span>
+        Back to Select Time
+      </a>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-headline-lg font-headline-lg text-primary tracking-tight">Choose your pickup location</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-1">
+            Select where your verified trainer Rajesh Kumar should pick you up for your dual-control road session.
+          </p>
+</div>
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-tertiary-fixed text-tertiary-container text-label-sm font-label-sm font-semibold self-start md:self-auto border border-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+          Doorstep Verification Guaranteed
+        </div>
+</div>
+</div>
+<!-- 12-Column Responsive Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left / Main Form Column (7 Cols) -->
+<section class="lg:col-span-7 flex flex-col gap-6">
+<!-- Search Location Input Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-6 shadow-sm">
+<label class="block text-label-lg font-label-lg font-semibold text-primary-container mb-2">
+            Search or Type Pickup Address
+          </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-secondary-container pointer-events-none text-[22px]">
+              location_on
+            </span>
+<input class="w-full h-12 pl-12 pr-36 rounded-xl border border-outline-variant bg-surface-container-lowest text-body-base font-body-base text-on-surface focus:border-secondary-container focus:ring-2 focus:ring-secondary-container/20 transition-all placeholder:text-outline" placeholder="Search street, apartment, or landmark in Bengaluru..." type="text" value="402, Oakwood Residency, 12th Main Road"/>
+<button class="absolute right-2 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low text-primary-container hover:bg-surface-container text-label-sm font-label-sm font-bold border border-outline-variant/50 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-secondary-container">my_location</span>
+              Use GPS
+            </button>
+</div>
+<!-- Quick Category Tabs -->
+<div class="flex items-center gap-3 mt-4 pt-4 border-t border-outline-variant/20">
+<span class="text-label-sm font-label-sm font-semibold text-on-surface-variant mr-1">Saved Tags:</span>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary-container text-surface-container-lowest text-label-sm font-label-sm font-semibold shadow-sm">
+<span class="material-symbols-outlined text-[16px]">home</span>
+              Home (Selected)
+            </button>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container text-label-sm font-label-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[16px]">work</span>
+              Work
+            </button>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container text-label-sm font-label-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[16px]">add_location_alt</span>
+              Other / Add New
+            </button>
+</div>
+</div>
+<!-- Selected Address Confirmation Card (Active Highlight) -->
+<div class="bg-surface-container-lowest rounded-xl border-2 border-secondary-container p-6 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-secondary-container text-on-secondary px-3.5 py-1 text-badge-micro font-badge-micro font-bold tracking-wider rounded-bl-lg">
+            PRIMARY SELECTION
+          </div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center flex-shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[26px]">apartment</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2">
+<h3 class="text-headline-sm font-headline-sm text-primary">Oakwood Residency</h3>
+<span class="inline-flex items-center px-2 py-0.5 rounded-md bg-surface-container text-primary-container font-label-sm text-label-sm font-bold">
+                  Flat 402
+                </span>
+</div>
+<p class="text-body-base font-body-base text-on-surface mt-1 font-medium">
+                402, Oakwood Residency, 12th Main Road, HAL 2nd Stage, Indiranagar, Bengaluru - 560038
+              </p>
+<div class="flex items-center gap-2 mt-2 text-body-medium font-body-medium text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-secondary-container">turn_right</span>
+<span>Landmark: Near Sony Center &amp; Indiranagar Metro Station</span>
+</div>
+<!-- Proximity Status Badge -->
+<div class="mt-4 flex flex-wrap items-center gap-2.5">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed text-tertiary-container font-label-sm text-label-sm font-bold border border-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                  Within Free Doorstep Radius (3.2 km / Max 6.0 km)
+                </div>
+<button class="text-label-sm font-label-sm font-bold text-secondary hover:underline ml-auto flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit_location_alt</span>
+                  Edit Address
+                </button>
+</div>
+<!-- Pickup Gate Instructions -->
+<div class="mt-4 pt-4 border-t border-outline-variant/20">
+<label class="block text-label-sm font-label-sm font-semibold text-primary-container mb-1.5">
+                  Pickup Instructions for Rajesh Kumar
+                </label>
+<div class="flex items-center gap-2 bg-surface-container-low rounded-lg p-2.5 border border-outline-variant/40">
+<span class="material-symbols-outlined text-outline text-[18px]">notes</span>
+<input class="bg-transparent border-0 p-0 text-body-medium font-body-medium text-on-surface w-full focus:ring-0" type="text" value="Gate 2 security entrance for dual-control car pickup"/>
+<span class="text-badge-micro font-badge-micro font-bold text-outline uppercase">Saved</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Service Zone Reassurance Banner -->
+<div class="bg-primary-container rounded-xl p-5 text-surface-container-lowest flex items-start gap-3.5 shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest/10 flex items-center justify-center flex-shrink-0 text-secondary-container">
+<span class="material-symbols-outlined text-[20px]">explore</span>
+</div>
+<div>
+<h4 class="text-label-lg font-label-lg font-bold text-surface-container-lowest">Verified Trainer Service Zone</h4>
+<p class="text-body-medium font-body-medium text-surface-dim mt-0.5">
+              Rajesh Kumar covers <strong class="text-surface-container-lowest">Indiranagar, Koramangala, Domlur, and HSR Layout</strong>. Your address falls right within his primary service sector, ensuring 100% on-time arrival.
+            </p>
+</div>
+</div>
+<!-- Navigation CTAs -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-outline bg-surface-container-lowest text-primary font-label-lg text-label-lg font-bold hover:bg-surface-container-low active:scale-[0.98] transition-all" href="../driveme_select_time/code.html"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Back to Select Time</a>
+<a class="w-full sm:w-auto inline-flex flex-col items-center justify-center px-8 py-3 rounded-xl bg-secondary-container text-on-secondary font-label-lg text-label-lg font-bold hover:bg-secondary active:scale-[0.98] transition-all shadow-md" href="../driveme_review_booking/code.html">
+<span class="flex items-center gap-2">
+              Confirm Pickup Location
+              <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</span>
+<span class="text-badge-micro font-badge-micro font-normal text-surface-container-lowest/90">
+              Next: Final Review of Your Booking
+            </span>
+</a>
+</div>
+</section>
+<!-- Right Column (Interactive Visual Map & Session Snapshot) (5 Cols) -->
+<section class="lg:col-span-5 flex flex-col gap-6">
+<!-- Styled Map Container -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 overflow-hidden shadow-sm flex flex-col">
+<!-- Map Header Info Bar -->
+<div class="px-5 py-3.5 bg-surface-container-lowest border-b border-outline-variant/20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">radar</span>
+<span class="text-label-sm font-label-sm font-bold text-primary">Live Radius Verification</span>
+</div>
+<span class="text-badge-micro font-badge-micro px-2 py-0.5 bg-surface-container text-primary-container rounded font-bold">
+              BENGALURU EAST
+            </span>
+</div>
+<!-- Realistic Vector Styled Map Plane -->
+<div class="relative w-full h-80 bg-[#eef2f6] overflow-hidden flex items-center justify-center select-none" data-location="Bengaluru" style="">
+<!-- Map Background Roads Layer (SVG Grid Canvas) -->
+<svg class="absolute inset-0 w-full h-full opacity-60 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="80" id="road-grid" patternunits="userSpaceOnUse" width="80">
+<path d="M 80 0 L 0 0 0 80" fill="none" stroke="#cbd5e1" stroke-width="1.5"></path>
+<path d="M 0 40 L 80 40 M 40 0 L 40 80" fill="none" stroke="#e2e8f0" stroke-dasharray="3,3" stroke-width="1"></path>
+</pattern>
+</defs>
+<rect fill="#edf2f7" height="100%" width="100%"></rect>
+<rect fill="url(#road-grid)" height="100%" width="100%"></rect>
+<!-- Diagonal Arterials representing major Bengaluru bypasses -->
+<path d="M-50,280 Q 150,160 450,140" fill="none" stroke="#cbd5e1" stroke-width="12"></path>
+<path d="M-50,280 Q 150,160 450,140" fill="none" stroke="#ffffff" stroke-width="8"></path>
+<path d="M120,-20 Q 200,160 320,380" fill="none" stroke="#cbd5e1" stroke-width="14"></path>
+<path d="M120,-20 Q 200,160 320,380" fill="none" stroke="#ffffff" stroke-width="10"></path>
+<!-- 100ft Road arterial -->
+<path d="M-20,90 L400,240" fill="none" stroke="#f1f5f9" stroke-width="6"></path>
+</svg>
+<!-- 6km Coverage Zone Circle (Soft Navy + Orange Contour) -->
+<div class="absolute w-64 h-64 rounded-full border-2 border-dashed border-secondary-container/60 bg-secondary-container/5 flex items-center justify-center pointer-events-none animate-pulse">
+<div class="w-44 h-44 rounded-full border border-primary-container/20 bg-primary-container/5"></div>
+</div>
+<!-- Landmark Tags -->
+<div class="absolute top-8 left-8 bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 rounded-md text-badge-micro font-badge-micro text-on-surface-variant shadow-sm border border-outline-variant/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-primary">subway</span>
+              Indiranagar Metro (800m)
+            </div>
+<div class="absolute bottom-10 right-8 bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 rounded-md text-badge-micro font-badge-micro text-on-surface-variant shadow-sm border border-outline-variant/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-primary">store</span>
+              Sony Center Hub
+            </div>
+<!-- Pulsating Pin Marker for Pickup Point -->
+<div class="relative z-10 flex flex-col items-center cursor-pointer group">
+<!-- Tooltip Card -->
+<div class="mb-1.5 bg-primary-container text-surface-container-lowest px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-1.5 text-label-sm font-label-sm whitespace-nowrap transform group-hover:-translate-y-1 transition-transform">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-ping"></span>
+<span class="font-bold">Pickup: Oakwood Residency</span>
+</div>
+<!-- Custom Marker Icon -->
+<div class="relative flex items-center justify-center">
+<span class="w-10 h-10 rounded-full bg-secondary-container text-surface-container-lowest flex items-center justify-center shadow-lg border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[22px]">directions_car</span>
+</span>
+<span class="absolute -bottom-1 w-2.5 h-2.5 bg-secondary-container rotate-45"></span>
+</div>
+<!-- Marker Shadow -->
+<div class="w-6 h-2 bg-on-surface/20 rounded-full blur-[2px] mt-1"></div>
+</div>
+<!-- Map Floating Controls -->
+<div class="absolute right-4 top-4 flex flex-col gap-1.5 bg-surface-container-lowest rounded-lg border border-outline-variant/40 shadow-sm p-1">
+<button class="w-7 h-7 flex items-center justify-center text-primary-container hover:bg-surface-container rounded font-bold text-headline-sm leading-none">+</button>
+<div class="h-px bg-outline-variant/30"></div>
+<button class="w-7 h-7 flex items-center justify-center text-primary-container hover:bg-surface-container rounded font-bold text-headline-sm leading-none">−</button>
+</div>
+<!-- Radius indicator micro tag -->
+<div class="absolute bottom-3 left-4 bg-surface-container-lowest/95 border border-outline-variant/40 px-2.5 py-1 rounded-md text-badge-micro font-badge-micro font-semibold text-primary-container flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+              Radius: 3.2 km from Trainer Hub (6.0 km Maximum)
+            </div>
+</div>
+<div class="p-4 bg-surface-container-low flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary-container">straighten</span>
+              Distance from Trainer Hub: <strong class="text-primary font-semibold">3.2 km</strong>
+</span>
+<span class="text-on-tertiary-container font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+              Doorstep Pickup Included
+            </span>
+</div>
+</div>
+<!-- Booking Snapshot Accordion / Mini Summary -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-6 shadow-sm">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-4 mb-4">
+<h3 class="text-headline-sm font-headline-sm text-primary">Booking Snapshot</h3>
+<span class="text-badge-micro font-badge-micro font-bold px-2.5 py-1 bg-surface-container text-primary-container rounded-full">
+              STEP 6 OF 7
+            </span>
+</div>
+<!-- Trainer & Car Micro Row -->
+<div class="flex items-center gap-3.5 pb-4 border-b border-outline-variant/20">
+<div class="w-12 h-12 rounded-xl bg-primary-container text-surface-container-lowest flex items-center justify-center font-headline-sm font-headline-sm font-black flex-shrink-0">
+              RK
+            </div>
+<div class="flex-grow min-w-0">
+<div class="flex items-center justify-between">
+<h4 class="text-label-lg font-label-lg font-bold text-primary truncate">Rajesh Kumar</h4>
+<div class="flex items-center text-label-sm font-label-sm font-bold text-secondary">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+                  4.95 (340+)
+                </div>
+</div>
+<p class="text-body-medium font-body-medium text-on-surface-variant truncate">
+                Govt. Certified Instructor • 8+ Yrs Exp
+              </p>
+</div>
+</div>
+<!-- Details Matrix -->
+<div class="space-y-3 py-4 text-body-medium font-body-medium border-b border-outline-variant/20">
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline">time_to_leave</span>
+                Vehicle &amp; Gear:
+              </span>
+<span class="font-bold text-primary text-right">Maruti Swift Dzire (Manual 5-Spd)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline">event</span>
+                Scheduled Slot:
+              </span>
+<span class="font-bold text-primary text-right">Thu, Oct 24 • 07:00 AM - 09:00 AM</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline">timer</span>
+                Session Duration:
+              </span>
+<span class="font-bold text-primary text-right">2 Hours (Highway &amp; City Merge)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary-container">pin_drop</span>
+                Doorstep Pickup:
+              </span>
+<span class="font-bold text-on-tertiary-container text-right">Indiranagar (Included - ₹0)</span>
+</div>
+</div>
+<!-- Price & Doorstep Policy Notice -->
+<div class="mt-4 pt-1 flex items-center justify-between text-body-base">
+<div>
+<span class="text-label-sm font-label-sm text-outline block">Estimated Session Total</span>
+<span class="text-headline-md font-headline-md text-primary font-bold">₹1,499</span>
+</div>
+<div class="text-right">
+<span class="text-badge-micro font-badge-micro font-bold text-on-tertiary-container block">ZERO CONVENIENCE FEE</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Review &amp; payment on next step</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer Anchor from Shared Components -->
+<footer class="w-full bg-primary-container border-t border-outline-variant/20 mt-16">
+<div class="w-full max-w-container-max mx-auto px-6 lg:px-12 py-16 flex flex-col gap-12">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-8">
+<!-- Brand identity in footer -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 bg-surface-container-lowest rounded-xl flex items-center justify-center text-primary-container font-headline-sm font-black">
+              D
+            </div>
+<span class="text-headline-md font-headline-md font-black text-surface-container-lowest">DriveMe</span>
+</div>
+<p class="text-body-base font-body-base text-surface-dim max-w-md mt-1">
+            India’s premium certified driving training platform. Dual-control road safety, verified instructors, and doorstep pickup.
+          </p>
+</div>
+<!-- Trust Badges Cluster -->
+<div class="flex flex-wrap items-center gap-4">
+<div class="px-4 py-2 rounded-xl bg-surface-container-lowest/10 border border-surface-container-lowest/10 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">shield</span>
+<span class="text-label-sm font-label-sm text-surface-container-lowest font-medium">100% Dual-Control Fleet</span>
+</div>
+<div class="px-4 py-2 rounded-xl bg-surface-container-lowest/10 border border-surface-container-lowest/10 flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed text-[20px]">verified</span>
+<span class="text-label-sm font-label-sm text-surface-container-lowest font-medium">RTO Certified Instructors</span>
+</div>
+</div>
+</div>
+<!-- Links Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 pt-8 border-t border-outline-variant/10">
+<a class="text-surface-dim hover:text-surface-container-lowest text-label-sm font-label-sm transition-colors hover:underline" href="#">About Us</a>
+<a class="text-surface-dim hover:text-surface-container-lowest text-label-sm font-label-sm transition-colors hover:underline" href="#">Safety Standards</a>
+<a class="text-surface-dim hover:text-surface-container-lowest text-label-sm font-label-sm transition-colors hover:underline" href="#">Become a Trainer</a>
+<a class="text-surface-dim hover:text-surface-container-lowest text-label-sm font-label-sm transition-colors hover:underline" href="#">Curriculum</a>
+<a class="text-surface-dim hover:text-surface-container-lowest text-label-sm font-label-sm transition-colors hover:underline" href="#">Pricing Plans</a>
+<a class="text-surface-dim hover:text-surface-container-lowest text-label-sm font-label-sm transition-colors hover:underline" href="#">Privacy Policy</a>
+<a class="text-surface-dim hover:text-surface-container-lowest text-label-sm font-label-sm transition-colors hover:underline" href="#">Terms of Service</a>
+<a class="text-surface-dim hover:text-surface-container-lowest text-label-sm font-label-sm transition-colors hover:underline" href="#">DMV Resources</a>
+</div>
+<!-- Bottom Copyright Strip -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-outline-variant/10 text-label-sm font-label-sm text-surface-dim">
+<span>© 2025 DriveMe Academy Inc. All rights reserved.</span>
+<div class="flex items-center gap-6">
+<span class="inline-flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed"></span>
+            Operational in Bengaluru Central &amp; East
+          </span>
+<a class="text-secondary-fixed hover:underline font-semibold" href="#">Help &amp; Support</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

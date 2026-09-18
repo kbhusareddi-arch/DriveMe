@@ -1,0 +1,431 @@
+<!DOCTYPE html><html class="h-full bg-surface" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>DriveMe - Choose Your Learning Goal</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-container": "#7886a3",
+            "primary": "#000412",
+            "on-secondary-container": "#5b2100",
+            "on-error-container": "#93000a",
+            "surface-dim": "#d2d9f4",
+            "on-primary-fixed-variant": "#394761",
+            "on-error": "#ffffff",
+            "inverse-surface": "#283044",
+            "tertiary-fixed": "#6ffbbe",
+            "secondary-fixed": "#ffdbcc",
+            "on-tertiary-container": "#009969",
+            "outline": "#75777e",
+            "inverse-primary": "#b8c7e6",
+            "on-primary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "tertiary": "#000703",
+            "surface-variant": "#dae2fd",
+            "surface-container-high": "#e2e7ff",
+            "surface-tint": "#515f7a",
+            "inverse-on-surface": "#eef0ff",
+            "surface-bright": "#faf8ff",
+            "secondary-container": "#fc7123",
+            "secondary": "#a14000",
+            "on-secondary-fixed-variant": "#7b2f00",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-background": "#131b2e",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-secondary": "#ffffff",
+            "secondary-fixed-dim": "#ffb694",
+            "outline-variant": "#c5c6ce",
+            "on-tertiary-fixed": "#002113",
+            "surface-container-low": "#f2f3ff",
+            "primary-container": "#0f1e36",
+            "primary-fixed": "#d7e3ff",
+            "error-container": "#ffdad6",
+            "surface": "#faf8ff",
+            "on-surface": "#131b2e",
+            "error": "#ba1a1a",
+            "on-primary-fixed": "#0c1b33",
+            "background": "#faf8ff",
+            "on-secondary-fixed": "#351000",
+            "surface-container-highest": "#dae2fd",
+            "tertiary-container": "#002416",
+            "surface-container-lowest": "#ffffff",
+            "on-surface-variant": "#44474d",
+            "primary-fixed-dim": "#b8c7e6",
+            "surface-container": "#eaedff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-desktop": "1.5rem",
+            "gutter-mobile": "1rem",
+            "container-max": "1280px",
+            "spacing-2xs": "0.25rem",
+            "spacing-lg": "1.5rem",
+            "spacing-3xl": "4rem",
+            "spacing-xs": "0.5rem",
+            "spacing-md": "1rem",
+            "spacing-xl": "2rem",
+            "spacing-2xl": "3rem",
+            "spacing-sm": "0.75rem"
+          },
+          "fontFamily": {
+            "body-medium": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "badge-micro": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-base": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "800" }],
+            "badge-micro": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-base": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col font-body-base text-on-surface bg-surface antialiased selection:bg-secondary-container selection:text-surface-container-lowest">
+<!-- TOP HEADER (Task-focused onboarding screen context) -->
+<header class="w-full bg-surface-container-lowest border-b border-outline-variant/30 sticky top-0 z-40">
+<div class="max-w-[1280px] mx-auto h-20 px-6 lg:px-12 flex items-center justify-between">
+<!-- Brand Anchor -->
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-2 group" href="#">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center shadow-sm relative overflow-hidden">
+<!-- Stylized Brand Road Icon D -->
+<svg class="w-7 h-7 fill-none" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 6C7 4.89543 7.89543 4 9 4H18C25.732 4 32 10.268 32 18C32 25.732 25.732 32 18 32H9C7.89543 32 7 31.1046 7 30V6Z" fill="#0F1E36"></path>
+<path d="M12 28C14 21 16 15 22 13C24.5 17 25 22 24.5 28H12Z" fill="#FFFFFF"></path>
+<path d="M14.5 28L18 20.5H21.5L20 28H14.5Z" fill="#FC7123"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-extrabold tracking-tight text-primary-container leading-none">
+              Drive<span class="text-secondary-container">Me</span>
+</span>
+<span class="font-badge-micro text-[9px] font-bold tracking-widest text-outline uppercase mt-0.5">LEARN. DRIVE. GROW.</span>
+</div>
+</a>
+<div class="hidden md:block h-6 w-px bg-outline-variant/40"></div>
+<!-- Navigation contextual link -->
+<a class="hidden md:inline-flex items-center gap-1.5 text-on-surface-variant hover:text-primary-container font-label-lg text-label-lg transition-colors duration-150" href="../driveme_profile_setup/code.html"><span class="material-symbols-outlined text-[18px]">arrow_back</span><span>Back to Profile Setup</span></a>
+</div>
+<!-- Right Support Actions -->
+<div class="flex items-center gap-4">
+<a class="inline-flex items-center gap-1 text-on-surface-variant hover:text-primary-container font-label-lg text-label-lg transition-colors py-2 px-3 rounded-lg hover:bg-surface-container" href="#">
+<span class="material-symbols-outlined text-[18px]">help_outline</span>
+<span>Help</span>
+</a>
+<a class="hidden sm:inline-flex items-center text-outline hover:text-on-surface font-label-lg text-label-lg transition-colors py-2 px-3" href="../driveme_home_page/code.html">Back to Home</a>
+</div>
+</div>
+</header>
+<!-- PROGRESS STEPPER BAR -->
+<section class="w-full bg-surface-container-lowest border-b border-outline-variant/20 shadow-sm py-4">
+<div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+<div class="flex items-center justify-between max-w-2xl mx-auto relative">
+<!-- Connecting Line Background -->
+<div class="absolute left-8 right-8 top-1/2 -translate-y-1/2 h-0.5 bg-surface-container-high z-0"></div>
+<!-- Active Progress Line -->
+<div class="absolute left-8 w-1/2 top-1/2 -translate-y-1/2 h-0.5 bg-secondary-container z-0"></div>
+<!-- Step 1: Profile (Completed) -->
+<div class="flex items-center gap-3 relative z-10 bg-surface-container-lowest pr-2">
+<div class="w-8 h-8 rounded-full bg-on-tertiary-container text-surface-container-lowest flex items-center justify-center font-label-sm text-label-sm shadow-sm ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="hidden sm:flex flex-col">
+<span class="font-badge-micro text-badge-micro text-outline uppercase tracking-wider">01 Profile</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Personal Details</span>
+</div>
+</div>
+<!-- Step 2: Goal (Active/Current) -->
+<div class="flex items-center gap-3 relative z-10 bg-surface-container-lowest px-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-surface-container-lowest flex items-center justify-center font-label-sm text-label-sm font-bold shadow-md ring-4 ring-secondary-fixed">
+<span>02</span>
+</div>
+<div class="flex flex-col">
+<span class="font-badge-micro text-badge-micro text-secondary font-bold uppercase tracking-wider">02 Goal (Active)</span>
+<span class="font-label-sm text-label-sm font-bold text-primary-container">Vehicle Category</span>
+</div>
+</div>
+<!-- Step 3: Pickup (Upcoming) -->
+<div class="flex items-center gap-3 relative z-10 bg-surface-container-lowest pl-2">
+<div class="w-8 h-8 rounded-full bg-surface-container text-outline flex items-center justify-center font-label-sm text-label-sm font-semibold ring-4 ring-surface-container-lowest">
+<span>03</span>
+</div>
+<div class="hidden sm:flex flex-col">
+<span class="font-badge-micro text-badge-micro text-outline uppercase tracking-wider">03 Pickup</span>
+<span class="font-label-sm text-label-sm text-outline">Trainer &amp; Location</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- MAIN ONBOARDING CANVAS -->
+<main class="flex-1 max-w-[1280px] w-full mx-auto px-6 lg:px-12 py-10 lg:py-14 flex flex-col justify-between">
+<div class="w-full">
+<!-- Title & Reassuring Guidance -->
+<div class="text-center max-w-2xl mx-auto mb-10">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-container font-label-sm text-label-sm mb-3">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>Step 3 of Onboarding • Driver Goal Selection</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary-container tracking-tight">
+          What do you want to learn?
+        </h1>
+<p class="mt-2 text-body-lg font-body-lg text-on-surface-variant">
+          Choose your vehicle learning category to browse verified instructors and dual-control vehicles in your area.
+        </p>
+</div>
+<!-- 3-COLUMN SELECTOR CARDS GRID -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+<!-- OPTION 1: 2-Wheeler -->
+<div class="cursor-pointer group relative flex flex-col justify-between p-6 lg:p-8 rounded-2xl bg-surface-container-lowest border-2 transition-all duration-200 border-outline-variant/40 hover:border-outline hover:shadow-md" id="card-2w" onclick="selectOption('2w')">
+<!-- Top Row: Icon and Custom Radio -->
+<div>
+<div class="flex items-start justify-between mb-6">
+<div class="w-14 h-14 rounded-xl bg-surface-container flex items-center justify-center text-primary-container group-hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined text-[32px]">two_wheeler</span>
+</div>
+<!-- Radio Circle indicator -->
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center transition-colors" id="radio-2w">
+<div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+</div>
+</div>
+<!-- Card Headline & Subtitle -->
+<h3 class="font-headline-md text-headline-md text-primary-container font-bold group-hover:text-secondary transition-colors">
+              2-Wheeler
+            </h3>
+<span class="font-label-sm text-label-sm text-outline font-semibold block mb-3">Motorcycle / Scooter</span>
+<p class="font-body-base text-body-base text-on-surface-variant leading-relaxed">
+              Master balance, clutch control, gears, and city traffic navigation for gear and gearless two-wheelers.
+            </p>
+</div>
+<!-- Bottom Tags -->
+<div class="mt-8 pt-5 border-t border-outline-variant/20">
+<div class="flex flex-wrap gap-1.5">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-surface-container font-badge-micro text-badge-micro text-on-surface-variant font-medium">
+                Motorcycle
+              </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-surface-container font-badge-micro text-badge-micro text-on-surface-variant font-medium">
+                Scooter
+              </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-surface-container font-badge-micro text-badge-micro text-on-surface-variant font-medium">
+                RTO Track Ready
+              </span>
+</div>
+</div>
+</div>
+<!-- OPTION 2: 4-Wheeler (Car - Most Popular - SELECTED BY DEFAULT) -->
+<div class="cursor-pointer group relative flex flex-col justify-between p-6 lg:p-8 rounded-2xl bg-surface-container-lowest border-2 transition-all duration-200 border-secondary-container shadow-lg ring-2 ring-secondary-container/20" id="card-4w" onclick="selectOption('4w')">
+<!-- Most Popular Badge -->
+<div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full bg-secondary-container text-surface-container-lowest font-label-sm text-label-sm font-bold shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span>Most Popular</span>
+</div>
+<!-- Top Row: Icon and Custom Radio -->
+<div>
+<div class="flex items-start justify-between mb-6">
+<div class="w-14 h-14 rounded-xl bg-secondary-fixed/50 flex items-center justify-center text-secondary-container">
+<span class="material-symbols-outlined text-[32px]">directions_car</span>
+</div>
+<!-- Radio Circle indicator (Active) -->
+<div class="w-6 h-6 rounded-full border-2 border-secondary-container bg-secondary-container flex items-center justify-center text-surface-container-lowest shadow-xs" id="radio-4w">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+</div>
+<!-- Card Headline & Subtitle -->
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-primary-container font-bold">
+                4-Wheeler
+              </h3>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-primary-container text-surface-container-lowest tracking-wide uppercase">
+                Dual-Control
+              </span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold block mb-3">Car (Sedan / Hatchback / SUV)</span>
+<p class="font-body-base text-body-base text-on-surface-variant leading-relaxed">
+              Comprehensive road training on certified dual-control manual &amp; automatic cars with RTO 8-track &amp; H-track mastery.
+            </p>
+</div>
+<!-- Bottom Tags -->
+<div class="mt-8 pt-5 border-t border-outline-variant/20">
+<div class="flex flex-wrap gap-1.5">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-secondary-fixed/60 font-badge-micro text-badge-micro text-on-secondary-container font-semibold">
+                Manual &amp; Auto
+              </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-surface-container font-badge-micro text-badge-micro text-on-surface-variant font-medium">
+                Dual-Control
+              </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-surface-container font-badge-micro text-badge-micro text-on-surface-variant font-medium">
+                RTO 8/H Track
+              </span>
+</div>
+</div>
+</div>
+<!-- OPTION 3: Combo (Both 2-Wheeler & 4-Wheeler) -->
+<div class="cursor-pointer group relative flex flex-col justify-between p-6 lg:p-8 rounded-2xl bg-surface-container-lowest border-2 transition-all duration-200 border-outline-variant/40 hover:border-outline hover:shadow-md" id="card-combo" onclick="selectOption('combo')">
+<!-- Top Row: Icon and Custom Radio -->
+<div>
+<div class="flex items-start justify-between mb-6">
+<div class="w-14 h-14 rounded-xl bg-surface-container flex items-center justify-center text-primary-container group-hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined text-[32px]">commute</span>
+</div>
+<!-- Radio Circle indicator -->
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center transition-colors" id="radio-combo">
+<div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+</div>
+</div>
+<!-- Card Headline & Subtitle -->
+<h3 class="font-headline-md text-headline-md text-primary-container font-bold group-hover:text-secondary transition-colors">
+              Both (Combo)
+            </h3>
+<span class="font-label-sm text-label-sm text-outline font-semibold block mb-3">2-Wheeler &amp; 4-Wheeler Combo</span>
+<p class="font-body-base text-body-base text-on-surface-variant leading-relaxed">
+              Complete all-in-one license package for comprehensive motorcycle and car driver education with bundled savings.
+            </p>
+</div>
+<!-- Bottom Tags -->
+<div class="mt-8 pt-5 border-t border-outline-variant/20">
+<div class="flex flex-wrap gap-1.5">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-tertiary-fixed/30 text-on-tertiary-container font-badge-micro text-badge-micro font-bold">
+                Save 20% Bundle
+              </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-surface-container font-badge-micro text-badge-micro text-on-surface-variant font-medium">
+                Full License Bundle
+              </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-surface-container font-badge-micro text-badge-micro text-on-surface-variant font-medium">
+                Dual Certification
+              </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Trust Indicator / Safety Standard Callout -->
+<div class="mt-12 max-w-3xl mx-auto bg-surface-container-low rounded-xl p-4 border border-outline-variant/30 flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex-shrink-0 flex items-center justify-center text-on-tertiary-container shadow-xs">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+<div class="flex-1 text-left">
+<p class="font-label-sm text-label-sm font-bold text-primary-container">Certified Safety Fleet &amp; Authorized Trainers</p>
+<p class="font-body-base text-body-base text-on-surface-variant text-xs mt-0.5">Every instructor undergoes government police verification, RTO road authority accreditation, and dual-control mechanical inspection.</p>
+</div>
+</div>
+</div>
+<!-- BOTTOM ACTION CONTAINER -->
+<div class="mt-12 pt-8 border-t border-outline-variant/20 flex flex-col-reverse sm:flex-row items-center justify-between gap-4">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-label-lg text-label-lg font-semibold text-on-surface hover:bg-surface-container-high transition-colors" href="../driveme_profile_setup/code.html"><span class="material-symbols-outlined text-[18px]">arrow_back</span><span>Back to Profile Setup</span></a>
+<div class="w-full sm:w-auto flex flex-col sm:items-end gap-1">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-secondary-container hover:bg-secondary text-surface-container-lowest font-label-lg text-label-lg font-bold shadow-md hover:shadow-lg active:scale-[0.98] transition-all" href="../driveme_find_trainer/code.html" id="cta-button">
+<span id="cta-label">Continue to Find Trainer</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+<span class="text-xs text-outline font-body-base text-center sm:text-right">Next: Find verified trainers matching your goal</span>
+</div>
+</div>
+</main>
+<!-- FOOTER (Consistent DriveMe Simplified Component) -->
+<footer class="w-full bg-primary-container text-surface-container-lowest border-t border-outline-variant/20 mt-12">
+<div class="w-full max-w-[1280px] mx-auto px-6 lg:px-12 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center">
+<svg class="w-5 h-5 fill-none" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 6C7 4.89543 7.89543 4 9 4H18C25.732 4 32 10.268 32 18C32 25.732 25.732 32 18 32H9C7.89543 32 7 31.1046 7 30V6Z" fill="#0F1E36"></path>
+<path d="M12 28C14 21 16 15 22 13C24.5 17 25 22 24.5 28H12Z" fill="#FFFFFF"></path>
+<path d="M14.5 28L18 20.5H21.5L20 28H14.5Z" fill="#FC7123"></path>
+</svg>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold text-surface-container-lowest">DriveMe</span>
+<span class="text-xs text-on-primary-container ml-2">© 2025 DriveMe Academy Inc. All rights reserved.</span>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-6 text-xs text-surface-dim">
+<a class="hover:text-surface-container-lowest transition-colors" href="#">Safety Standards</a>
+<a class="hover:text-surface-container-lowest transition-colors" href="#">Curriculum</a>
+<a class="hover:text-surface-container-lowest transition-colors" href="#">DMV Resources</a>
+<a class="hover:text-surface-container-lowest transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-surface-container-lowest transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<!-- LIGHTWEIGHT INTERACTIVITY FOR SELECTION TOGGLING -->
+<script>
+    let selectedCategory = '4w';
+
+    function selectOption(id) {
+      selectedCategory = id;
+      const cards = ['2w', '4w', 'combo'];
+      
+      cards.forEach(cardKey => {
+        const cardEl = document.getElementById(`card-${cardKey}`);
+        const radioEl = document.getElementById(`radio-${cardKey}`);
+        
+        if (cardKey === id) {
+          // Active state styles
+          cardEl.className = "cursor-pointer group relative flex flex-col justify-between p-6 lg:p-8 rounded-2xl bg-surface-container-lowest border-2 transition-all duration-200 border-secondary-container shadow-lg ring-2 ring-secondary-container/20";
+          radioEl.className = "w-6 h-6 rounded-full border-2 border-secondary-container bg-secondary-container flex items-center justify-center text-surface-container-lowest shadow-xs";
+          radioEl.innerHTML = `<span class="material-symbols-outlined text-[16px] font-bold">check</span>`;
+        } else {
+          // Inactive state styles
+          cardEl.className = "cursor-pointer group relative flex flex-col justify-between p-6 lg:p-8 rounded-2xl bg-surface-container-lowest border-2 transition-all duration-200 border-outline-variant/40 hover:border-outline hover:shadow-md";
+          radioEl.className = "w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center transition-colors";
+          radioEl.innerHTML = `<div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>`;
+        }
+      });
+
+      // Update CTA Label dynamically
+      const ctaText = document.getElementById('cta-label');
+      if (id === '2w') {
+        ctaText.textContent = "Find 2-Wheeler Trainers";
+      } else if (id === '4w') {
+        ctaText.textContent = "Find 4-Wheeler Trainers";
+      } else {
+        ctaText.textContent = "Find Combo Course Trainers";
+      }
+    }
+  </script>
+
+</body></html>

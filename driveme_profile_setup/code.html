@@ -1,0 +1,701 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Complete Your Profile | DriveMe Academy</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-container": "#7886a3",
+            "primary": "#000412",
+            "on-secondary-container": "#5b2100",
+            "on-error-container": "#93000a",
+            "surface-dim": "#d2d9f4",
+            "on-primary-fixed-variant": "#394761",
+            "on-error": "#ffffff",
+            "inverse-surface": "#283044",
+            "tertiary-fixed": "#6ffbbe",
+            "secondary-fixed": "#ffdbcc",
+            "on-tertiary-container": "#009969",
+            "outline": "#75777e",
+            "inverse-primary": "#b8c7e6",
+            "on-primary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "tertiary": "#000703",
+            "surface-variant": "#dae2fd",
+            "surface-container-high": "#e2e7ff",
+            "surface-tint": "#515f7a",
+            "inverse-on-surface": "#eef0ff",
+            "surface-bright": "#faf8ff",
+            "secondary-container": "#fc7123",
+            "secondary": "#a14000",
+            "on-secondary-fixed-variant": "#7b2f00",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-background": "#131b2e",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-secondary": "#ffffff",
+            "secondary-fixed-dim": "#ffb694",
+            "outline-variant": "#c5c6ce",
+            "on-tertiary-fixed": "#002113",
+            "surface-container-low": "#f2f3ff",
+            "primary-container": "#0f1e36",
+            "primary-fixed": "#d7e3ff",
+            "error-container": "#ffdad6",
+            "surface": "#faf8ff",
+            "on-surface": "#131b2e",
+            "error": "#ba1a1a",
+            "on-primary-fixed": "#0c1b33",
+            "background": "#faf8ff",
+            "on-secondary-fixed": "#351000",
+            "surface-container-highest": "#dae2fd",
+            "tertiary-container": "#002416",
+            "surface-container-lowest": "#ffffff",
+            "on-surface-variant": "#44474d",
+            "primary-fixed-dim": "#b8c7e6",
+            "surface-container": "#eaedff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-desktop": "1.5rem",
+            "gutter-mobile": "1rem",
+            "container-max": "1280px",
+            "spacing-2xs": "0.25rem",
+            "spacing-lg": "1.5rem",
+            "spacing-3xl": "4rem",
+            "spacing-xs": "0.5rem",
+            "spacing-md": "1rem",
+            "spacing-xl": "2rem",
+            "spacing-2xl": "3rem",
+            "spacing-sm": "0.75rem"
+          },
+          "fontFamily": {
+            "body-medium": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "badge-micro": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-base": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "800" }],
+            "badge-micro": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-base": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .shadow-level-1 {
+      box-shadow: 0 1px 3px 0 rgba(15, 30, 54, 0.05), 0 1px 2px -1px rgba(15, 30, 54, 0.05);
+    }
+    .shadow-level-2 {
+      box-shadow: 0 10px 15px -3px rgba(15, 30, 54, 0.08), 0 4px 6px -4px rgba(15, 30, 54, 0.04);
+    }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-on-surface font-body-base antialiased min-h-screen flex flex-col">
+<!-- Interactive State Simulation Toolbar (Requirement Demo) -->
+<div class="bg-primary-container text-surface-container-lowest text-label-sm font-label-sm py-2 px-6 border-b border-outline/20">
+<div class="max-w-container-max mx-auto flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="text-surface-dim font-body-medium">Interactive Demo States:</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="state-btn px-2.5 py-1 rounded bg-surface-container-lowest/10 hover:bg-surface-container-lowest/20 transition-colors text-label-sm font-label-sm active" onclick="setFormState('default')" type="button">Default Valid</button>
+<button class="state-btn px-2.5 py-1 rounded bg-surface-container-lowest/10 hover:bg-surface-container-lowest/20 transition-colors text-label-sm font-label-sm" onclick="setFormState('required-error')" type="button">Required Field Error</button>
+<button class="state-btn px-2.5 py-1 rounded bg-surface-container-lowest/10 hover:bg-surface-container-lowest/20 transition-colors text-label-sm font-label-sm" onclick="setFormState('email-error')" type="button">Invalid Email Format</button>
+<button class="state-btn px-2.5 py-1 rounded bg-surface-container-lowest/10 hover:bg-surface-container-lowest/20 transition-colors text-label-sm font-label-sm" onclick="setFormState('loading')" type="button">Loading State</button>
+</div>
+</div>
+</div>
+<!-- Top Header (Contextual Onboarding Shell: Logo, Back to OTP, Step Tracker & Help) -->
+<header class="bg-surface-container-lowest border-b border-outline-variant/30 sticky top-0 z-40 shadow-sm">
+<div class="w-full px-6 lg:px-12 max-w-container-max mx-auto h-20 flex justify-between items-center">
+<!-- Brand Logo + Back Action -->
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-2.5 group" href="#">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-surface-container-lowest font-black text-headline-sm shadow-sm relative overflow-hidden">
+<span class="text-secondary-container font-black text-2xl tracking-tighter">D</span>
+<div class="absolute bottom-0 w-full h-1 bg-secondary-container"></div>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-md font-headline-md font-extrabold tracking-tight text-primary">Drive<span class="text-secondary-container">Me</span></span>
+<span class="text-[9px] uppercase tracking-widest font-extrabold text-on-surface-variant/70 -mt-1">Learn. Drive. Grow.</span>
+</div>
+</a>
+<div class="h-6 w-px bg-outline-variant/40 hidden sm:block"></div>
+<a class="hidden sm:inline-flex items-center gap-1.5 text-label-lg font-label-lg text-on-surface-variant hover:text-primary transition-colors py-1 px-2.5 rounded-lg hover:bg-surface-container" href="../driveme_otp_verification_1/code.html">
+<span class="material-symbols-outlined text-base">arrow_back</span>
+<span>Back to OTP</span>
+</a>
+</div>
+<!-- Linear Progress Stepper (Task Header) -->
+<div class="hidden md:flex items-center gap-3">
+<!-- Step 1 (Active) -->
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-surface-container-lowest flex items-center justify-center font-bold text-label-sm shadow-sm">
+            01
+          </div>
+<span class="text-label-lg font-label-lg font-bold text-on-surface">Profile Setup</span>
+</div>
+<div class="w-8 h-0.5 bg-outline-variant/50"></div>
+<!-- Step 2 (Upcoming) -->
+<div class="flex items-center gap-2 opacity-50">
+<div class="w-7 h-7 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-bold text-label-sm">
+            02
+          </div>
+<span class="text-label-lg font-label-lg text-on-surface-variant">Choose Goal</span>
+</div>
+<div class="w-8 h-0.5 bg-outline-variant/30"></div>
+<!-- Step 3 (Upcoming) -->
+<div class="flex items-center gap-2 opacity-40">
+<div class="w-7 h-7 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-bold text-label-sm">
+            03
+          </div>
+<span class="text-label-lg font-label-lg text-on-surface-variant">Pickup Hub</span>
+</div>
+</div>
+<!-- Trailing Action / Help -->
+<div class="flex items-center gap-3">
+<a class="inline-flex items-center gap-1 text-label-lg font-label-lg text-on-surface-variant hover:text-primary px-3 py-2 rounded-lg hover:bg-surface-container transition-colors" href="#help">
+<span class="material-symbols-outlined text-xl">help_outline</span>
+<span class="hidden sm:inline">Help &amp; FAQ</span>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 w-full max-w-container-max mx-auto px-6 lg:px-12 py-10 lg:py-14">
+<!-- Mobile Stepper Bar (visible on smaller screens) -->
+<div class="block md:hidden mb-6 bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/30 shadow-level-1">
+<div class="flex justify-between items-center text-label-sm font-label-sm mb-2">
+<span class="font-bold text-secondary-container">Step 1 of 3: Profile Setup</span>
+<span class="text-on-surface-variant">33% Completed</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full w-1/3 rounded-full"></div>
+</div>
+</div>
+<!-- Page Title & Reassurance Header -->
+<div class="mb-8">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-badge-micro font-badge-micro mb-3">
+<span class="material-symbols-outlined text-sm text-secondary-container">verified_user</span>
+<span>VERIFIED ONBOARDING • STEP 2 OF 3</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight">Complete your profile</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-2 max-w-2xl">
+        Tell us a little about yourself so we can personalize your learning curriculum and assign the best-matched verified local trainer to your neighborhood.
+      </p>
+</div>
+<!-- Asymmetric 2-Column Desktop Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Primary Form Container (8 Columns) -->
+<section class="lg:col-span-8 bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-6 sm:p-10 shadow-level-1">
+<form class="space-y-8" id="profileForm" onsubmit="event.preventDefault(); triggerSubmit();">
+<!-- 1. Profile Avatar Uploader Section -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 pb-8 border-b border-outline-variant/20">
+<div class="relative group">
+<div class="w-24 h-24 rounded-full bg-surface-container-low border-2 border-dashed border-outline-variant flex flex-col items-center justify-center text-on-surface-variant overflow-hidden hover:border-secondary-container transition-colors">
+<span class="material-symbols-outlined text-3xl text-on-surface-variant/70 mb-1">add_a_photo</span>
+<span class="text-badge-micro font-badge-micro uppercase tracking-wider text-on-surface-variant">Photo</span>
+</div>
+<button aria-label="Upload profile picture" class="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center shadow-md hover:bg-secondary-container transition-all" type="button">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Upload Photo</h3>
+<span class="text-label-sm font-label-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">(Optional)</span>
+</div>
+<p class="text-body-medium font-body-medium text-on-surface-variant mt-1">
+                Help your certified instructor recognize you at your pickup point.
+              </p>
+<p class="text-label-sm font-label-sm text-outline mt-1.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">info</span>
+                Accepts JPG, PNG or WebP • Max size 5 MB
+              </p>
+</div>
+</div>
+<!-- Section Divider & Heading -->
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface flex items-center gap-2">
+<span>Personal Identity</span>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">*Required for DMV Verification</span>
+</h2>
+<p class="text-body-base font-body-base text-on-surface-variant mt-1">
+              Required for government license processing and motor safety records.
+            </p>
+</div>
+<!-- Two-column sub-grid for personal details -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<!-- 2. Full Name (*Required) -->
+<div class="sm:col-span-2">
+<label class="block text-label-lg font-label-lg text-on-surface mb-2" for="fullName">
+                Full Legal Name <span class="text-secondary font-bold">*</span>
+</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">badge</span>
+</div>
+<input class="w-full h-12 pl-11 pr-4 rounded-xl border border-outline-variant bg-surface-container-lowest text-body-base font-body-base text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary-container focus:ring-2 focus:ring-secondary-container transition-all" id="fullName" name="fullName" placeholder="Enter name as shown on Govt ID" required="" type="text" value="Alexandria Morgan">
+</div>
+<p class="hidden text-label-sm font-label-sm text-error mt-1.5 items-center gap-1" id="nameError">
+<span class="material-symbols-outlined text-sm">error</span>
+                Please provide your full legal name as it appears on your official documents.
+              </p>
+<p class="text-label-sm font-label-sm text-outline mt-1.5">
+                Must match your Aadhaar, Passport, or State ID.
+              </p>
+</div>
+<!-- 3. Date of Birth (*Required) -->
+<div>
+<label class="block text-label-lg font-label-lg text-on-surface mb-2" for="dob">
+                Date of Birth <span class="text-secondary font-bold">*</span>
+</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">calendar_today</span>
+</div>
+<input class="w-full h-12 pl-11 pr-4 rounded-xl border border-outline-variant bg-surface-container-lowest text-body-base font-body-base text-on-surface focus:outline-none focus:border-secondary-container focus:ring-2 focus:ring-secondary-container transition-all" id="dob" name="dob" required="" type="date" value="2003-05-14">
+</div>
+<p class="text-label-sm font-label-sm text-on-tertiary-container mt-1.5 flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                Eligible for 4-Wheeler Car Training (Age 18+)
+              </p>
+</div>
+<!-- 4. Gender Selection (*Required) -->
+<div>
+<label class="block text-label-lg font-label-lg text-on-surface mb-2">
+                Gender <span class="text-secondary font-bold">*</span>
+</label>
+<div class="grid grid-cols-3 gap-2 h-12">
+<label class="relative flex items-center justify-center p-2 rounded-xl border border-outline-variant bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-all has-[:checked]:border-primary-container has-[:checked]:bg-primary-container has-[:checked]:text-surface-container-lowest">
+<input checked="" class="sr-only" name="gender" type="radio" value="female">
+<span class="text-label-sm font-label-sm font-bold">Female</span>
+</label>
+<label class="relative flex items-center justify-center p-2 rounded-xl border border-outline-variant bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-all has-[:checked]:border-primary-container has-[:checked]:bg-primary-container has-[:checked]:text-surface-container-lowest">
+<input class="sr-only" name="gender" type="radio" value="male">
+<span class="text-label-sm font-label-sm font-bold">Male</span>
+</label>
+<label class="relative flex items-center justify-center p-2 rounded-xl border border-outline-variant bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-all has-[:checked]:border-primary-container has-[:checked]:bg-primary-container has-[:checked]:text-surface-container-lowest">
+<input class="sr-only" name="gender" type="radio" value="other">
+<span class="text-label-sm font-label-sm font-bold truncate">Other</span>
+</label>
+</div>
+<p class="text-label-sm font-label-sm text-outline mt-1.5">
+                Helps enable female-only trainer matching if preferred.
+              </p>
+</div>
+<!-- 5. Email Address (*Required) -->
+<div>
+<label class="block text-label-lg font-label-lg text-on-surface mb-2" for="email">
+                Email Address <span class="text-secondary font-bold">*</span>
+</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">mail</span>
+</div>
+<input class="w-full h-12 pl-11 pr-10 rounded-xl border border-outline-variant bg-surface-container-lowest text-body-base font-body-base text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary-container focus:ring-2 focus:ring-secondary-container transition-all" id="email" name="email" placeholder="name@example.com" required="" type="email" value="alexandria.m@driveme.org">
+<div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-on-tertiary-container" id="emailValidIcon">
+<span class="material-symbols-outlined text-xl">check_circle</span>
+</div>
+</div>
+<p class="hidden text-label-sm font-label-sm text-error mt-1.5 items-center gap-1" id="emailError">
+<span class="material-symbols-outlined text-sm">error</span>
+                Please enter a valid email address (e.g. name@domain.com).
+              </p>
+<p class="text-label-sm font-label-sm text-outline mt-1.5">
+                Session logs and official test certificates will be sent here.
+              </p>
+</div>
+<!-- 6. Mobile Number (Pre-filled & Verified from OTP Step) -->
+<div>
+<label class="block text-label-lg font-label-lg text-on-surface mb-2">
+                Phone Number <span class="text-on-tertiary-container font-semibold">(Verified via OTP)</span>
+</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">phone_iphone</span>
+</div>
+<input class="w-full h-12 pl-11 pr-28 rounded-xl border border-outline-variant/60 bg-surface-container-low text-body-base font-body-base text-on-surface font-semibold cursor-not-allowed" disabled="" type="text" value="+91 98765 43210">
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-white border border-on-tertiary-container/30 text-on-tertiary-container text-badge-micro font-badge-micro shadow-sm">
+<span class="material-symbols-outlined text-sm">verified</span>
+                    VERIFIED
+                  </span>
+</div>
+</div>
+<p class="text-label-sm font-label-sm text-outline mt-1.5 flex justify-between">
+<span>Direct SMS alerts enabled.</span>
+<a class="text-secondary hover:underline" href="#change-phone">Change number</a>
+</p>
+</div>
+</div>
+<!-- Section Divider 2: Locality & Service Coverage -->
+<div class="pt-6 border-t border-outline-variant/20">
+<h2 class="text-headline-sm font-headline-sm text-on-surface flex items-center gap-2">
+<span>Learning Locality &amp; Address</span>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">*Required for Pickup Radius</span>
+</h2>
+<p class="text-body-base font-body-base text-on-surface-variant mt-1">
+              Your home or preferred pickup spot ensures we pair you with dual-control cars nearby.
+            </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+<!-- 7. Address details -->
+<div class="sm:col-span-3">
+<label class="block text-label-lg font-label-lg text-on-surface mb-2" for="streetAddress">
+                Street Address / Building / Landmark <span class="text-secondary font-bold">*</span>
+</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">home_pin</span>
+</div>
+<input class="w-full h-12 pl-11 pr-4 rounded-xl border border-outline-variant bg-surface-container-lowest text-body-base font-body-base text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary-container focus:ring-2 focus:ring-secondary-container transition-all" id="streetAddress" name="streetAddress" placeholder="Flat/House No., Street Name, Landmark" required="" type="text" value="402, Oakwood Residency, Outer Ring Road">
+</div>
+</div>
+<div>
+<label class="block text-label-lg font-label-lg text-on-surface mb-2" for="pincode">
+                Postal Pincode <span class="text-secondary font-bold">*</span>
+</label>
+<div class="relative">
+<input class="w-full h-12 px-4 rounded-xl border border-outline-variant bg-surface-container-lowest text-body-base font-body-base text-on-surface focus:outline-none focus:border-secondary-container focus:ring-2 focus:ring-secondary-container transition-all font-semibold" id="pincode" maxlength="6" name="pincode" required="" type="text" value="560103">
+</div>
+</div>
+<div class="sm:col-span-2">
+<label class="block text-label-lg font-label-lg text-on-surface mb-2" for="localityArea">
+                City / Operational Sub-Zone <span class="text-secondary font-bold">*</span>
+</label>
+<div class="relative">
+<select class="w-full h-12 px-4 rounded-xl border border-outline-variant bg-surface-container-lowest text-body-base font-body-base text-on-surface focus:outline-none focus:border-secondary-container focus:ring-2 focus:ring-secondary-container transition-all appearance-none cursor-pointer" id="localityArea" name="localityArea" required="">
+<option value="bellandur">Bengaluru - Bellandur &amp; Marathahalli Hub</option>
+<option value="koramangala">Bengaluru - Koramangala &amp; HSR Layout</option>
+<option value="indiranagar">Bengaluru - Indiranagar &amp; Domlur</option>
+<option value="whitefield">Bengaluru - Whitefield &amp; ITPL Zone</option>
+</select>
+<div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section Divider 3: Emergency Safety Protocol -->
+<div class="pt-6 border-t border-outline-variant/20">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface flex items-center gap-2">
+<span>Emergency Safety Contact</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant bg-surface-container px-2.5 py-0.5 rounded-full">(Optional)</span>
+</h2>
+<p class="text-body-base font-body-base text-on-surface-variant mt-1">
+                  Notified automatically during your live highway and night driving modules.
+                </p>
+</div>
+<span class="material-symbols-outlined text-secondary-container text-2xl hidden sm:block">health_and_safety</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 bg-surface-container-low/60 p-5 rounded-xl border border-outline-variant/30">
+<!-- 8. Emergency Contact Name & Phone -->
+<div>
+<label class="block text-label-lg font-label-lg text-on-surface mb-2" for="emergencyName">
+                Contact Person Name
+              </label>
+<div class="relative">
+<input class="w-full h-12 px-4 rounded-xl border border-outline-variant bg-surface-container-lowest text-body-base font-body-base text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary-container focus:ring-2 focus:ring-secondary-container transition-all" id="emergencyName" name="emergencyName" placeholder="e.g. Parent, Guardian or Spouse" type="text" value="Marcus Morgan (Father)">
+</div>
+</div>
+<div>
+<label class="block text-label-lg font-label-lg text-on-surface mb-2" for="emergencyPhone">
+                Emergency Phone Number
+              </label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">call</span>
+</div>
+<input class="w-full h-12 pl-11 pr-4 rounded-xl border border-outline-variant bg-surface-container-lowest text-body-base font-body-base text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary-container focus:ring-2 focus:ring-secondary-container transition-all" id="emergencyPhone" name="emergencyPhone" placeholder="+91 00000 00000" type="tel" value="+91 94480 12345">
+</div>
+</div>
+</div>
+<!-- Bottom Action Buttons Group -->
+<div class="pt-6 border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+<button class="w-full sm:w-auto px-6 py-3 rounded-xl border border-outline-variant text-on-surface font-label-lg text-label-lg hover:border-primary-container hover:bg-surface-container-low transition-all text-center" onclick="saveDraftNotice()" type="button">
+              Save Draft &amp; Exit
+            </button>
+<div class="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-3">
+<a class="w-full sm:w-auto text-center px-4 py-3 text-label-lg font-label-lg text-on-surface-variant hover:text-primary transition-colors" href="../driveme_choose_goal/code.html">
+                Skip optional fields
+              </a>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-secondary-container text-surface-container-lowest font-headline-sm text-label-lg hover:bg-secondary active:scale-[0.98] transition-all shadow-md" id="submitBtn" type="submit">
+<span id="btnText">Continue to Goal Selection</span>
+<span class="material-symbols-outlined text-xl" id="btnIcon">arrow_forward</span>
+<div class="hidden w-5 h-5 border-2 border-surface-container-lowest border-t-transparent rounded-full animate-spin" id="btnSpinner"></div>
+</button>
+</div>
+</div>
+</form>
+</section>
+<!-- Right Side Trust & Verification Info Panel (4 Columns) -->
+<aside class="lg:col-span-4 space-y-6">
+<!-- Trust Authority Card: Why We Need This -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-6 shadow-level-1">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-xl bg-surface-container text-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">shield</span>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Why We Need This</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">DriveMe SafePass Guarantee</p>
+</div>
+</div>
+<ul class="space-y-4 text-body-medium font-body-medium text-on-surface-variant">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container text-lg mt-0.5">policy</span>
+<span>
+<strong class="text-on-surface font-semibold block">RTO / DMV Government Filing:</strong>
+                Your date of birth and legal name allow us to issue the official learner license learner test batch without manual paperwork.
+              </span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-container text-lg mt-0.5">person_pin_circle</span>
+<span>
+<strong class="text-on-surface font-semibold block">Accurate Pickup Coordinates:</strong>
+                Ensures dual-control instruction cars arrive right at your doorstep with zero transit surcharge.
+              </span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container text-lg mt-0.5">lock</span>
+<span>
+<strong class="text-on-surface font-semibold block">100% End-to-End Encrypted:</strong>
+                Data is never rented or monetized. We adhere strictly to national privacy frameworks.
+              </span>
+</li>
+</ul>
+<div class="mt-6 pt-5 border-t border-outline-variant/20 flex items-center justify-between text-badge-micro font-badge-micro text-outline">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-on-tertiary-container">check_circle</span>
+              256-BIT SSL SECURE
+            </span>
+<span>GOVT APPROVED SCHEME</span>
+</div>
+</div>
+<!-- Instructor Match Preview Card -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-6 shadow-level-1 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-surface-container-high rounded-full blur-2xl -mr-6 -mt-6"></div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-badge-micro font-badge-micro uppercase tracking-wider text-secondary-container font-bold">Upcoming Match</span>
+<span class="px-2 py-0.5 rounded-full bg-[#ECFDF5] text-[#059669] text-badge-micro font-badge-micro font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">verified</span> Certified Dual-Control
+            </span>
+</div>
+<div class="relative rounded-xl overflow-hidden mb-4 aspect-[16/10] bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A smiling female professional driving instructor in a clean branded navy blue polo shirt seated inside a dual-control training automobile next to a focused teenage learner driver. Bright daylight illuminates the modern dashboard, steering controls, and clear open suburban roadway ahead with soft natural lighting and realistic documentary aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOWbVylY6N2BWjEwTOe0V_ddg89V-RCJTT64qiL5GL6Scoh7-_pPnEs47ssLHXGcGd7-y1yWfdD1nCtFfLOzgqTBNSrLKpDyVNo-saegeQfzhmMHoLtgkjvx_LYr8JsiP7qwfhIOdmrg_1UN5VyY7Bug8TRns6m-mSjPeeHvcJvHVLrM1WqtxvApsFI4eJOEdOwX44TprITsgXK0zTzTX7cXlM5WHOM_We7flvB9opz38nNILA3Nd_">
+<div class="absolute bottom-2 left-2 bg-primary-container/90 backdrop-blur-sm text-surface-container-lowest text-badge-micro font-badge-micro px-2.5 py-1 rounded-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-secondary-container">directions_car</span>
+              Dual-Control Sedan Fleet
+            </div>
+</div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">Top Trainer Assigned on Completion</h4>
+<p class="text-body-medium font-body-medium text-on-surface-variant mt-1.5">
+            Completing this step instantly unlocks scheduling with senior certified road coaches in your sector.
+          </p>
+<div class="mt-4 flex items-center gap-3 p-3 rounded-xl bg-surface-container-low">
+<div class="w-8 h-8 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center font-bold text-xs">
+              DM
+            </div>
+<div>
+<p class="text-label-sm font-label-sm font-bold text-on-surface">98.4% First-Attempt Pass Rate</p>
+<p class="text-badge-micro font-badge-micro text-outline">Across 14,200+ trained learners in 2024</p>
+</div>
+</div>
+</div>
+<!-- Real Reassurance / Learner Testimonial -->
+<div class="p-5 rounded-2xl bg-gradient-to-br from-primary-container to-primary text-surface-container-lowest shadow-md">
+<div class="flex items-center gap-1 text-secondary-container mb-3">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-body-medium font-body-medium text-surface-dim italic">
+            "Profile verification took literally 2 minutes, and having a verified woman instructor pick me up from my exact apartment gate made all the difference to my confidence."
+          </p>
+<div class="mt-4 flex items-center gap-2.5 text-label-sm font-label-sm">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-surface-container-lowest flex items-center justify-center font-black text-xs">P</div>
+<span class="font-bold text-surface-container-lowest">Pooja Sharma</span>
+<span class="text-surface-dim/70 text-badge-micro font-badge-micro">• Passed Test in 18 Days</span>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Standard DriveMe Footer (Generated directly adhering to Shared Component JSON) -->
+<footer class="bg-primary-container dark:bg-primary border-t border-outline-variant/20 dark:border-outline/10 w-full mt-auto">
+<div class="w-full max-w-container-max mx-auto px-6 lg:px-12 py-16 flex flex-col gap-12">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div class="flex flex-col gap-1">
+<span class="text-headline-md font-headline-md font-black text-surface-container-lowest">DriveMe</span>
+<p class="text-body-base font-body-base text-surface-dim">Certified Driver Training &amp; Test Preparation Platform</p>
+</div>
+<div class="flex flex-wrap gap-x-6 gap-y-3">
+<a class="text-label-sm font-label-sm text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#">About Us</a>
+<a class="text-label-sm font-label-sm text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#">Safety Standards</a>
+<a class="text-label-sm font-label-sm text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#">Become a Trainer</a>
+<a class="text-label-sm font-label-sm text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#">Curriculum</a>
+<a class="text-label-sm font-label-sm text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#">Pricing Plans</a>
+<a class="text-label-sm font-label-sm text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#">Privacy Policy</a>
+<a class="text-label-sm font-label-sm text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#">Terms of Service</a>
+<a class="text-label-sm font-label-sm text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#">DMV Resources</a>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-surface-container-lowest/10 gap-4 text-label-sm font-label-sm text-surface-dim/70">
+<p>© 2025 DriveMe Academy Inc. All rights reserved.</p>
+<p class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+          All training vehicles equipped with certified dual-clutch control.
+        </p>
+</div>
+</div>
+</footer>
+<!-- Notification Toast for Save Draft / Actions -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none bg-primary text-surface-container-lowest px-5 py-3.5 rounded-xl shadow-level-3 flex items-center gap-3" id="toast">
+<span class="material-symbols-outlined text-secondary-container" id="toastIcon">check_circle</span>
+<span class="text-body-medium font-body-medium" id="toastMessage">Profile draft saved securely.</span>
+</div>
+<!-- Interactive State Toggle Simulation Script -->
+<script>
+    function setFormState(state) {
+      const buttons = document.querySelectorAll('.state-btn');
+      buttons.forEach(btn => btn.classList.remove('bg-secondary-container', 'text-surface-container-lowest'));
+      
+      const nameInput = document.getElementById('fullName');
+      const nameError = document.getElementById('nameError');
+      const emailInput = document.getElementById('email');
+      const emailError = document.getElementById('emailError');
+      const emailIcon = document.getElementById('emailValidIcon');
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+      const btnIcon = document.getElementById('btnIcon');
+      const btnSpinner = document.getElementById('btnSpinner');
+
+      // Reset base classes
+      nameInput.classList.remove('border-error', 'ring-2', 'ring-error');
+      nameError.classList.add('hidden');
+      nameError.classList.remove('flex');
+      emailInput.classList.remove('border-error', 'ring-2', 'ring-error');
+      emailError.classList.add('hidden');
+      emailError.classList.remove('flex');
+      emailIcon.classList.remove('hidden');
+      btnText.textContent = "Continue to Goal Selection";
+      btnIcon.classList.remove('hidden');
+      btnSpinner.classList.add('hidden');
+      submitBtn.removeAttribute('disabled');
+
+      if (state === 'default') {
+        nameInput.value = "Alexandria Morgan";
+        emailInput.value = "alexandria.m@driveme.org";
+        showToast("State reset to: Default Valid", "info");
+      } else if (state === 'required-error') {
+        nameInput.value = "";
+        nameInput.classList.add('border-error', 'ring-2', 'ring-error');
+        nameError.classList.remove('hidden');
+        nameError.classList.add('flex');
+        nameInput.focus();
+        showToast("Error displayed: Legal Full Name required", "error");
+      } else if (state === 'email-error') {
+        emailInput.value = "alexandria.morgan@invalid-email";
+        emailInput.classList.add('border-error', 'ring-2', 'ring-error');
+        emailError.classList.remove('hidden');
+        emailError.classList.add('flex');
+        emailIcon.classList.add('hidden');
+        emailInput.focus();
+        showToast("Error displayed: Invalid email syntax", "error");
+      } else if (state === 'loading') {
+        btnText.textContent = "Verifying Credentials...";
+        btnIcon.classList.add('hidden');
+        btnSpinner.classList.remove('hidden');
+        submitBtn.setAttribute('disabled', 'true');
+        showToast("Processing simulation active...", "hourglass_empty");
+      }
+    }
+
+    function triggerSubmit() {
+      const btnText = document.getElementById('btnText');
+      const btnIcon = document.getElementById('btnIcon');
+      const btnSpinner = document.getElementById('btnSpinner');
+      
+      btnText.textContent = "Saving & Matching Trainers...";
+      btnIcon.classList.add('hidden');
+      btnSpinner.classList.remove('hidden');
+      
+      setTimeout(() => {
+        showToast("Profile Verified! Forwarding to Goal Selection...", "task_alt"); setTimeout(() => { window.location.href = "../driveme_choose_goal/code.html"; }, 800);
+        setTimeout(() => {
+          btnText.textContent = "Continue to Goal Selection";
+          btnIcon.classList.remove('hidden');
+          btnSpinner.classList.add('hidden');
+        }, 1500);
+      }, 1200);
+    }
+
+    function saveDraftNotice() {
+      showToast("Profile draft saved to session. You can safely return later.", "save");
+    }
+
+    function showToast(message, iconName = "check_circle") {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+
+      toastMessage.textContent = message;
+      toastIcon.textContent = iconName;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3500);
+    }
+  </script>
+
+</body></html>

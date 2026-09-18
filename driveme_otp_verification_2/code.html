@@ -1,0 +1,529 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>DriveMe - Learner OTP Verification</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-container": "#7886a3",
+            "primary": "#000412",
+            "on-secondary-container": "#5b2100",
+            "on-error-container": "#93000a",
+            "surface-dim": "#d2d9f4",
+            "on-primary-fixed-variant": "#394761",
+            "on-error": "#ffffff",
+            "inverse-surface": "#283044",
+            "tertiary-fixed": "#6ffbbe",
+            "secondary-fixed": "#ffdbcc",
+            "on-tertiary-container": "#009969",
+            "outline": "#75777e",
+            "inverse-primary": "#b8c7e6",
+            "on-primary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "tertiary": "#000703",
+            "surface-variant": "#dae2fd",
+            "surface-container-high": "#e2e7ff",
+            "surface-tint": "#515f7a",
+            "inverse-on-surface": "#eef0ff",
+            "surface-bright": "#faf8ff",
+            "secondary-container": "#fc7123",
+            "secondary": "#a14000",
+            "on-secondary-fixed-variant": "#7b2f00",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-background": "#131b2e",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-secondary": "#ffffff",
+            "secondary-fixed-dim": "#ffb694",
+            "outline-variant": "#c5c6ce",
+            "on-tertiary-fixed": "#002113",
+            "surface-container-low": "#f2f3ff",
+            "primary-container": "#0f1e36",
+            "primary-fixed": "#d7e3ff",
+            "error-container": "#ffdad6",
+            "surface": "#faf8ff",
+            "on-surface": "#131b2e",
+            "error": "#ba1a1a",
+            "on-primary-fixed": "#0c1b33",
+            "background": "#faf8ff",
+            "on-secondary-fixed": "#351000",
+            "surface-container-highest": "#dae2fd",
+            "tertiary-container": "#002416",
+            "surface-container-lowest": "#ffffff",
+            "on-surface-variant": "#44474d",
+            "primary-fixed-dim": "#b8c7e6",
+            "surface-container": "#eaedff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-desktop": "1.5rem",
+            "gutter-mobile": "1rem",
+            "container-max": "1280px",
+            "spacing-2xs": "0.25rem",
+            "spacing-lg": "1.5rem",
+            "spacing-3xl": "4rem",
+            "spacing-xs": "0.5rem",
+            "spacing-md": "1rem",
+            "spacing-xl": "2rem",
+            "spacing-2xl": "3rem",
+            "spacing-sm": "0.75rem"
+          },
+          "fontFamily": {
+            "body-medium": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "badge-micro": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-base": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-medium": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "display-hero-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "800"}],
+            "badge-micro": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700"}],
+            "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+            "body-base": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-secondary-container selection:text-surface-container-lowest">
+<!-- TOP APP BAR / ONBOARDING HEADER -->
+<header class="bg-surface-container-lowest border-b border-outline-variant/30 sticky top-0 z-50">
+<div class="max-w-[1280px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+<!-- Brand Logo & Back to Login -->
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-3 group" href="../driveme_learner_login/code.html">
+<!-- DriveMe Road Icon Marker -->
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center shadow-sm relative overflow-hidden">
+<svg class="w-7 h-7" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 8C12 8 28 8 36 20C44 32 34 40 24 40C14 40 12 40 12 40V8Z" fill="#0F1E36"></path>
+<path d="M16 40C20 30 24 22 28 16C31 22 34 32 36 40H28C27 34 26 29 25 24C24 29 23 34 22 40H16Z" fill="#FFFFFF"></path>
+<path d="M22 34L25 25L28 34H22Z" fill="#FC7123"></path>
+<rect fill="#FFFFFF" height="4" rx="1" width="2" x="24" y="27"></rect>
+</svg>
+</div>
+<div class="flex flex-col">
+<div class="text-headline-sm font-headline-sm font-extrabold tracking-tight text-primary leading-none">
+              Drive<span class="text-secondary-container">Me</span>
+</div>
+<span class="text-[9px] font-bold tracking-widest text-on-surface-variant/80 uppercase mt-0.5">LEARN • DRIVE • GROW</span>
+</div>
+</a>
+<div class="h-6 w-[1px] bg-outline-variant/40 hidden md:block"></div>
+<a class="hidden md:inline-flex items-center gap-1.5 text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors py-1.5 px-2.5 rounded-lg hover:bg-surface-container" href="../driveme_learner_login/code.html">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Back to Login</span>
+</a>
+</div>
+<!-- Center: Workflow Step Indicator -->
+<div class="hidden lg:flex flex-col items-center justify-center min-w-[280px]">
+<div class="flex items-center justify-between w-full mb-1.5 text-label-sm font-label-sm">
+<span class="font-bold text-primary tracking-wide text-xs">STEP 1 OF 3</span>
+<span class="text-on-surface-variant text-xs">OTP VERIFICATION</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden p-0.5">
+<div class="bg-secondary-container h-full rounded-full transition-all duration-500 w-[33%]"></div>
+</div>
+</div>
+<!-- Right Utility Actions -->
+<div class="flex items-center gap-3">
+<!-- Locale Selector -->
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-outline-variant/40 text-label-sm font-label-sm text-on-surface hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">language</span>
+<span>English (IN)</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">expand_more</span>
+</button>
+<!-- Help / Support Link -->
+<a class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-label-sm font-label-sm text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all" href="#help">
+<span class="material-symbols-outlined text-[18px]">help_outline</span>
+<span>Help</span>
+</a>
+</div>
+</div>
+</header>
+<!-- WORKFLOW DEMO STATE CONTROLS TOOLBAR (Interactivity for reviewer) -->
+<div class="bg-primary text-surface-bright py-2.5 px-4 border-b border-surface-tint/20">
+<div class="max-w-[1280px] mx-auto flex flex-wrap items-center justify-between gap-3 text-xs">
+<div class="flex items-center gap-2 font-medium">
+<span class="material-symbols-outlined text-secondary-container text-sm">tune</span>
+<span class="text-surface-variant font-semibold">Interactive Demo State Switcher:</span>
+</div>
+<div class="flex flex-wrap items-center gap-1.5">
+<button class="px-2.5 py-1 rounded bg-secondary-container text-surface-container-lowest font-semibold hover:opacity-95 transition-all" id="btn-normal" onclick="setState('normal')">
+          1. Filled (Normal)
+        </button>
+<button class="px-2.5 py-1 rounded bg-primary-container text-surface-bright hover:bg-secondary-container/30 transition-all" id="btn-error" onclick="setState('error')">
+          2. Incorrect OTP (Error)
+        </button>
+<button class="px-2.5 py-1 rounded bg-primary-container text-surface-bright hover:bg-secondary-container/30 transition-all" id="btn-expired" onclick="setState('expired')">
+          3. Expired OTP
+        </button>
+<button class="px-2.5 py-1 rounded bg-primary-container text-surface-bright hover:bg-secondary-container/30 transition-all" id="btn-loading" onclick="setState('loading')">
+          4. Verifying (Loading)
+        </button>
+<button class="px-2.5 py-1 rounded bg-primary-container text-surface-bright hover:bg-secondary-container/30 transition-all" id="btn-success" onclick="setState('success')">
+          5. Verified Success!
+        </button>
+</div>
+</div>
+</div>
+<!-- MAIN CANVAS -->
+<main class="flex-grow max-w-[1280px] w-full mx-auto px-6 lg:px-12 py-10 lg:py-14 flex items-center justify-center">
+<div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+<!-- LEFT / MAIN INTERACTION CARD (7 cols desktop) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-2xl border border-outline-variant/40 shadow-sm p-6 sm:p-10 relative">
+<!-- Mobile Step indicator bar -->
+<div class="lg:hidden flex flex-col mb-6 pb-4 border-b border-outline-variant/30">
+<div class="flex justify-between items-center text-xs font-semibold mb-1">
+<span class="text-primary font-bold">STEP 1 OF 3</span>
+<span class="text-on-surface-variant">OTP VERIFICATION</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full w-1/3"></div>
+</div>
+</div>
+<!-- Header -->
+<div class="mb-8">
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container text-primary text-xs font-bold mb-3">
+<span class="material-symbols-outlined text-[14px] text-secondary-container">verified_user</span>
+<span>LEARNER ACCESS &amp; ACCREDITATION</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-primary tracking-tight mb-2">
+            Verify your mobile number
+          </h1>
+<p class="text-body-base font-body-base text-on-surface-variant flex flex-wrap items-center gap-1.5 leading-relaxed">
+<span>We've sent a 6-digit verification code to</span>
+<strong class="font-bold text-primary">+91 98765 43210</strong>
+<a class="inline-flex items-center font-semibold text-secondary hover:text-secondary-container transition-colors underline decoration-secondary/40 underline-offset-4 ml-1" href="../driveme_learner_login/code.html">
+              [ Edit / Change Number ]
+            </a>
+</p>
+</div>
+<!-- Dynamic Feedback Alert Box (for Error / Expired / Success states) -->
+<div class="hidden mb-6 p-4 rounded-xl border items-start gap-3 transition-all duration-300" id="feedback-alert">
+<span class="material-symbols-outlined text-[20px] mt-0.5" id="feedback-icon">error</span>
+<div class="flex-1">
+<h4 class="text-label-lg font-label-lg font-bold leading-tight" id="feedback-title"></h4>
+<p class="text-body-medium font-body-medium text-xs mt-0.5" id="feedback-desc"></p>
+</div>
+</div>
+<!-- 6 OTP DIGIT INPUTS -->
+<div class="mb-6">
+<label class="block text-label-sm font-label-sm text-primary mb-3 uppercase tracking-wider font-bold">
+            Enter 6-digit SMS verification code
+          </label>
+<div class="grid grid-cols-6 gap-2 sm:gap-3.5 max-w-md">
+<input class="otp-box w-full h-14 sm:h-16 text-center text-headline-md font-headline-md font-bold rounded-xl bg-surface-container-lowest border border-outline-variant/60 text-primary focus:border-secondary-container focus:ring-2 focus:ring-secondary-container/20 focus:outline-none transition-all shadow-sm" id="otp-1" maxlength="1" type="text" value="5">
+<input class="otp-box w-full h-14 sm:h-16 text-center text-headline-md font-headline-md font-bold rounded-xl bg-surface-container-lowest border border-outline-variant/60 text-primary focus:border-secondary-container focus:ring-2 focus:ring-secondary-container/20 focus:outline-none transition-all shadow-sm" id="otp-2" maxlength="1" type="text" value="8">
+<input class="otp-box w-full h-14 sm:h-16 text-center text-headline-md font-headline-md font-bold rounded-xl bg-surface-container-lowest border border-outline-variant/60 text-primary focus:border-secondary-container focus:ring-2 focus:ring-secondary-container/20 focus:outline-none transition-all shadow-sm" id="otp-3" maxlength="1" type="text" value="2">
+<input class="otp-box w-full h-14 sm:h-16 text-center text-headline-md font-headline-md font-bold rounded-xl bg-surface-container-lowest border border-outline-variant/60 text-primary focus:border-secondary-container focus:ring-2 focus:ring-secondary-container/20 focus:outline-none transition-all shadow-sm" id="otp-4" maxlength="1" type="text" value="9">
+<input class="otp-box w-full h-14 sm:h-16 text-center text-headline-md font-headline-md font-bold rounded-xl bg-surface-container-lowest border border-outline-variant/60 text-primary focus:border-secondary-container focus:ring-2 focus:ring-secondary-container/20 focus:outline-none transition-all shadow-sm" id="otp-5" maxlength="1" type="text" value="4">
+<input class="otp-box w-full h-14 sm:h-16 text-center text-headline-md font-headline-md font-bold rounded-xl bg-surface-container-lowest border border-outline-variant/60 text-primary focus:border-secondary-container focus:ring-2 focus:ring-secondary-container/20 focus:outline-none transition-all shadow-sm" id="otp-6" maxlength="1" type="text" value="1">
+</div>
+</div>
+<!-- Timer & Resend Controls -->
+<div class="flex flex-wrap items-center justify-between gap-3 py-3 px-4 rounded-xl bg-surface mb-8 border border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">schedule</span>
+<span class="text-body-medium font-body-medium text-on-surface-variant text-xs sm:text-sm" id="timer-text">
+              Resend code in <span class="font-bold text-primary" id="countdown">00:24</span>
+</span>
+</div>
+<button class="text-label-sm font-label-sm font-bold text-outline cursor-not-allowed transition-colors duration-150" disabled="" id="btn-resend">
+            [ Resend OTP ]
+          </button>
+</div>
+<!-- PRIMARY CONVERSION BUTTON -->
+<div class="space-y-4">
+<a class="w-full flex flex-col items-center justify-center py-4 px-6 rounded-xl bg-secondary-container text-on-secondary font-bold shadow-md hover:bg-secondary active:scale-[0.98] transition-all duration-150 text-center group" href="../driveme_profile_setup/code.html" id="btn-submit">
+<div class="flex items-center gap-2 text-headline-sm font-headline-sm leading-tight">
+<span id="btn-label-text">Verify &amp; Continue</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" id="btn-icon">arrow_forward</span>
+</div>
+<span class="text-xs font-medium text-white/80 mt-0.5 tracking-wide">Next Step: 01 Profile Setup &amp; Learner Details</span>
+</a>
+<!-- Alternative Verification Paths -->
+<div class="pt-2 text-center">
+<p class="text-body-base font-body-base text-on-surface-variant text-xs">
+              Didn't receive SMS?
+            </p>
+<div class="mt-2.5 flex items-center justify-center gap-4 text-xs font-semibold">
+<button class="inline-flex items-center gap-1.5 text-primary hover:text-secondary-container transition-colors py-1 px-2.5 rounded-lg border border-outline-variant/30 hover:border-secondary-container/50 bg-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px] text-[#25D366]" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span>Send via WhatsApp</span>
+</button>
+<button class="inline-flex items-center gap-1.5 text-primary hover:text-secondary-container transition-colors py-1 px-2.5 rounded-lg border border-outline-variant/30 hover:border-secondary-container/50 bg-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px] text-primary">call</span>
+<span>Call Verification</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Security Guarantee micro-strip -->
+<div class="mt-8 pt-6 border-t border-outline-variant/30 flex items-center justify-between text-xs text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span>256-bit encrypted authentication</span>
+</div>
+<span class="text-outline">DriveMe Identity Shield™</span>
+</div>
+</div>
+<!-- RIGHT COLUMN: TRUST & SAFETY CARD (5 cols desktop) -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Safety Authority Card -->
+<div class="bg-primary-container text-surface-container-lowest rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-lg border border-primary-container">
+<!-- Ambient decorative road arc graphic -->
+<div class="absolute -right-10 -bottom-10 w-48 h-48 opacity-10 pointer-events-none">
+<svg class="w-full h-full stroke-white stroke-[4]" fill="none" viewBox="0 0 100 100">
+<circle cx="50" cy="50" r="45" stroke-dasharray="8 6"></circle>
+<path d="M20 80C35 50 65 50 80 20"></path>
+</svg>
+</div>
+<!-- Badge -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest/15 text-surface-bright text-xs font-bold mb-5 backdrop-blur-sm">
+<span class="material-symbols-outlined text-secondary-container text-[16px]">shield_person</span>
+<span>OFFICIAL DRIVING ACADEMY</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-surface-container-lowest mb-3 leading-snug">
+            Your road journey begins with verified confidence.
+          </h3>
+<p class="text-body-medium font-body-medium text-surface-dim/90 mb-6 text-sm">
+            DriveMe adheres to national vehicle safety standards, zero-tolerance background verification for all driving instructors, and complete data privacy.
+          </p>
+<!-- Key Trust Pillars -->
+<div class="space-y-4 pt-2 border-t border-surface-container-lowest/15">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest/10 flex items-center justify-center shrink-0 text-secondary-container">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<div>
+<h4 class="text-label-lg font-label-lg text-surface-container-lowest font-bold text-sm">Instant Learner Verification</h4>
+<p class="text-surface-dim text-xs mt-0.5">Immediate eligibility check for certified dual-control trainer vehicles and licensed slots.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest/10 flex items-center justify-center shrink-0 text-secondary-container">
+<span class="material-symbols-outlined text-[18px]">mark_email_read</span>
+</div>
+<div>
+<h4 class="text-label-lg font-label-lg text-surface-container-lowest font-bold text-sm">Zero Spam Commitment</h4>
+<p class="text-surface-dim text-xs mt-0.5">Your phone number is strictly utilized for real-time lesson updates and trainer rendezvous coordination.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest/10 flex items-center justify-center shrink-0 text-secondary-container">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+</div>
+<div>
+<h4 class="text-label-lg font-label-lg text-surface-container-lowest font-bold text-sm">24/7 Road &amp; Booking Support</h4>
+<p class="text-surface-dim text-xs mt-0.5">Have questions regarding learner license requirements? Live instructors are one tap away.</p>
+</div>
+</div>
+</div>
+<!-- Dual Control Car mini-badge -->
+<div class="mt-8 p-3.5 rounded-xl bg-surface-container-lowest/10 backdrop-blur-sm flex items-center justify-between border border-surface-container-lowest/10">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-tertiary-fixed text-[20px]">directions_car</span>
+<span class="text-xs font-semibold text-surface-bright">All Fleet Vehicles: Dual-Control Certified</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-primary text-[10px] font-extrabold uppercase">100% Safe</span>
+</div>
+</div>
+<!-- Instructor Training Real-Photo Banner matching the visual context -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/30 flex items-center gap-4 shadow-sm">
+<div class="w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-outline-variant/40">
+<img class="w-full h-full object-cover" data-alt="A professional smiling female driving instructor with a young male student in the cockpit of a dual control training vehicle under bright daylight. Crisp automotive interior, steering wheel, and safety road dashboard. Clean and high contrast corporate modern look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZpdoc6g7Cx4-_DrAywdHNjfr5HPinvmVv2Y-8frtdDRsrqKBQizQiMVc-CbnwkJKHzphX9R43R7HKVqtwqYC2JDAPxHN494WJFfMODvRaxHFZf4U4LBrs8yer_RFCJyO8nz6eH1PmonN57VfeMRNuTA5Nee3IiScPlNAetVK1JBH-H4y4u-uqVuHmK9ZqAXCvA_XsGxeqy4ogpfJFYAx00hUVDVWDasToLtGM376z-2KsD9NDqxVY">
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-1 text-on-tertiary-container text-xs font-bold mb-0.5">
+<span class="material-symbols-outlined text-[14px]">star</span>
+<span>4.96/5 Learner Satisfaction</span>
+</div>
+<p class="text-xs text-on-surface-variant font-medium leading-tight">
+              Over 45,000+ certified driving sessions completed safely across 18 major metropolitan centers.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- SHARED FOOTER (Predictive Component adherence) -->
+<footer class="bg-primary-container text-secondary-fixed border-t border-outline-variant/20 mt-16">
+<div class="w-full max-w-[1280px] mx-auto px-6 lg:px-12 py-12 flex flex-col gap-8">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-surface-tint/20">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center font-black text-primary text-sm">
+            D
+          </div>
+<span class="text-headline-md font-headline-md font-black text-surface-container-lowest">DriveMe</span>
+</div>
+<div class="flex flex-wrap gap-x-6 gap-y-2 text-label-sm font-label-sm">
+<a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#about">About Us</a>
+<a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#safety">Safety Standards</a>
+<a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#trainer">Become a Trainer</a>
+<a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#curriculum">Curriculum</a>
+<a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#pricing">Pricing Plans</a>
+<a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#privacy">Privacy Policy</a>
+<a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#terms">Terms of Service</a>
+<a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#dmv">DMV Resources</a>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row justify-between items-center text-xs text-surface-dim gap-4">
+<span>© 2025 DriveMe Academy Inc. All rights reserved.</span>
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim inline-block"></span> All systems operational</span>
+<span>Verified RTO &amp; DMV Curriculums</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- LIGHTWEIGHT INTERACTIVE STATE SCRIPT -->
+<script>
+    const inputs = document.querySelectorAll('.otp-box');
+    const alertBox = document.getElementById('feedback-alert');
+    const alertIcon = document.getElementById('feedback-icon');
+    const alertTitle = document.getElementById('feedback-title');
+    const alertDesc = document.getElementById('feedback-desc');
+    const submitBtn = document.getElementById('btn-submit');
+    const btnLabel = document.getElementById('btn-label-text');
+    const btnIcon = document.getElementById('btn-icon');
+    const timerText = document.getElementById('timer-text');
+    const countdown = document.getElementById('countdown');
+    const resendBtn = document.getElementById('btn-resend');
+
+    // Auto tab inputs
+    inputs.forEach((input, index) => {
+      input.addEventListener('input', (e) => {
+        if (input.value.length === 1 && index < inputs.length - 1) {
+          inputs[index + 1].focus();
+        }
+      });
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && input.value === '' && index > 0) {
+          inputs[index - 1].focus();
+        }
+      });
+    });
+
+    function resetBoxes(classesToRemove, classesToAdd) {
+      inputs.forEach(input => {
+        if (classesToRemove) input.classList.remove(...classesToRemove.split(' '));
+        if (classesToAdd) input.classList.add(...classesToAdd.split(' '));
+      });
+    }
+
+    function setActiveButton(state) {
+      const stateBtns = ['normal', 'error', 'expired', 'loading', 'success'];
+      stateBtns.forEach(s => {
+        const b = document.getElementById(`btn-${s}`);
+        if (s === state) {
+          b.className = "px-2.5 py-1 rounded bg-secondary-container text-surface-container-lowest font-semibold shadow-sm";
+        } else {
+          b.className = "px-2.5 py-1 rounded bg-primary-container text-surface-bright hover:bg-secondary-container/30 transition-all";
+        }
+      });
+    }
+
+    function setState(state) {
+      setActiveButton(state);
+      // Reset defaults
+      alertBox.classList.add('hidden');
+      alertBox.classList.remove('bg-error-container', 'border-error', 'text-on-error-container', 'bg-tertiary-container', 'text-surface-bright', 'border-on-tertiary-container');
+      resetBoxes('border-error bg-error-container text-error ring-2 ring-error border-on-tertiary-container ring-on-tertiary-container text-on-tertiary-container', 'border-outline-variant/60 text-primary');
+      submitBtn.classList.remove('opacity-75', 'pointer-events-none', 'bg-on-tertiary-container');
+      submitBtn.classList.add('bg-secondary-container');
+      btnLabel.textContent = "Verify & Continue";
+      btnIcon.textContent = "arrow_forward";
+      btnIcon.classList.remove('animate-spin');
+
+      if (state === 'normal') {
+        inputs.forEach((input, i) => input.value = ['5', '8', '2', '9', '4', '1'][i]);
+        countdown.textContent = "00:24";
+        resendBtn.disabled = true;
+        resendBtn.className = "text-label-sm font-label-sm font-bold text-outline cursor-not-allowed transition-colors duration-150";
+      } 
+      else if (state === 'error') {
+        inputs.forEach((input, i) => input.value = ['9', '1', '0', '4', '3', '2'][i]);
+        alertBox.classList.remove('hidden');
+        alertBox.classList.add('flex', 'bg-error-container/60', 'border-error/40', 'text-on-error-container');
+        alertIcon.textContent = "cancel";
+        alertIcon.className = "material-symbols-outlined text-[20px] mt-0.5 text-error";
+        alertTitle.textContent = "Incorrect verification code";
+        alertDesc.textContent = "The OTP you entered doesn't match our records. 2 attempts remaining before temporary lockout.";
+        resetBoxes('', 'border-error text-error bg-error-container/20 ring-1 ring-error/50');
+      } 
+      else if (state === 'expired') {
+        inputs.forEach(input => input.value = '');
+        alertBox.classList.remove('hidden');
+        alertBox.classList.add('flex', 'bg-surface-container-high', 'border-outline-variant', 'text-on-surface');
+        alertIcon.textContent = "alarm_off";
+        alertIcon.className = "material-symbols-outlined text-[20px] mt-0.5 text-on-surface-variant";
+        alertTitle.textContent = "Verification code expired";
+        alertDesc.textContent = "Your 6-digit code has expired for safety reasons. Please tap 'Resend OTP' to generate a fresh code.";
+        countdown.textContent = "00:00";
+        resendBtn.disabled = false;
+        resendBtn.className = "text-label-sm font-label-sm font-bold text-secondary-container hover:text-secondary cursor-pointer transition-colors duration-150 underline decoration-secondary-container";
+      } 
+      else if (state === 'loading') {
+        inputs.forEach((input, i) => input.value = ['5', '8', '2', '9', '4', '1'][i]);
+        submitBtn.classList.add('opacity-80', 'pointer-events-none');
+        btnLabel.textContent = "Verifying with RTO Gateway...";
+        btnIcon.textContent = "sync";
+        btnIcon.classList.add('animate-spin');
+      } 
+      else if (state === 'success') {
+        inputs.forEach((input, i) => input.value = ['5', '8', '2', '9', '4', '1'][i]);
+        alertBox.classList.remove('hidden');
+        alertBox.classList.add('flex', 'bg-[#ECFDF5]', 'border-[#10B981]', 'text-[#065F46]');
+        alertIcon.textContent = "check_circle";
+        alertIcon.className = "material-symbols-outlined text-[20px] mt-0.5 text-[#059669]";
+        alertTitle.textContent = "Mobile verified successfully!";
+        alertDesc.textContent = "Security token authenticated. Redirecting you into Step 01: Profile & Learner License Setup...";
+        submitBtn.classList.remove('bg-secondary-container');
+        submitBtn.classList.add('bg-[#059669]');
+        btnLabel.textContent = "Verified! Proceeding...";
+        btnIcon.textContent = "done_all";
+        resetBoxes('', 'border-[#10B981] bg-[#ECFDF5] text-[#065F46]');
+      }
+    }
+  </script>
+
+</body></html>

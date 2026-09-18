@@ -1,0 +1,528 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>DriveMe | Learner Login</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-low": "#f2f3ff",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#131b2e",
+            "on-error": "#ffffff",
+            "on-primary-fixed": "#0c1b33",
+            "surface-dim": "#d2d9f4",
+            "surface-tint": "#515f7a",
+            "background": "#faf8ff",
+            "surface-container-high": "#e2e7ff",
+            "surface-variant": "#dae2fd",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary-fixed": "#002113",
+            "surface-container-highest": "#dae2fd",
+            "primary": "#000412",
+            "surface-bright": "#faf8ff",
+            "inverse-surface": "#283044",
+            "on-primary": "#ffffff",
+            "primary-fixed-dim": "#b8c7e6",
+            "on-secondary-fixed": "#351000",
+            "primary-container": "#0f1e36",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#d7e3ff",
+            "surface": "#faf8ff",
+            "inverse-primary": "#b8c7e6",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#ffb694",
+            "on-surface-variant": "#44474d",
+            "tertiary": "#000703",
+            "error": "#ba1a1a",
+            "secondary": "#a14000",
+            "on-secondary-container": "#5b2100",
+            "surface-container": "#eaedff",
+            "on-tertiary": "#ffffff",
+            "on-background": "#131b2e",
+            "on-secondary-fixed-variant": "#7b2f00",
+            "tertiary-container": "#002416",
+            "on-tertiary-container": "#009969",
+            "on-primary-container": "#7886a3",
+            "outline": "#75777e",
+            "outline-variant": "#c5c6ce",
+            "secondary-fixed": "#ffdbcc",
+            "error-container": "#ffdad6",
+            "secondary-container": "#fc7123"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "spacing-sm": "0.75rem",
+            "spacing-xl": "2rem",
+            "gutter-mobile": "1rem",
+            "spacing-2xl": "3rem",
+            "spacing-md": "1rem",
+            "spacing-xs": "0.5rem",
+            "spacing-3xl": "4rem",
+            "spacing-lg": "1.5rem",
+            "gutter-desktop": "1.5rem",
+            "container-max": "1280px",
+            "spacing-2xs": "0.25rem"
+          },
+          "fontFamily": {
+            "body-base": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-medium": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "badge-micro": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-base": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "800" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "badge-micro": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-on-surface font-body-base antialiased min-h-screen flex flex-col selection:bg-secondary-container selection:text-white">
+<!-- TOP APP BAR / BRAND HEADER -->
+<header class="w-full bg-surface-container-lowest border-b border-[#E2E8F0] sticky top-0 z-50">
+<div class="max-w-[1280px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+<!-- Brand Logo Group -->
+<a aria-label="DriveMe Home" class="flex items-center gap-3 group focus:outline-none" href="#">
+<!-- SVG Logo reproducing brand icon with Navy 'D', Road curvature, and Road orange striping -->
+<div class="w-10 h-10 flex-shrink-0 flex items-center justify-center">
+<svg class="w-10 h-10" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 14C22 14 55 14 74 34C88 48 87 67 74 81C58 96 22 96 22 96V14Z" fill="#0F1E36"></path>
+<path d="M22 96C32 78 45 42 58 42C67 42 70 54 62 82C55 96 22 96 22 96Z" fill="#FFFFFF"></path>
+<path d="M36 96C42 85 48 64 54 64C58 64 61 74 54 96H36Z" fill="#FF7A00"></path>
+<circle cx="49" cy="50" fill="#FF7A00" r="3"></circle>
+<circle cx="46" cy="62" fill="#FF7A00" r="3.5"></circle>
+</svg>
+</div>
+<div class="flex flex-col">
+<div class="flex items-baseline">
+<span class="text-[26px] font-extrabold tracking-tight text-primary-container font-headline-md leading-none">Drive</span>
+<span class="text-[26px] font-extrabold tracking-tight text-[#FF7A00] font-headline-md leading-none">Me</span>
+</div>
+<span class="text-[9px] font-bold tracking-[0.24em] text-primary-container/70 leading-tight mt-0.5">LEARN. DRIVE. GROW.</span>
+</div>
+</a>
+<!-- Header Center / Back Link & Support Options -->
+<div class="flex items-center gap-6">
+<a class="inline-flex items-center gap-1.5 text-label-sm font-label-sm text-primary-container hover:text-secondary transition-colors" href="../driveme_home_page/code.html"><span class="material-symbols-outlined text-[18px]">arrow_back</span><span>Back to Home</span></a>
+<div class="h-6 w-[1px] bg-[#E2E8F0] hidden sm:block"></div>
+<!-- Help & Language -->
+<div class="flex items-center gap-4 text-label-sm font-label-sm">
+<button class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-primary-container py-1.5 px-2.5 rounded-lg border border-[#E2E8F0] bg-surface-container-lowest hover:border-outline transition-all">
+<span class="material-symbols-outlined text-[16px]">language</span>
+<span>English (IN)</span>
+</button>
+<a class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-[#FF7A00] transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">help</span>
+<span class="hidden md:inline">Help</span>
+</a>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN AUTHENTICATION CANVAS (12-Col Desktop Layout) -->
+<main class="flex-grow flex items-center justify-center py-8 lg:py-14 px-4 sm:px-6 lg:px-12">
+<div class="w-full max-w-[1240px] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+<!-- LEFT COLUMN: AUTHENTICATION FORM CARD (Cols 1-7) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-2xl border border-[#E2E8F0] shadow-[0_10px_25px_-5px_rgba(15,30,54,0.06)] p-6 sm:p-10 lg:p-12 flex flex-col justify-between">
+<div>
+<!-- Stepper & Learner Badge Header -->
+<div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+<!-- Step Breadcrumb -->
+<div class="inline-flex items-center gap-2 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full">
+<span class="w-2 h-2 rounded-full bg-[#FF7A00] animate-pulse"></span>
+<span class="text-badge-micro font-badge-micro tracking-wider uppercase text-primary-container">
+                Step 1 of 3 • Learner Onboarding
+              </span>
+</div>
+<!-- Role Badge -->
+<span class="inline-flex items-center gap-1.5 bg-[#ECFDF5] text-[#059669] px-3 py-1 rounded-full text-label-sm font-label-sm font-semibold border border-[#10B981]/20">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+              Learner Portal
+            </span>
+</div>
+<!-- Progress Visual Indicator -->
+<div class="w-full bg-[#E2E8F0] h-1.5 rounded-full mb-8 overflow-hidden">
+<div class="bg-[#FF7A00] h-full w-1/3 rounded-full transition-all duration-500"></div>
+</div>
+<!-- Headline & Context -->
+<div class="mb-8">
+<h1 class="text-headline-lg font-headline-lg text-primary-container tracking-tight mb-2">
+              Welcome to DriveMe
+            </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+              Learn to drive with verified trainers across certified dual-control vehicles.
+            </p>
+</div>
+<!-- Interactive Mobile / OTP Form -->
+<div class="space-y-6">
+<!-- Step A: Mobile Number Input Container -->
+<div class="space-y-2" id="mobileSection">
+<div class="flex items-center justify-between">
+<label class="text-label-lg font-label-lg text-primary-container" for="mobileInput">
+                  Mobile Number
+                </label>
+<button class="text-label-sm font-label-sm text-[#FF7A00] hover:underline flex items-center gap-1" id="toggleDemoValidationBtn" type="button">
+<span class="material-symbols-outlined text-[15px]">swap_horiz</span>
+<span>Toggle Test Error/Valid</span>
+</button>
+</div>
+<!-- Input Group with Country Code & Auto-Verification Badge -->
+<div class="flex items-center h-12 w-full rounded-[10px] border border-[#CBD5E1] bg-surface-container-lowest focus-within:ring-2 focus-within:ring-[#FF7A00] focus-within:border-transparent transition-all overflow-hidden px-3 shadow-sm" id="inputWrapper">
+<!-- Country Flag / Code -->
+<div class="flex items-center gap-2 pr-3 border-r border-[#E2E8F0] flex-shrink-0 cursor-default select-none">
+<span aria-label="India Flag" class="text-base" role="img">🇮🇳</span>
+<span class="text-body-base font-semibold text-primary-container">+91</span>
+<span class="material-symbols-outlined text-outline-variant text-[18px]">keyboard_arrow_down</span>
+</div>
+<!-- Input Field -->
+<div class="relative flex-grow flex items-center pl-3">
+<span class="material-symbols-outlined text-outline-variant text-[20px] mr-2">phone_iphone</span>
+<input class="w-full h-full border-0 p-0 text-body-base font-body-base text-on-surface placeholder:text-[#94A3B8] focus:ring-0 focus:outline-none bg-transparent" id="mobileInput" maxlength="10" placeholder="Enter 10-digit mobile number" type="tel" value="9876543210">
+<!-- Validation Indicator Icon -->
+<div class="flex items-center text-[#10B981] ml-2" id="validationIcon">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Dynamic Validation State Message -->
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-[#059669] pt-1" id="validationMessage">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span>Valid 10-digit number. Ready for one-time passcode.</span>
+</div>
+</div>
+<!-- Step B: OTP Verification Block (Expandable / Simulated) -->
+<div class="hidden p-5 rounded-xl bg-surface-container-low border border-[#CBD5E1]/60 space-y-4 transition-all duration-300" id="otpSection">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-primary-container">Enter Verification Code</h2>
+<p class="text-label-sm font-label-sm text-on-surface-variant">
+                    We sent a 6-digit OTP to <span class="font-bold text-primary-container">+91 <span id="displayEnteredNumber">98765 43210</span></span>
+<button class="text-[#FF7A00] font-semibold hover:underline ml-1" id="editNumberBtn" type="button">Edit</button>
+</p>
+</div>
+<span class="inline-flex items-center px-2 py-1 bg-surface-container-lowest text-label-sm font-label-sm font-bold text-primary-container rounded border border-[#E2E8F0]">
+                  OTP: 482910
+                </span>
+</div>
+<!-- 6 Digit Input Boxes -->
+<div class="flex items-center gap-2 sm:gap-3 justify-center py-2">
+<input class="w-11 h-12 text-center text-headline-sm font-bold border border-[#CBD5E1] rounded-lg bg-surface-container-lowest focus:ring-2 focus:ring-[#FF7A00] focus:border-transparent outline-none" maxlength="1" type="text" value="4">
+<input class="w-11 h-12 text-center text-headline-sm font-bold border border-[#CBD5E1] rounded-lg bg-surface-container-lowest focus:ring-2 focus:ring-[#FF7A00] focus:border-transparent outline-none" maxlength="1" type="text" value="8">
+<input class="w-11 h-12 text-center text-headline-sm font-bold border border-[#CBD5E1] rounded-lg bg-surface-container-lowest focus:ring-2 focus:ring-[#FF7A00] focus:border-transparent outline-none" maxlength="1" type="text" value="2">
+<input class="w-11 h-12 text-center text-headline-sm font-bold border border-[#CBD5E1] rounded-lg bg-surface-container-lowest focus:ring-2 focus:ring-[#FF7A00] focus:border-transparent outline-none" maxlength="1" type="text" value="9">
+<input class="w-11 h-12 text-center text-headline-sm font-bold border border-[#CBD5E1] rounded-lg bg-surface-container-lowest focus:ring-2 focus:ring-[#FF7A00] focus:border-transparent outline-none" maxlength="1" type="text" value="1">
+<input class="w-11 h-12 text-center text-headline-sm font-bold border border-[#CBD5E1] rounded-lg bg-surface-container-lowest focus:ring-2 focus:ring-[#FF7A00] focus:border-transparent outline-none" maxlength="1" type="text" value="0">
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm pt-1">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                  Resend OTP in <span class="font-bold text-primary-container">28s</span>
+</span>
+<button class="text-on-surface-variant/60 cursor-not-allowed font-medium" type="button">Resend Code</button>
+</div>
+<!-- Verify & Proceed Button -->
+<button class="w-full h-12 bg-[#FF7A00] hover:bg-[#D8580D] active:scale-[0.98] text-white font-label-lg font-semibold rounded-xl flex items-center justify-center gap-2 shadow-[0_4px_12px_rgba(255,122,0,0.25)] transition-all" id="verifyOtpBtn" type="button">
+<span>Verify &amp; Continue</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<div class="text-center text-badge-micro font-badge-micro text-on-surface-variant">
+                Next step: Profile Setup &amp; Goal Selection
+              </div>
+</div>
+<!-- Primary Trigger Button (Send OTP) -->
+<div id="sendOtpContainer">
+<button class="w-full h-12 bg-[#FF7A00] hover:bg-[#D8580D] active:scale-[0.98] text-white font-label-lg font-semibold rounded-xl flex items-center justify-center gap-2 shadow-[0_4px_14px_rgba(255,122,0,0.28)] transition-all duration-150" id="sendOtpBtn" type="button" onclick="if(mobileInput.value.length===10){ displayEnteredNumber.textContent = mobileInput.value.slice(0,5)+\' \'+mobileInput.value.slice(5); sendOtpContainer.classList.add(\'hidden\'); otpSection.classList.remove(\'hidden\'); }">
+<span>Send OTP</span>
+<span class="material-symbols-outlined text-[18px]">lock_open</span>
+</button>
+<div class="mt-2 flex items-center justify-center gap-2 text-badge-micro font-badge-micro text-on-surface-variant">
+                <span>Next: Instant 6-digit SMS verification code</span>
+                <span>•</span>
+                <a href="../driveme_otp_verification_1/code.html" class="text-[#FF7A00] font-semibold hover:underline">Open Dedicated OTP Screen →</a>
+              </div>
+</div>
+<!-- Divider -->
+<div class="relative flex py-2 items-center">
+<div class="flex-grow border-t border-[#E2E8F0]"></div>
+<span class="flex-shrink mx-4 text-badge-micro font-badge-micro uppercase tracking-wider text-outline-variant bg-surface-container-lowest px-2">OR</span>
+<div class="flex-grow border-t border-[#E2E8F0]"></div>
+</div>
+<!-- Secondary Option: Continue as Trainer -->
+<div>
+<a class="w-full h-12 bg-surface-container-lowest border-2 border-primary-container text-primary-container hover:bg-surface-container-low active:scale-[0.98] font-label-lg font-semibold rounded-xl flex items-center justify-center gap-2 transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">sports_motorsports</span>
+<span>Continue as Trainer</span>
+</a>
+<p class="text-center text-badge-micro font-badge-micro text-on-surface-variant mt-1.5">
+                Certified instructors, fleet partners, and independent driving tutors
+              </p>
+</div>
+</div>
+</div>
+<!-- Footer / Trust & Support Notes inside Form Card -->
+<div class="mt-10 pt-6 border-t border-[#E2E8F0]/80 space-y-4">
+<!-- Legal Security Note -->
+<div class="flex items-start gap-2.5 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary-container flex-shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">security</span>
+<p class="leading-relaxed">
+              By continuing, you agree to DriveMe 
+              <a class="text-primary-container font-semibold underline hover:text-[#FF7A00]" href="#">Terms of Service</a> and 
+              <a class="text-primary-container font-semibold underline hover:text-[#FF7A00]" href="#">Privacy Policy</a>. 
+              Protected with 256-bit encrypted OTP verification.
+            </p>
+</div>
+<!-- Contact Support Info Strip -->
+<div class="flex flex-wrap items-center justify-between text-label-sm font-label-sm text-on-surface-variant bg-surface-container-low px-4 py-3 rounded-lg">
+<span class="flex items-center gap-1.5 font-medium">
+<span class="material-symbols-outlined text-[16px] text-primary-container">support_agent</span>
+              Need help with sign-in?
+            </span>
+<div class="flex items-center gap-4">
+<a class="text-[#FF7A00] font-semibold hover:underline flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[15px]">chat</span>
+                WhatsApp Support
+              </a>
+<span class="text-outline-variant hidden sm:inline">•</span>
+<span class="text-outline-variant text-[12px] hidden sm:inline">8 AM – 10 PM IST</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: BRAND VALUE, CREDENTIALS & TESTIMONIAL (Cols 8-12) -->
+<div class="lg:col-span-5 flex flex-col justify-between gap-6">
+<!-- Showcase Card with Hero Graphic / Photo & Overlay Badges -->
+<div class="bg-primary-container rounded-2xl overflow-hidden border border-[#CBD5E1]/30 shadow-lg relative flex flex-col justify-between p-6 sm:p-8 text-white min-h-[460px]">
+<!-- Background Real-World Dual-Control Instructor Image -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover object-center opacity-40 mix-blend-luminosity" data-alt="Professional smiling female driving instructor teaching a confident young male student inside a modern dual-control car on a bright sunny road. The interior shows car dashboard with safety dual pedals and driving school credentials. High contrast corporate lighting with clean navy blue and bright orange accents, realistic automotive photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiy9YLAk8CxunwhMuKqnqUVC9Mk6GPcVOJR4NpUZ8yFdske35iSllGg46TaK-Sqeq00rNwWYd1oEVDtQgh-dsLB1ls2pqkx4smml6ksj2nl19TF30wJIGe3apeAY5yjLqtZCAvxmDPT-7okZedsdIQt6cvyFHUOCWRPvk0JqOeY-1h4SOQrYixMFdoKDhK8IBPPM4eR-jfi5KFkPGvlckVHnUghLNvz3bIBWh4leym5qy1RVJxcICF">
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container via-primary-container/85 to-primary-container/60"></div>
+</div>
+<!-- Top Brand Pill -->
+<div class="relative z-10 flex items-center justify-between">
+<div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+<span class="material-symbols-outlined text-[#FF7A00] text-[18px]">verified</span>
+<span class="text-label-sm font-label-sm text-white font-semibold">Government Certified Fleet</span>
+</div>
+<!-- Transmission Pill -->
+<div class="bg-white/15 backdrop-blur-sm text-white px-2.5 py-1 rounded-md text-badge-micro font-badge-micro font-bold tracking-wider">
+              AUTO &amp; MANUAL
+            </div>
+</div>
+<!-- Floating Credentials Pillars -->
+<div class="relative z-10 my-auto py-6 space-y-3">
+<!-- Pillar 1 -->
+<div class="bg-white/95 backdrop-blur-md p-3.5 rounded-xl border border-white/40 shadow-sm flex items-center gap-3 text-primary-container">
+<div class="w-9 h-9 rounded-lg bg-[#ECFDF5] text-[#059669] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">local_police</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-lg font-label-lg font-bold text-primary-container">100% Police &amp; DMV Verified</span>
+<span class="text-badge-micro font-badge-micro text-on-surface-variant">Background checked trainers with 5+ yrs experience</span>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="bg-white/95 backdrop-blur-md p-3.5 rounded-xl border border-white/40 shadow-sm flex items-center gap-3 text-primary-container">
+<div class="w-9 h-9 rounded-lg bg-[#FFF7ED] text-[#FF7A00] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-lg font-label-lg font-bold text-primary-container">Dual-Control Safety Fleet</span>
+<span class="text-badge-micro font-badge-micro text-on-surface-variant">Secondary brake &amp; clutch pedals for zero panic</span>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="bg-white/95 backdrop-blur-md p-3.5 rounded-xl border border-white/40 shadow-sm flex items-center gap-3 text-primary-container">
+<div class="w-9 h-9 rounded-lg bg-[#EFF6FF] text-[#2563EB] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-lg font-label-lg font-bold text-primary-container">96.4% First-Time Pass Rate</span>
+<span class="text-badge-micro font-badge-micro text-on-surface-variant">Over 18,400+ learners licensed in 2024</span>
+</div>
+</div>
+</div>
+<!-- Bottom Card Footnote -->
+<div class="relative z-10 pt-2 border-t border-white/15 flex items-center justify-between text-label-sm font-label-sm text-surface-dim">
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#10B981]"></span>
+              248 Active Instructors Online Now
+            </span>
+<span class="text-white/80 font-medium">Pan-India Network</span>
+</div>
+</div>
+<!-- Student Testimonial Mini-Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 border border-[#E2E8F0] shadow-sm flex flex-col justify-between">
+<div class="flex items-center gap-1 text-[#FF7A00] mb-2">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm text-primary-container font-bold ml-2">5.0 Testimonial</span>
+</div>
+<p class="text-body-base font-body-base text-primary-container italic mb-4 leading-relaxed">
+            "Booking my verified instructor took literally 2 minutes. The dual-control car gave me so much peace of mind, and I passed my RTO driving test on the first attempt!"
+          </p>
+<div class="flex items-center justify-between pt-3 border-t border-[#E2E8F0]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-primary-container text-label-lg">
+                AS
+              </div>
+<div>
+<h4 class="text-label-lg font-label-lg font-bold text-primary-container">Ananya S.</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Learner • Passed Test in 14 Days</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 text-badge-micro font-badge-micro font-semibold text-[#059669] bg-[#ECFDF5] px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px]">check</span> Verified Pass
+            </span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="w-full bg-primary-container border-t border-outline-variant/20 mt-auto">
+<div class="w-full max-w-[1280px] mx-auto px-6 lg:px-12 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+<!-- Left: Copyright and Small Brand Anchor -->
+<div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+<span class="text-headline-sm font-headline-sm font-black text-surface-container-lowest">
+          DriveMe
+        </span>
+<span class="hidden sm:inline text-surface-dim">|</span>
+<p class="text-label-sm font-label-sm text-surface-dim">
+          © 2025 DriveMe Academy Inc. All rights reserved.
+        </p>
+</div>
+<!-- Right: Direct Utility Links -->
+<div class="flex flex-wrap justify-center items-center gap-6 text-label-sm font-label-sm text-surface-dim">
+<a class="hover:text-surface-container-lowest hover:underline transition-all" href="#">About Us</a>
+<a class="hover:text-surface-container-lowest hover:underline transition-all" href="#">Safety Standards</a>
+<a class="hover:text-surface-container-lowest hover:underline transition-all" href="#">Become a Trainer</a>
+<a class="hover:text-surface-container-lowest hover:underline transition-all" href="#">Curriculum</a>
+<a class="hover:text-surface-container-lowest hover:underline transition-all" href="#">Privacy Policy</a>
+<a class="hover:text-surface-container-lowest hover:underline transition-all" href="#">Terms of Service</a>
+<a class="hover:text-surface-container-lowest hover:underline transition-all" href="#">DMV Resources</a>
+</div>
+</div>
+</footer>
+<!-- SCRIPT: MICRO-INTERACTIONS & PROTOTYPE STATE TOGGLES -->
+<script>
+    const mobileInput = document.getElementById('mobileInput');
+    const inputWrapper = document.getElementById('inputWrapper');
+    const validationIcon = document.getElementById('validationIcon');
+    const validationMessage = document.getElementById('validationMessage');
+    const toggleDemoValidationBtn = document.getElementById('toggleDemoValidationBtn');
+    
+    const sendOtpBtn = document.getElementById('sendOtpBtn');
+    const sendOtpContainer = document.getElementById('sendOtpContainer');
+    const otpSection = document.getElementById('otpSection');
+    const displayEnteredNumber = document.getElementById('displayEnteredNumber');
+    const editNumberBtn = document.getElementById('editNumberBtn');
+    const verifyOtpBtn = document.getElementById('verifyOtpBtn');
+
+    let isDemoErrorState = false;
+
+    // Toggle validation preview state for reviewer demo
+    toggleDemoValidationBtn.addEventListener('click', () => {
+      isDemoErrorState = !isDemoErrorState;
+      if (isDemoErrorState) {
+        mobileInput.value = '98765';
+        setInvalidState();
+      } else {
+        mobileInput.value = '9876543210';
+        setValidState();
+      }
+    });
+
+    mobileInput.addEventListener('input', (e) => {
+      const val = e.target.value.replace(/\D/g, '');
+      e.target.value = val;
+      if (val.length === 10) {
+        setValidState();
+      } else {
+        setInvalidState();
+      }
+    });
+
+    function setValidState() {
+      inputWrapper.classList.remove('border-error', 'ring-2', 'ring-error');
+      inputWrapper.classList.add('border-[#CBD5E1]');
+      validationIcon.innerHTML = `<span class="material-symbols-outlined text-[20px] text-[#10B981]" style="font-variation-settings: 'FILL' 1;">check_circle</span>`;
+      validationMessage.className = 'flex items-center gap-1.5 text-label-sm font-label-sm text-[#059669] pt-1';
+      validationMessage.innerHTML = `<span class="material-symbols-outlined text-[15px]">verified</span><span>Valid 10-digit number. Ready for one-time passcode.</span>`;
+      sendOtpBtn.removeAttribute('disabled');
+      sendOtpBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+    }
+
+    function setInvalidState() {
+      inputWrapper.classList.add('border-error', 'ring-1', 'ring-error');
+      validationIcon.innerHTML = `<span class="material-symbols-outlined text-[20px] text-error">error</span>`;
+      validationMessage.className = 'flex items-center gap-1.5 text-label-sm font-label-sm text-error pt-1';
+      validationMessage.innerHTML = `<span class="material-symbols-outlined text-[15px]">info</span><span>Please enter a valid 10-digit mobile number.</span>`;
+      sendOtpBtn.setAttribute('disabled', 'true');
+      sendOtpBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    }
+
+    // Smooth OTP expansion transition
+    sendOtpBtn.addEventListener('click', () => {
+      if (mobileInput.value.length === 10) {
+        displayEnteredNumber.textContent = mobileInput.value.slice(0, 5) + ' ' + mobileInput.value.slice(5);
+        sendOtpContainer.classList.add('hidden');
+        otpSection.classList.remove('hidden');
+      }
+    });
+
+    editNumberBtn.addEventListener('click', () => {
+      otpSection.classList.add('hidden');
+      sendOtpContainer.classList.remove('hidden');
+      mobileInput.focus();
+    });
+
+    verifyOtpBtn.addEventListener('click', () => {
+      window.location.href = '../driveme_profile_setup/code.html';
+    });
+  </script>
+
+</body></html>

@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DriveMe | Learn to Drive. Drive with Confidence.</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with form and container query plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-container": "#0f1e36",
+            "on-tertiary-container": "#009969",
+            "surface-dim": "#d2d9f4",
+            "secondary-fixed": "#ffdbcc",
+            "on-error": "#ffffff",
+            "on-secondary-container": "#5b2100",
+            "surface-container-low": "#f2f3ff",
+            "on-secondary-fixed": "#351000",
+            "on-primary-fixed": "#0c1b33",
+            "surface-bright": "#faf8ff",
+            "on-secondary": "#ffffff",
+            "surface-container-highest": "#dae2fd",
+            "inverse-surface": "#283044",
+            "secondary-fixed-dim": "#ffb694",
+            "tertiary": "#000703",
+            "outline": "#75777e",
+            "on-primary-fixed-variant": "#394761",
+            "surface-tint": "#515f7a",
+            "inverse-on-surface": "#eef0ff",
+            "on-primary": "#ffffff",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-surface": "#131b2e",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-primary-container": "#7886a3",
+            "primary-fixed-dim": "#b8c7e6",
+            "on-tertiary-fixed": "#002113",
+            "secondary": "#a14000",
+            "tertiary-container": "#002416",
+            "on-error-container": "#93000a",
+            "surface": "#faf8ff",
+            "on-tertiary": "#ffffff",
+            "surface-variant": "#dae2fd",
+            "surface-container-high": "#e2e7ff",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#6ffbbe",
+            "on-secondary-fixed-variant": "#7b2f00",
+            "secondary-container": "#fc7123",
+            "error-container": "#ffdad6",
+            "primary-fixed": "#d7e3ff",
+            "inverse-primary": "#b8c7e6",
+            "on-background": "#131b2e",
+            "on-surface-variant": "#44474d",
+            "background": "#faf8ff",
+            "outline-variant": "#c5c6ce",
+            "surface-container": "#eaedff",
+            "primary": "#000412"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "spacing-xl": "2rem",
+            "gutter-desktop": "1.5rem",
+            "spacing-3xl": "4rem",
+            "spacing-xs": "0.5rem",
+            "gutter-mobile": "1rem",
+            "container-max": "1280px",
+            "spacing-md": "1rem",
+            "spacing-2xs": "0.25rem",
+            "spacing-sm": "0.75rem",
+            "spacing-lg": "1.5rem",
+            "spacing-2xl": "3rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "body-medium": ["Plus Jakarta Sans"],
+            "badge-micro": ["Plus Jakarta Sans"],
+            "body-base": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "800" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "badge-micro": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-base": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed font-body-base text-body-base min-h-screen flex flex-col">
+<!-- ================= TOP NAV BAR (Shared Component Anchor) ================= -->
+<header class="sticky top-0 z-50 bg-surface-container-lowest dark:bg-primary border-b border-outline-variant/30 dark:border-outline/20 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center w-full px-6 lg:px-12 max-w-container-max mx-auto h-20">
+<!-- Brand Logo Anchor -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="h-10 w-10 flex items-center justify-center rounded-lg bg-surface-container-low p-1 transition-transform group-hover:scale-105">
+<img alt="DriveMe Logo" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByy1i6QSMeOzAgb7H_NY-H2yIUDGdpPrX48LGjUb5GuJgdIgqKj1l1uujWTYE3PjTLot7FvfrDGWkois7cq8y471zO_KdbCCCRoYsr6b1arPfdjG3uwtgIPV3AC680KgmU94uhcs12o4yEjXsOsPAMMOeOk7J7qsf2evNN0hOA7RNKuW0FLo7HsK-TIAhdzvIUxfCwVH9C1MqDEb35W8z3S99PperuJtb-6UVJUFOTLI-mCN1BXDbP-CW6Gnvh5wlhhw"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-baseline">
+<span class="text-headline-md font-headline-md font-extrabold tracking-tight text-primary-container">Drive</span>
+<span class="text-headline-md font-headline-md font-extrabold tracking-tight text-secondary-container">Me</span>
+</div>
+<span class="text-[9px] font-bold tracking-widest text-on-surface-variant uppercase -mt-1">LEARN. DRIVE. GROW.</span>
+</div>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary dark:border-secondary-fixed pb-1 hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150" href="#">Home</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-on-surface dark:hover:text-surface hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150" href="#how-it-works">How It Works</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-secondary transition-colors duration-150" href="../driveme_find_trainer/code.html">Find a Trainer</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-secondary transition-colors duration-150" href="../driveme_driving_exam_guide/code.html">Exam Guide</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-on-surface dark:hover:text-surface hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150" href="#trust">Help</a>
+</nav>
+<!-- Trailing Action Buttons -->
+<div class="flex items-center gap-3">
+<!-- Login Button with Workflow Micro-hint -->
+<div class="relative group hidden sm:block">
+<a href="../driveme_learner_login/code.html" class="px-4 py-2 text-label-lg font-label-lg text-primary-container hover:bg-surface-container-low rounded-xl transition-all border border-outline-variant/40 active:scale-[0.98] inline-block text-center">Login</a>
+<span class="absolute -bottom-7 right-0 text-[10px] text-on-surface-variant whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none bg-surface-container-high px-2 py-0.5 rounded shadow-sm">
+            Learner / Trainer OTP
+          </span>
+</div>
+<!-- Get Started Dropdown/CTA -->
+<div class="relative group">
+<button class="flex items-center gap-1.5 px-5 py-2.5 bg-secondary-container hover:bg-secondary text-on-secondary text-label-lg font-label-lg rounded-xl shadow-sm hover:shadow transition-all active:scale-[0.98]" id="get-started-btn" type="button">
+<span>Get Started</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+<!-- Dropdown Role Selector -->
+<div class="absolute right-0 mt-2 w-56 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-xl p-2 hidden group-hover:block transition-all">
+<a class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-surface-container-low transition-colors" href="../driveme_learner_login/code.html">
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed/50 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+<div>
+<p class="text-label-lg font-label-lg text-on-surface leading-tight">I want to Learn</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant text-[11px]">Book driving lessons</p>
+</div>
+</a>
+<a class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-surface-container-low transition-colors mt-1" href="#choose-journey">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</div>
+<div>
+<p class="text-label-lg font-label-lg text-on-surface leading-tight">I want to Teach</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant text-[11px]">Earn as certified trainer</p>
+</div>
+</a>
+</div>
+</div>
+<!-- Mobile Navigation Menu Toggle Button -->
+<button aria-label="Toggle mobile navigation menu" class="md:hidden p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low" id="mobile-menu-btn" type="button">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+<!-- Mobile Dropdown Menu -->
+<div class="hidden md:hidden px-6 pb-6 pt-2 border-t border-outline-variant/20 bg-surface-container-lowest" id="mobile-menu">
+<nav class="flex flex-col gap-3">
+<a class="py-2 text-secondary font-bold border-b border-outline-variant/20" href="#">Home</a>
+<a class="py-2 text-on-surface-variant font-medium" href="#how-it-works">How It Works</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-secondary transition-colors duration-150" href="../driveme_find_trainer/code.html">Find a Trainer</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-secondary transition-colors duration-150" href="../driveme_driving_exam_guide/code.html">Exam Guide</a>
+<a class="py-2 text-on-surface-variant font-medium" href="#trust">Help</a>
+<div class="pt-2 flex flex-col gap-2">
+<a href="../driveme_learner_login/code.html" class="block w-full py-2.5 text-center text-label-lg font-label-lg border border-outline-variant/40 rounded-xl hover:bg-surface-container-low">Login (Learner/Trainer OTP)</a>
+</div>
+</nav>
+</div>
+</header>
+<main class="flex-grow">
+<!-- ================= HERO SECTION ================= -->
+<section class="relative bg-surface py-12 md:py-20 overflow-hidden border-b border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Hero Content -->
+<div class="lg:col-span-7 flex flex-col items-start gap-6">
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/30 text-on-surface text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container animate-pulse"></span>
+<span>Accredited Driver Education &amp; Booking Platform</span>
+</div>
+<h1 class="text-display-hero-mobile md:text-display-hero font-display-hero-mobile md:font-display-hero text-primary-container tracking-tight leading-tight">
+            Learn to Drive.<br/>
+<span class="text-secondary-container">Drive with Confidence.</span>
+</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl">
+            Find verified trainers, book lessons, learn step by step, track your progress and prepare for your driving test with DriveMe.
+          </p>
+<!-- CTAs with Next Step Hinting -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto pt-2">
+<!-- Primary Action -->
+<div class="flex flex-col gap-1.5">
+<a class="px-7 py-3.5 bg-secondary-container hover:bg-secondary text-on-secondary text-label-lg font-label-lg rounded-xl shadow-md hover:shadow-lg transition-all text-center flex items-center justify-center gap-2 active:scale-[0.98]" href="../driveme_learner_login/code.html">
+<span>Find a Trainer</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<span class="text-badge-micro font-badge-micro text-secondary text-center">
+                → Step 1: Learner Login &amp; Profile
+              </span>
+</div>
+<!-- Secondary Action -->
+<div class="flex flex-col gap-1.5">
+<a class="px-7 py-3.5 bg-primary-container hover:bg-primary text-on-primary text-label-lg font-label-lg rounded-xl transition-all text-center flex items-center justify-center gap-2 active:scale-[0.98]" href="#choose-journey">
+<span>Become a Trainer</span>
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</a>
+<span class="text-badge-micro font-badge-micro text-on-surface-variant text-center">
+                → Step 1: Trainer Verification
+              </span>
+</div>
+</div>
+<!-- Quick Trust Metrics -->
+<div class="pt-6 grid grid-cols-3 gap-6 border-t border-outline-variant/30 w-full max-w-lg">
+<div>
+<p class="text-headline-sm font-headline-sm text-primary-container font-bold">12,000+</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Lessons Taught</p>
+</div>
+<div>
+<p class="text-headline-sm font-headline-sm text-primary-container font-bold">96.4%</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">First-Time Pass</p>
+</div>
+<div>
+<p class="text-headline-sm font-headline-sm text-primary-container font-bold">100%</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Dual-Control Fleet</p>
+</div>
+</div>
+</div>
+<!-- Right Hero Visual with Authentic Image -->
+<div class="lg:col-span-5 relative">
+<div class="relative rounded-2xl overflow-hidden shadow-xl border border-outline-variant/30 bg-surface-container-lowest group">
+<img alt="DriveMe certified instructor teaching learner in dual-control vehicle" class="w-full h-[440px] object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiNFVQSKDEIXq3aXPFq9p8GYOO9F2R0051tM5lJXNiPTtJZ8fbJbT3PbLw8NCspNZ8qBEmRFMoh-qGS-D7deoP6NwZWkNWqK0yQBadvccFvLxB78zKW39jKKAJyohjWo5pWpoNsv_HOlLpOSOGAetwFzhOZ7NvaRzetUXmAwt-fnugbEF-ZovKw89Q5fqQeB_qW7cZNcQdhb0yPDFxAxRSoNwbsWxNovcs6myyzPk5EFehBNru9cJK"/>
+<!-- Floating Trust Badges Over Image -->
+<div class="absolute top-4 left-4 bg-surface-container-lowest/95 backdrop-blur-sm px-3.5 py-2 rounded-xl shadow-md border border-outline-variant/20 flex items-center gap-2.5">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div>
+<p class="text-label-sm font-label-sm font-bold text-on-surface leading-none">100% Certified</p>
+<p class="text-[10px] text-on-surface-variant font-medium">Police &amp; DMV Cleared</p>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 right-4 bg-surface-container-lowest/95 backdrop-blur-sm p-3.5 rounded-xl shadow-lg border border-outline-variant/20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[20px]">directions_car</span>
+</div>
+<div>
+<p class="text-label-sm font-label-sm font-bold text-on-surface">Dual-Control Safe Vehicles</p>
+<p class="text-[11px] text-on-surface-variant">Equipped with instructor brake pedal</p>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-2.5 py-1 rounded-lg">
+<span class="material-symbols-outlined text-amber-500 text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm font-bold text-on-surface">4.9/5</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= QUICK ROLE ENTRY ("Choose your journey") ================= -->
+<section class="py-16 bg-surface-container-low border-b border-outline-variant/20" id="choose-journey">
+<div class="max-w-container-max mx-auto px-6 lg:px-12">
+<div class="text-center max-w-2xl mx-auto mb-12">
+<span class="text-badge-micro font-badge-micro text-secondary uppercase tracking-wider">CHOOSE YOUR JOURNEY</span>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary-container mt-1">Select your path to get started</h2>
+<p class="text-body-base font-body-base text-on-surface-variant mt-2">Whether you want to gain confidence behind the wheel or earn teaching new drivers, DriveMe has you covered.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+<!-- Card 1: Learner Journey -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant/30 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="w-14 h-14 rounded-xl bg-secondary-fixed/40 text-secondary-container flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[32px]">sports_motorsports</span>
+</div>
+<div class="flex items-center gap-2 mb-2">
+<h3 class="text-headline-md font-headline-md text-primary-container">Learn to Drive</h3>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm px-2.5 py-0.5 rounded-full font-bold">Learner</span>
+</div>
+<p class="text-body-base font-body-base text-on-surface-variant mb-6">
+                Find a verified trainer, book flexible lessons and track your driving progress step by step towards your official license.
+              </p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-3 text-body-base font-body-medium text-on-surface">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Verified Trainers in your neighborhood</span>
+</li>
+<li class="flex items-center gap-3 text-body-base font-body-medium text-on-surface">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Flexible lessons &amp; doorstep pick-up</span>
+</li>
+<li class="flex items-center gap-3 text-body-base font-body-medium text-on-surface">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Digital syllabus &amp; skill progress tracking</span>
+</li>
+<li class="flex items-center gap-3 text-body-base font-body-medium text-on-surface">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>DMV Exam track guides &amp; simulation</span>
+</li>
+</ul>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex flex-col gap-2">
+<a class="w-full py-3.5 bg-secondary-container hover:bg-secondary text-on-secondary text-label-lg font-label-lg rounded-xl text-center shadow transition-all flex items-center justify-center gap-2 active:scale-[0.98]" href="../driveme_learner_login/code.html">
+<span>Start Learning</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<div class="flex items-center justify-center gap-1 text-[11px] text-on-surface-variant font-medium">
+<span>Workflow:</span>
+<span class="text-primary-container font-semibold">Login → Profile Setup → Choose Goal</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Trainer Journey -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant/30 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="w-14 h-14 rounded-xl bg-primary-fixed text-primary-container flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[32px]">workspace_premium</span>
+</div>
+<div class="flex items-center gap-2 mb-2">
+<h3 class="text-headline-md font-headline-md text-primary-container">Teach with DriveMe</h3>
+<span class="bg-surface-container-high text-primary-container text-label-sm font-label-sm px-2.5 py-0.5 rounded-full font-bold">Instructor</span>
+</div>
+<p class="text-body-base font-body-base text-on-surface-variant mb-6">
+                Join DriveMe as an independent certified trainer, manage lessons, build your schedule and grow your weekly teaching earnings.
+              </p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-3 text-body-base font-body-medium text-on-surface">
+<span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Fast, accredited trainer verification</span>
+</li>
+<li class="flex items-center gap-3 text-body-base font-body-medium text-on-surface">
+<span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Autonomous schedule &amp; calendar control</span>
+</li>
+<li class="flex items-center gap-3 text-body-base font-body-medium text-on-surface">
+<span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Direct in-app student bookings &amp; chat</span>
+</li>
+<li class="flex items-center gap-3 text-body-base font-body-medium text-on-surface">
+<span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Transparent weekly earnings &amp; fast payouts</span>
+</li>
+</ul>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex flex-col gap-2">
+<a class="w-full py-3.5 bg-primary-container hover:bg-primary text-on-primary text-label-lg font-label-lg rounded-xl text-center shadow transition-all flex items-center justify-center gap-2 active:scale-[0.98]" href="#how-it-works">
+<span>Become a Trainer</span>
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</a>
+<div class="flex items-center justify-center gap-1 text-[11px] text-on-surface-variant font-medium">
+<span>Workflow:</span>
+<span class="text-primary-container font-semibold">Login → Registration → Verification</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= HOW DRIVE ME WORKS (Sequential Tabbed Flow) ================= -->
+<section class="py-20 bg-surface border-b border-outline-variant/20" id="how-it-works">
+<div class="max-w-container-max mx-auto px-6 lg:px-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div>
+<span class="text-badge-micro font-badge-micro text-secondary uppercase tracking-wider">STEP-BY-STEP PROCESS</span>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary-container mt-1">How DriveMe Works</h2>
+<p class="text-body-base font-body-base text-on-surface-variant mt-2 max-w-xl">
+              We make the journey straightforward. Clear milestones keep you moving toward your license or building your teaching career.
+            </p>
+</div>
+<!-- Process Switcher Tabs -->
+<div class="mt-6 md:mt-0 inline-flex p-1.5 bg-surface-container-high rounded-xl border border-outline-variant/30">
+<button class="px-5 py-2 rounded-lg text-label-lg font-label-lg transition-all bg-surface-container-lowest text-primary-container shadow-sm font-bold" id="tab-learner" onclick="switchWorkflow('learner')" type="button">
+              For Learners
+            </button>
+<button class="px-5 py-2 rounded-lg text-label-lg font-label-lg transition-all text-on-surface-variant hover:text-on-surface font-medium" id="tab-trainer" onclick="switchWorkflow('trainer')" type="button">
+              For Trainers
+            </button>
+</div>
+</div>
+<!-- Sequential Flow: LEARNER STEPS (Default Visible) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 relative" id="flow-learner">
+<!-- Step 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 relative flex flex-col">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold flex items-center justify-center mb-4 text-headline-sm">
+              01
+            </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Create Account</h4>
+<p class="text-body-base font-body-base text-on-surface-variant text-sm">Quick mobile OTP login to create your learner profile.</p>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 relative flex flex-col">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-primary-container font-bold flex items-center justify-center mb-4 text-headline-sm">
+              02
+            </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Choose Goal</h4>
+<p class="text-body-base font-body-base text-on-surface-variant text-sm">Select complete license prep, highway skills, or brush-up.</p>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 relative flex flex-col">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-primary-container font-bold flex items-center justify-center mb-4 text-headline-sm">
+              03
+            </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Find Trainer</h4>
+<p class="text-body-base font-body-base text-on-surface-variant text-sm">Filter by car transmission, rating, distance and price.</p>
+</div>
+<!-- Step 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 relative flex flex-col">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-primary-container font-bold flex items-center justify-center mb-4 text-headline-sm">
+              04
+            </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Book Lesson</h4>
+<p class="text-body-base font-body-base text-on-surface-variant text-sm">Pick your convenient date, time slot, and pick-up address.</p>
+</div>
+<!-- Step 5 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 relative flex flex-col">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-primary-container font-bold flex items-center justify-center mb-4 text-headline-sm">
+              05
+            </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Learn &amp; Track</h4>
+<p class="text-body-base font-body-base text-on-surface-variant text-sm">Practical road training with real-time digital skill feedback.</p>
+</div>
+<!-- Step 6 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 relative flex flex-col border-secondary-container/40">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary font-bold flex items-center justify-center mb-4 text-headline-sm">
+              06
+            </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Pass Test</h4>
+<p class="text-body-base font-body-base text-on-surface-variant text-sm">Simulate DMV track maneuvers &amp; pass your driving exam.</p>
+</div>
+</div>
+<!-- Sequential Flow: TRAINER STEPS (Hidden Initially) -->
+<div class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 relative" id="flow-trainer">
+<!-- Step 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 relative flex flex-col">
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-primary-container font-bold flex items-center justify-center mb-4 text-headline-sm">
+              01
+            </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Trainer Login</h4>
+<p class="text-body-base font-body-base text-on-surface-variant text-sm">Quick access OTP authentication for certified instructors.</p>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 relative flex flex-col">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-primary-container font-bold flex items-center justify-center mb-4 text-headline-sm">
+              02
+            </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Registration</h4>
+<p class="text-body-base font-body-base text-on-surface-variant text-sm">Fill teaching profile, experience, and dual-control vehicle details.</p>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 relative flex flex-col">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-primary-container font-bold flex items-center justify-center mb-4 text-headline-sm">
+              03
+            </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Verification</h4>
+<p class="text-body-base font-body-base text-on-surface-variant text-sm">Upload instructor license, driving history, and vehicle inspection.</p>
+</div>
+<!-- Step 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 relative flex flex-col">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-primary-container font-bold flex items-center justify-center mb-4 text-headline-sm">
+              04
+            </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Get Approved</h4>
+<p class="text-body-base font-body-base text-on-surface-variant text-sm">Receive Verified Badge status within 24-48 hours.</p>
+</div>
+<!-- Step 5 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 relative flex flex-col">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-primary-container font-bold flex items-center justify-center mb-4 text-headline-sm">
+              05
+            </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Manage Schedule</h4>
+<p class="text-body-base font-body-base text-on-surface-variant text-sm">Accept student bookings and customize open calendar hours.</p>
+</div>
+<!-- Step 6 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 relative flex flex-col border-primary-container/40">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary font-bold flex items-center justify-center mb-4 text-headline-sm">
+              06
+            </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Teach &amp; Earn</h4>
+<p class="text-body-base font-body-base text-on-surface-variant text-sm">Complete lesson routes and get direct weekly deposits.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= WHY DRIVE ME (Bento Grid) ================= -->
+<section class="py-20 bg-surface-container-low border-b border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-6 lg:px-12">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-badge-micro font-badge-micro text-secondary uppercase tracking-wider">WHY DRIVEME</span>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary-container mt-1">Everything you need to learn with confidence</h2>
+<p class="text-body-base font-body-base text-on-surface-variant mt-2">Built around modern road safety standards, eliminating old-fashioned driving school uncertainties.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/30 shadow-sm hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary-container mb-2">VERIFIED TRAINERS</h3>
+<p class="text-body-base font-body-base text-on-surface-variant">
+              Connect with trainers who complete the DriveMe verification process, background screening, and annual DMV accreditation.
+            </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/30 shadow-sm hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed/50 text-secondary flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[28px]">calendar_month</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary-container mb-2">FLEXIBLE SCHEDULING</h3>
+<p class="text-body-base font-body-base text-on-surface-variant">
+              Choose lesson times that work for you. Morning, evening, or weekend slots available with seamless instant confirmation.
+            </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/30 shadow-sm hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[28px]">radar</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary-container mb-2">LIVE LESSON TRACKING</h3>
+<p class="text-body-base font-body-base text-on-surface-variant">
+              Stay informed during active driving lessons with verified vehicle check-ins, route tracking, and lesson start/end timestamps.
+            </p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/30 shadow-sm hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[28px]">insights</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary-container mb-2">PROGRESS TRACKING</h3>
+<p class="text-body-base font-body-base text-on-surface-variant">
+              Understand what you've learned and what comes next with clear grade cards after every lesson across 24 specific driving skills.
+            </p>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/30 shadow-sm hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed/50 text-secondary flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[28px]">traffic</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary-container mb-2">EXAM PREPARATION</h3>
+<p class="text-body-base font-body-base text-on-surface-variant">
+              Practice important driving-test tracks (Figure 8, H-Track, parallel parking) and traffic signals before test day.
+            </p>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/30 shadow-sm hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[28px]">shield</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary-container mb-2">SAFE &amp; SIMPLE</h3>
+<p class="text-body-base font-body-base text-on-surface-variant">
+              Designed to make every step clear and easy. Upfront lesson prices, no surprise test car rental fees, and direct trainer support.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= FIND TRAINER PREVIEW ================= -->
+<section class="py-20 bg-surface border-b border-outline-variant/20" id="trainers">
+<div class="max-w-container-max mx-auto px-6 lg:px-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div>
+<span class="text-badge-micro font-badge-micro text-secondary uppercase tracking-wider">CERTIFIED INSTRUCTORS</span>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary-container mt-1">Find the right trainer for you</h2>
+<p class="text-body-base font-body-base text-on-surface-variant mt-2 max-w-xl">
+              Choose a trainer based on experience, rating, language, vehicle and availability. All trainers operate dual-control vehicles.
+            </p>
+</div>
+<div class="mt-4 md:mt-0">
+<a class="inline-flex items-center gap-1.5 text-label-lg font-label-lg text-secondary hover:text-secondary-container transition-colors" href="#trainers">
+<span>View all 48 local instructors</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Trainer Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Trainer 1 -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col justify-between">
+<div class="p-6">
+<!-- Top Row: Avatar & Badges -->
+<div class="flex items-start justify-between gap-4 mb-4">
+<div class="flex items-center gap-3">
+<div class="w-14 h-14 rounded-full bg-surface-container-high overflow-hidden border-2 border-surface-container-lowest shadow-inner">
+<img class="w-full h-full object-cover" data-alt="A confident professional female driving instructor in a clean navy polo shirt, smiling reassuringly, captured in bright high-key daylight with soft modern contrast and clean corporate aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhd0bTJXR9am-WcWRdUiHbn1Jy1vZeBRocy4c0ESaqjgZ51Dcc1BV5EW0CiDSXhw51AgRWJ9I83sLVpPw9EtDle_jKh5PdfhE95vKSJV1f3WHiIxFzivMNYvRQNoof6GZ-AmltU1ZKie_ur8v3_r1KZJrB4injRVE0PKgSlJUErg1cMxRQVWuMXq4WDQETMDfwEXFzncVaJjQiP2pl3MLwhPteVYnvm6nAvMvrUiIt3ZVDhL_nF0LA"/>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary-container leading-snug">Sarah Jenkins</h3>
+<div class="inline-flex items-center gap-1 text-[12px] font-bold text-on-tertiary-container bg-surface-container-high px-2 py-0.5 rounded-full mt-0.5">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Verified Trainer</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm font-bold text-primary-container">$45</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">/hr</span>
+</div>
+</div>
+<!-- Ratings and Stats -->
+<div class="flex items-center gap-4 py-3 border-y border-outline-variant/20 my-4 text-label-sm font-label-sm">
+<div class="flex items-center gap-1 text-on-surface font-bold">
+<span class="material-symbols-outlined text-amber-500 text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.98</span>
+<span class="text-on-surface-variant font-normal">(180 reviews)</span>
+</div>
+<div class="h-3 w-px bg-outline-variant/40"></div>
+<div class="text-on-surface-variant">
+<strong class="text-on-surface font-semibold">8+</strong> Yrs Exp
+                </div>
+</div>
+<!-- Vehicle & Language Details -->
+<div class="space-y-2 text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface">directions_car</span>
+<span class="text-on-surface font-medium">2023 Honda Civic</span>
+<span class="bg-surface-container text-on-primary-fixed text-[10px] font-bold px-2 py-0.5 rounded uppercase">AUTO</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface">translate</span>
+<span>English &amp; Spanish</span>
+</div>
+</div>
+</div>
+<!-- Booking Anchor Button -->
+<div class="p-6 pt-0">
+<button class="w-full py-3 bg-secondary-container hover:bg-secondary text-on-secondary text-label-lg font-label-lg rounded-xl shadow-sm hover:shadow transition-all text-center flex items-center justify-center gap-2 active:scale-[0.98]" type="button">
+<span>Book Lesson</span>
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+</button>
+</div>
+</div>
+<!-- Trainer 2 -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col justify-between">
+<div class="p-6">
+<!-- Top Row: Avatar & Badges -->
+<div class="flex items-start justify-between gap-4 mb-4">
+<div class="flex items-center gap-3">
+<div class="w-14 h-14 rounded-full bg-surface-container-high overflow-hidden border-2 border-surface-container-lowest shadow-inner">
+<img class="w-full h-full object-cover" data-alt="An experienced professional Asian male driving instructor wearing a dark blue zip jacket, looking friendly and authoritative in natural afternoon light, high resolution studio finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMcn-lRR0rMXxKAHtb7un6tZYhBr22FPWSyK0ouhc3vlkyWP-GIcUfYASNEWlc6DDzShadVbAPkQRlLKvJTp8vbOFSMwZFruewct3nwwikgVg67hxZX9W5UMCahh6SGPnXcBYnzuBg5wM-dXBxvQO4ryEB_IHvl4eLBZniKXeWPEDTP90L3v4cW7NG7TWQbn_OVEblJ_I0j-8w8So_s_zMgDbrsxljOuXmx_ZjWPWJQf1xqVZ6HROs"/>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary-container leading-snug">Michael Chen</h3>
+<div class="inline-flex items-center gap-1 text-[12px] font-bold text-on-tertiary-container bg-surface-container-high px-2 py-0.5 rounded-full mt-0.5">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Verified Trainer</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm font-bold text-primary-container">$48</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">/hr</span>
+</div>
+</div>
+<!-- Ratings and Stats -->
+<div class="flex items-center gap-4 py-3 border-y border-outline-variant/20 my-4 text-label-sm font-label-sm">
+<div class="flex items-center gap-1 text-on-surface font-bold">
+<span class="material-symbols-outlined text-amber-500 text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.95</span>
+<span class="text-on-surface-variant font-normal">(240 reviews)</span>
+</div>
+<div class="h-3 w-px bg-outline-variant/40"></div>
+<div class="text-on-surface-variant">
+<strong class="text-on-surface font-semibold">12</strong> Yrs Exp
+                </div>
+</div>
+<!-- Vehicle & Language Details -->
+<div class="space-y-2 text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface">directions_car</span>
+<span class="text-on-surface font-medium">2024 Toyota Corolla</span>
+<span class="bg-surface-container text-on-primary-fixed text-[10px] font-bold px-2 py-0.5 rounded uppercase">MANUAL &amp; AUTO</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface">translate</span>
+<span>English &amp; Mandarin</span>
+</div>
+</div>
+</div>
+<!-- Booking Anchor Button -->
+<div class="p-6 pt-0">
+<button class="w-full py-3 bg-secondary-container hover:bg-secondary text-on-secondary text-label-lg font-label-lg rounded-xl shadow-sm hover:shadow transition-all text-center flex items-center justify-center gap-2 active:scale-[0.98]" type="button">
+<span>Book Lesson</span>
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+</button>
+</div>
+</div>
+<!-- Trainer 3 -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col justify-between">
+<div class="p-6">
+<!-- Top Row: Avatar & Badges -->
+<div class="flex items-start justify-between gap-4 mb-4">
+<div class="flex items-center gap-3">
+<div class="w-14 h-14 rounded-full bg-surface-container-high overflow-hidden border-2 border-surface-container-lowest shadow-inner">
+<img class="w-full h-full object-cover" data-alt="A smiling Hispanic male driving coach in his mid thirties, professional demeanor, crisp white collar under navy tactical jacket, modern mobility app portrait style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClPWAiaBN6FQaN0iZwRlH3jZRB4KnAAUJUPDUsP5zzqzph9NPb1YGR4vQ8wcmPP18oxLLJh6P4gm_5mouOR7r1v94rebjWrMb88BLV728ZULzTMxiO12tSyO_1FUXFJ56p5q3wOc7ZZqeL4O4fVyiiZdEHL0ABtjAfm1BuSJba9zp1fMnXWjlRD-FoONKEpN14Z_7EXljv0xi8-4iV7yM8OKvB_2cVy8HzxCuZRAOveg1biwNamWWy"/>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary-container leading-snug">David Rodriguez</h3>
+<div class="inline-flex items-center gap-1 text-[12px] font-bold text-on-tertiary-container bg-surface-container-high px-2 py-0.5 rounded-full mt-0.5">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Verified Trainer</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm font-bold text-primary-container">$42</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">/hr</span>
+</div>
+</div>
+<!-- Ratings and Stats -->
+<div class="flex items-center gap-4 py-3 border-y border-outline-variant/20 my-4 text-label-sm font-label-sm">
+<div class="flex items-center gap-1 text-on-surface font-bold">
+<span class="material-symbols-outlined text-amber-500 text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.92</span>
+<span class="text-on-surface-variant font-normal">(115 reviews)</span>
+</div>
+<div class="h-3 w-px bg-outline-variant/40"></div>
+<div class="text-on-surface-variant">
+<strong class="text-on-surface font-semibold">6</strong> Yrs Exp
+                </div>
+</div>
+<!-- Vehicle & Language Details -->
+<div class="space-y-2 text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface">directions_car</span>
+<span class="text-on-surface font-medium">2023 Hyundai Elantra</span>
+<span class="bg-surface-container text-on-primary-fixed text-[10px] font-bold px-2 py-0.5 rounded uppercase">AUTO</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface">translate</span>
+<span>English</span>
+</div>
+</div>
+</div>
+<!-- Booking Anchor Button -->
+<div class="p-6 pt-0">
+<button class="w-full py-3 bg-secondary-container hover:bg-secondary text-on-secondary text-label-lg font-label-lg rounded-xl shadow-sm hover:shadow transition-all text-center flex items-center justify-center gap-2 active:scale-[0.98]" type="button">
+<span>Book Lesson</span>
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Notice & Next Step Micro-Workflow -->
+<div class="mt-10 text-center flex flex-col items-center">
+<a class="px-8 py-3.5 bg-primary-container hover:bg-primary text-on-primary text-label-lg font-label-lg rounded-xl shadow transition-all inline-flex items-center gap-2" href="#trainers">
+<span>Find a Trainer</span>
+<span class="material-symbols-outlined text-[18px]">search</span>
+</a>
+<p class="text-badge-micro font-badge-micro text-on-surface-variant mt-2">
+            Leads to Trainer Discovery after quick learner login
+          </p>
+</div>
+</div>
+</section>
+<!-- ================= LEARNING EXPERIENCE ("Learn step by step") ================= -->
+<section class="py-20 bg-surface-container-low border-b border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-6 lg:px-12">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-badge-micro font-badge-micro text-secondary uppercase tracking-wider">STRUCTURED ROAD CURRICULUM</span>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary-container mt-1">Learn step by step</h2>
+<p class="text-body-base font-body-base text-on-surface-variant mt-2">A proven progressive training framework that transforms complete novices into calm, defensive, fully-certified drivers.</p>
+</div>
+<!-- Progression Roadmap Timeline -->
+<div class="bg-surface-container-lowest p-8 md:p-12 rounded-3xl border border-outline-variant/30 shadow-sm max-w-5xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-6 gap-6 relative">
+<!-- Stage 1 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container text-on-secondary flex items-center justify-center font-bold text-headline-sm mb-3 shadow-sm">
+                1
+              </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-1">Cockpit Drill</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Mirror setup, seat positioning &amp; basic pedal controls</p>
+</div>
+<!-- Stage 2 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-high text-primary-container flex items-center justify-center font-bold text-headline-sm mb-3">
+                2
+              </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-1">Gear &amp; Clutch</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Smooth starts, gear transitions &amp; hill-starts without roll</p>
+</div>
+<!-- Stage 3 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-high text-primary-container flex items-center justify-center font-bold text-headline-sm mb-3">
+                3
+              </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-1">Maneuvering</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Three-point turns, roundabout navigation &amp; intersections</p>
+</div>
+<!-- Stage 4 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-high text-primary-container flex items-center justify-center font-bold text-headline-sm mb-3">
+                4
+              </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-1">Traffic Rules</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Speed management, lane discipline &amp; defensive anticipation</p>
+</div>
+<!-- Stage 5 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-high text-primary-container flex items-center justify-center font-bold text-headline-sm mb-3">
+                5
+              </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-1">Parallel Parking</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Bay reverse, tight curb parking &amp; mirror judgment</p>
+</div>
+<!-- Stage 6 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-high text-primary-container flex items-center justify-center font-bold text-headline-sm mb-3">
+                6
+              </div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-1">Highway &amp; Test</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">High-speed merging, night drives &amp; official test rehearsal</p>
+</div>
+</div>
+<!-- Interactive Progress Bar Visual -->
+<div class="mt-10 pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="w-full md:w-2/3">
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface font-semibold mb-2">
+<span>Learning Progression Status</span>
+<span class="text-secondary font-bold">Standard 20-Hour Pathway</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container rounded-full" style="width: 65%;"></div>
+</div>
+</div>
+<a class="w-full md:w-auto px-6 py-3 bg-secondary-container hover:bg-secondary text-on-secondary text-label-lg font-label-lg rounded-xl shadow transition-all text-center whitespace-nowrap active:scale-[0.98]" href="../driveme_learner_login/code.html">Start Learning</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= EXAM PREPARATION PREVIEW ("Prepare for your driving test") ================= -->
+<section class="py-20 bg-surface border-b border-outline-variant/20" id="exam-guide">
+<div class="max-w-container-max mx-auto px-6 lg:px-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div>
+<span class="text-badge-micro font-badge-micro text-secondary uppercase tracking-wider">OFFICIAL TEST REHEARSAL</span>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary-container mt-1">Prepare for your driving test</h2>
+<p class="text-body-base font-body-base text-on-surface-variant mt-2 max-w-xl">
+              Master the exact testing course maneuvers and mandatory road signs before you sit for the practical DMV evaluation.
+            </p>
+</div>
+<div class="mt-4 md:mt-0">
+<a class="inline-flex items-center gap-2 px-5 py-2.5 bg-surface-container-high hover:bg-surface-container-highest text-primary-container text-label-lg font-label-lg rounded-xl transition-all" href="../driveme_driving_exam_guide/code.html">
+<span>Explore Exam Guide</span>
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Card 1: DL Test Tracks -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant/30 shadow-sm hover:shadow-md transition-all">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[22px]">route</span>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary-container">Official Test Tracks</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Standardized RTO / DMV Evaluation Tracks</p>
+</div>
+</div>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm px-2.5 py-1 rounded-full font-bold">Interactive Guide</span>
+</div>
+<!-- Track Visuals Grid -->
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/20">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-lg font-label-lg text-primary-container font-bold">8-Track</span>
+<span class="text-badge-micro font-badge-micro bg-surface-container-high px-2 py-0.5 rounded text-on-surface font-semibold">Continuous Steering</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Evaluates steering rhythm without stopping or crossing track borders.</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/20">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-lg font-label-lg text-primary-container font-bold">H-Track</span>
+<span class="text-badge-micro font-badge-micro bg-surface-container-high px-2 py-0.5 rounded text-on-surface font-semibold">Reverse Parking</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Evaluates forward gear entry and precise reverse mirror maneuvering.</p>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary-container">tips_and_updates</span>
+<span class="text-label-sm font-label-sm text-on-surface font-medium">Includes video walkthroughs &amp; common disqualification rules.</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Traffic Signals & Road Signs -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant/30 shadow-sm hover:shadow-md transition-all">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[22px]">signpost</span>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary-container">Traffic Signals &amp; Signs</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Master mandatory, cautionary, and informatory rules</p>
+</div>
+</div>
+<span class="bg-surface-container text-on-primary-fixed text-label-sm font-label-sm px-2.5 py-1 rounded-full font-bold">120+ Flashcards</span>
+</div>
+<!-- Sign Category Pills -->
+<div class="space-y-3 mb-6">
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low border border-outline-variant/20">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-error text-on-error flex items-center justify-center font-bold text-xs">!</div>
+<span class="text-label-md font-label-md text-primary-container font-semibold">Mandatory Signs</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Stop, Give Way, No Entry</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low border border-outline-variant/20">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-amber-500 text-on-secondary flex items-center justify-center font-bold text-xs">▲</div>
+<span class="text-label-md font-label-md text-primary-container font-semibold">Cautionary Signs</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Sharp Curve, Pedestrian Crossing</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low border border-outline-variant/20">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-xs">i</div>
+<span class="text-label-md font-label-md text-primary-container font-semibold">Informatory Signs</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Hospital, First Aid, Fuel Station</span>
+</div>
+</div>
+<p class="text-badge-micro font-badge-micro text-on-surface-variant text-center">
+              Full test guide available upon learner access
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= SAFETY / TRUST SECTION ("Learn with confidence") ================= -->
+<section class="py-20 bg-surface-container-low border-b border-outline-variant/20" id="trust">
+<div class="max-w-container-max mx-auto px-6 lg:px-12">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-badge-micro font-badge-micro text-secondary uppercase tracking-wider">UNCOMPROMISING SAFETY</span>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary-container mt-1">Learn with confidence</h2>
+<p class="text-body-base font-body-base text-on-surface-variant mt-2">Every DriveMe session is anchored on strict verified protocols and safety redundancies.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+<!-- Pillar 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-on-tertiary-container flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Verified Trainers</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Background checked, driving record screened, and certified instructors.</p>
+</div>
+<!-- Pillar 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary-container flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[26px]">event_available</span>
+</div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Clear Booking</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Immediate scheduling confirmation with vehicle specifications &amp; pick-up location.</p>
+</div>
+<!-- Pillar 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-secondary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[26px]">location_on</span>
+</div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Lesson Tracking</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Digital timestamps and route auditing ensure full instructional value.</p>
+</div>
+<!-- Pillar 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary-container flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[26px]">menu_book</span>
+</div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Structured Learning</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Graduated curriculum covering essentials from cockpit drill to highway speeds.</p>
+</div>
+<!-- Pillar 5 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/30 text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-on-tertiary-container flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[26px]">payments</span>
+</div>
+<h4 class="text-label-lg font-label-lg text-primary-container mb-2">Transparent Pricing</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Clear hourly rates with no surprise hidden surcharges or vehicle fees.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= CALL TO ACTION BANNER ================= -->
+<section class="py-20 bg-primary-container text-on-primary relative overflow-hidden">
+<div class="max-w-container-max mx-auto px-6 lg:px-12 relative z-10 text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high/20 border border-outline-variant/30 text-secondary-fixed text-label-sm font-label-sm mb-6">
+<span>Start today &amp; pass on your first attempt</span>
+</div>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg font-bold tracking-tight text-surface mb-4 max-w-2xl mx-auto">
+          Ready to start your driving journey?
+        </h2>
+<p class="text-body-lg font-body-lg text-surface-dim max-w-xl mx-auto mb-10">
+          Find a trainer, book your first lesson and start learning with DriveMe. Or join as an instructor to build your independent teaching business.
+        </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+<a class="w-full sm:w-auto px-8 py-3.5 bg-secondary-container hover:bg-secondary text-on-secondary text-label-lg font-label-lg rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 active:scale-[0.98]" href="../driveme_learner_login/code.html">
+<span>Find a Trainer</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="w-full sm:w-auto px-8 py-3.5 bg-surface-container-lowest text-primary-container hover:bg-surface text-label-lg font-label-lg rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 active:scale-[0.98]" href="#choose-journey">
+<span>Become a Trainer</span>
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- ================= FOOTER (Shared Component Anchor) ================= -->
+<footer class="bg-primary-container dark:bg-primary border-t border-outline-variant/20 dark:border-outline/10 text-surface-dim">
+<div class="w-full max-w-container-max mx-auto px-6 lg:px-12 py-16 flex flex-col gap-12">
+<!-- Top Columns -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+<!-- Brand Identity Column -->
+<div class="lg:col-span-2 flex flex-col items-start gap-4">
+<a class="flex items-center gap-3" href="#">
+<div class="h-10 w-10 flex items-center justify-center rounded-lg bg-surface-container-low p-1">
+<img alt="DriveMe Logo" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWvZcwPGUYTqcoQC6zOE-jpEYp3Ki3aLZqIcrxpQoIhBSOz95Wz4JoV7djjEzbj1TTlEtbx4Mflr_vjj5EAU3qTmFEJPplI3BBE8bw7JZvVHcD6I7Vh0GGW6M6Wjs5rc7VMaxJRFWP31X5LMr6KB97Uj-2O5FTW8v13tL1M-ZxkM_pvrpnHtbtuKFval8zVfsJSFHxd5k5tdbS42BBQd3x87hbAr6DGRag9jz82DywytOaEFB5SDktA_7m4vKaU16UpA"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-baseline">
+<span class="text-headline-md font-headline-md font-black text-surface-container-lowest">Drive</span>
+<span class="text-headline-md font-headline-md font-black text-secondary-container">Me</span>
+</div>
+<span class="text-[9px] font-bold tracking-widest text-surface-dim uppercase -mt-1">LEARN. DRIVE. GROW.</span>
+</div>
+</a>
+<p class="text-body-base font-body-base text-surface-dim max-w-sm">
+            Your smarter way to learn driving. Connecting motivated students with licensed, verified instructors in dual-control safe vehicles.
+          </p>
+<div class="flex items-center gap-3 mt-2 text-surface-dim">
+<a aria-label="DriveMe Facebook Page" class="hover:text-secondary-container transition-colors duration-150" href="#"><span class="material-symbols-outlined text-[20px]">public</span></a>
+<a aria-label="DriveMe Instagram Profile" class="hover:text-secondary-container transition-colors duration-150" href="#"><span class="material-symbols-outlined text-[20px]">camera_alt</span></a>
+<a aria-label="DriveMe YouTube Channel" class="hover:text-secondary-container transition-colors duration-150" href="#"><span class="material-symbols-outlined text-[20px]">smart_display</span></a>
+</div>
+</div>
+<!-- Links Column 1: Platform -->
+<div>
+<h4 class="text-headline-sm font-headline-sm text-surface-container-lowest font-semibold mb-4">Platform</h4>
+<ul class="space-y-2.5 text-label-sm font-label-sm">
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#how-it-works">How It Works</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-secondary transition-colors duration-150" href="../driveme_find_trainer/code.html">Find a Trainer</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#choose-journey">Become a Trainer</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#how-it-works">Curriculum</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#trainers">Pricing Plans</a></li>
+</ul>
+</div>
+<!-- Links Column 2: Resources & Safety -->
+<div>
+<h4 class="text-headline-sm font-headline-sm text-surface-container-lowest font-semibold mb-4">Safety &amp; Guides</h4>
+<ul class="space-y-2.5 text-label-sm font-label-sm">
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#trust">Safety Standards</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#exam-guide">DMV Resources</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-secondary transition-colors duration-150" href="../driveme_driving_exam_guide/code.html">Exam Guide</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#trust">Dual-Control Check</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#trust">Instructor Shield</a></li>
+</ul>
+</div>
+<!-- Links Column 3: Corporate & Legal -->
+<div>
+<h4 class="text-headline-sm font-headline-sm text-surface-container-lowest font-semibold mb-4">Company</h4>
+<ul class="space-y-2.5 text-label-sm font-label-sm">
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#">About Us</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#">Privacy Policy</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#">Terms of Service</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#trust">Help &amp; Support</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest transition-colors hover:underline" href="#">Contact Center</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Row: Copyright & Legal Attribution -->
+<div class="pt-8 border-t border-outline-variant/20 dark:border-outline/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-label-sm font-label-sm text-surface-dim">
+<p>© 2025 DriveMe Academy Inc. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<a class="hover:text-surface-container-lowest transition-colors" href="#">Privacy</a>
+<a class="hover:text-surface-container-lowest transition-colors" href="#">Terms</a>
+<a class="hover:text-surface-container-lowest transition-colors" href="#">Cookies</a>
+<a class="hover:text-surface-container-lowest transition-colors" href="#">Security</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Micro-Interactions Script -->
+<script>
+    // Tab Switcher between Learner and Trainer Process Flows
+    function switchWorkflow(role) {
+      const learnerFlow = document.getElementById('flow-learner');
+      const trainerFlow = document.getElementById('flow-trainer');
+      const tabLearner = document.getElementById('tab-learner');
+      const tabTrainer = document.getElementById('tab-trainer');
+
+      if (role === 'learner') {
+        learnerFlow.classList.remove('hidden');
+        trainerFlow.classList.add('hidden');
+        
+        tabLearner.classList.add('bg-surface-container-lowest', 'text-primary-container', 'shadow-sm', 'font-bold');
+        tabLearner.classList.remove('text-on-surface-variant', 'font-medium');
+
+        tabTrainer.classList.remove('bg-surface-container-lowest', 'text-primary-container', 'shadow-sm', 'font-bold');
+        tabTrainer.classList.add('text-on-surface-variant', 'font-medium');
+      } else {
+        trainerFlow.classList.remove('hidden');
+        learnerFlow.classList.add('hidden');
+
+        tabTrainer.classList.add('bg-surface-container-lowest', 'text-primary-container', 'shadow-sm', 'font-bold');
+        tabTrainer.classList.remove('text-on-surface-variant', 'font-medium');
+
+        tabLearner.classList.remove('bg-surface-container-lowest', 'text-primary-container', 'shadow-sm', 'font-bold');
+        tabLearner.classList.add('text-on-surface-variant', 'font-medium');
+      }
+    }
+
+    // Mobile Hamburger Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+
+</body></html>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DriveMe - Live Lesson in Progress</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Font: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed-variant": "#005236",
+            "on-surface-variant": "#44474d",
+            "inverse-surface": "#283044",
+            "on-primary-fixed-variant": "#394761",
+            "surface": "#faf8ff",
+            "primary-fixed": "#d7e3ff",
+            "on-surface": "#131b2e",
+            "surface-container-high": "#e2e7ff",
+            "surface-variant": "#dae2fd",
+            "surface-container-highest": "#dae2fd",
+            "surface-tint": "#515f7a",
+            "on-primary-fixed": "#0c1b33",
+            "tertiary-container": "#002416",
+            "error-container": "#ffdad6",
+            "surface-bright": "#faf8ff",
+            "primary-container": "#0f1e36",
+            "on-tertiary-fixed": "#002113",
+            "secondary-fixed": "#ffdbcc",
+            "on-tertiary-container": "#009969",
+            "background": "#faf8ff",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#7886a3",
+            "inverse-on-surface": "#eef0ff",
+            "tertiary": "#000703",
+            "on-tertiary": "#ffffff",
+            "primary": "#000412",
+            "secondary": "#a14000",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#93000a",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-error": "#ffffff",
+            "surface-container-low": "#f2f3ff",
+            "inverse-primary": "#b8c7e6",
+            "on-background": "#131b2e",
+            "on-secondary-fixed-variant": "#7b2f00",
+            "primary-fixed-dim": "#b8c7e6",
+            "tertiary-fixed": "#6ffbbe",
+            "outline": "#75777e",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#d2d9f4",
+            "secondary-container": "#fc7123",
+            "on-secondary-container": "#5b2100",
+            "outline-variant": "#c5c6ce",
+            "surface-container": "#eaedff",
+            "on-secondary-fixed": "#351000",
+            "secondary-fixed-dim": "#ffb694"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "spacing-2xs": "0.25rem",
+            "gutter-desktop": "1.5rem",
+            "gutter-mobile": "1rem",
+            "spacing-xs": "0.5rem",
+            "spacing-2xl": "3rem",
+            "spacing-sm": "0.75rem",
+            "spacing-md": "1rem",
+            "spacing-3xl": "4rem",
+            "spacing-lg": "1.5rem",
+            "container-max": "1280px",
+            "spacing-xl": "2rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "body-base": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "badge-micro": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-medium": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "800" }],
+            "body-base": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "badge-micro": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+    }
+    .animate-live-glow {
+      animation: pulse-dot 1.8s ease-in-out infinite;
+    }
+    .road-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(226, 231, 255, 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 231, 255, 0.4) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-base">
+<!-- Notice Banner: Telemetry & Prototype Context -->
+<aside class="bg-primary-container text-surface-variant py-spacing-xs px-gutter-desktop text-center font-label-sm text-label-sm border-b border-on-primary-fixed-variant flex items-center justify-center gap-spacing-sm">
+<span class="inline-flex items-center gap-1 bg-surface-container-highest/20 px-2 py-0.5 rounded-full text-surface-bright">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-ping"></span>
+<span>Live Cockpit Telemetry</span>
+</span>
+<span>•</span>
+<span>Prototype &amp; Demo Mode</span>
+<span>•</span>
+<span class="text-tertiary-fixed font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]" data-icon="verified_user">verified_user</span>
+      Dual-Control Active &amp; Instructor Monitored
+    </span>
+</aside>
+<!-- Top Navigation Bar (Shared Component: TopNavBar) -->
+<header class="bg-surface-container-lowest dark:bg-primary-container border-b border-surface-container-high dark:border-outline-variant shadow-sm dark:shadow-none sticky top-0 z-50">
+<div class="w-full flex items-center justify-between px-gutter-desktop max-w-container-max mx-auto py-3">
+<!-- Brand Logo Cluster -->
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-2 group" href="#">
+<!-- DriveMe stylized road glyph -->
+<div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center text-on-primary shadow-sm group-hover:scale-95 transition-transform duration-150">
+<svg class="w-6 h-6" fill="none" viewbox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 8C14 8 28 8 38 18C48 28 48 44 48 44C48 44 48 56 34 56C20 56 14 56 14 56V8Z" fill="#0F1E36"></path>
+<path d="M22 56L28 34C28 34 32 20 36 20C40 20 40 32 38 42L36 56" stroke="#FFFFFF" stroke-linecap="round" stroke-width="4"></path>
+<path d="M26 56L32 40L36 56" fill="#FC7123"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<div class="flex items-baseline">
+<span class="font-headline-md text-headline-md font-extrabold text-primary dark:text-inverse-primary tracking-tight">Drive</span>
+<span class="font-headline-md text-headline-md font-extrabold text-secondary-container tracking-tight">Me</span>
+</div>
+<span class="text-[9px] font-extrabold tracking-widest text-on-surface-variant -mt-1">LEARN. DRIVE. GROW.</span>
+</div>
+</a>
+<!-- Desktop Navigation Links -->
+<nav aria-label="Main Navigation" class="hidden md:flex items-center gap-6 ml-4">
+<!-- Home -->
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors py-1" href="../driveme_home_page/code.html">Home</a>
+<!-- Upcoming -->
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors py-1" href="../driveme_upcoming_lesson/code.html">Upcoming</a>
+<!-- Live (Active Tab with pulsating live indicator dot) -->
+<a class="border-b-2 border-secondary-container text-secondary-container dark:border-secondary-container dark:text-secondary-container font-label-lg text-label-lg pb-1 flex items-center gap-1.5 font-bold" href="#">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-error"></span>
+</span>
+            Live
+          </a>
+<!-- Progress -->
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors py-1" href="../driveme_learner_progress/code.html">Progress</a>
+<!-- Exam Guide -->
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors py-1" href="#">
+            Exam Guide
+          </a>
+</nav>
+</div>
+<!-- Trailing Action Icons & Trailing Primary Action -->
+<div class="flex items-center gap-3">
+<!-- Emergency SOS Button in Nav -->
+<button class="bg-error text-on-error hover:bg-error/90 active:scale-95 transition-all text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow-sm" title="Instant Alert to DriveMe Safety Dispatch" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="emergency">emergency</span>
+<span class="hidden sm:inline">SOS Support</span>
+</button>
+<!-- Trailing Icon Action: Chat Bubble -->
+<button aria-label="Support chat" class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container dark:hover:bg-inverse-surface transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+</button>
+<!-- Trailing Icon Action: Notifications -->
+<button aria-label="Notifications" class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container dark:hover:bg-inverse-surface transition-colors relative" type="button">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary-container"></span>
+</button>
+<!-- Trailing Secondary: Support -->
+<a class="hidden lg:inline-flex text-xs font-bold text-on-surface-variant hover:text-on-surface px-2.5 py-1.5 rounded-lg transition-colors" href="#">
+          Support
+        </a>
+<!-- Trailing Primary: Book Lesson -->
+<button class="hidden sm:inline-flex bg-secondary-container text-on-primary font-label-sm text-label-sm px-4 py-2 rounded-lg hover:bg-secondary transition-all active:scale-95 font-semibold" type="button">
+          Book Lesson
+        </button>
+<!-- Learner Profile Avatar -->
+<div class="flex items-center gap-2 pl-2 border-l border-surface-container-high">
+<img alt="Learner driver profile avatar" class="w-8 h-8 rounded-full object-cover border-2 border-surface-container-high" data-alt="Close up photographic profile portrait of a confident young South Asian driver smiling warmly in bright daylight inside a modern training vehicle, wearing casual attire, clean minimalist automotive interior background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT4QfDWejWRyZQHkDy8m6oPFw5--QSBDWzIBNCmuR-JcY_jcd3RhwVFPbQAlVaU2UV4zZQSlM0_rXA9pZ3pbFCzQZLBLduEc5Gw1gdDOHL_59WVzvVxzODVKnPCxJBI52sGzFz8ND39UlnUDohJ3Nz0p4cqW5rzs4nF_hfm6wxZ3QhxeLaEm-HcbK6yfU_icE80YajhyxuqpnmlluZVBsEK5fjdVt3k6gIWAp7iQnozF_3bJAC_MAx"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 max-w-container-max w-full mx-auto px-gutter-desktop py-spacing-lg">
+<!-- Top Live Control Bar / Header Zone -->
+<section class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl p-5 shadow-sm mb-6">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<!-- Live Status & Module Title -->
+<div class="flex flex-col gap-1.5">
+<div class="flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1.5 bg-error-container text-on-error-container px-3 py-1 rounded-full text-xs font-bold tracking-wide">
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-live-glow"></span>
+              LIVE LESSON IN PROGRESS
+            </span>
+<span class="text-xs bg-surface-container px-2.5 py-1 rounded-full text-on-surface-variant font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="route">route</span>
+              Session #07 of 15
+            </span>
+<span class="text-xs bg-tertiary-container/10 text-on-tertiary-container px-2.5 py-1 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-on-tertiary-container" data-icon="shield">shield</span>
+              Dual-ControlSUV
+            </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">
+            Module 04: RTO 8-Track Maneuvers &amp; Gradient Clutch Control
+          </h1>
+<p class="text-on-surface-variant font-body-base flex items-center gap-2">
+<span>Instructor: <strong class="text-on-surface">Rajesh Kumar</strong> (4.98 ★, 1,420+ Drives)</span>
+<span>•</span>
+<span>Maruti Suzuki Swift Dzire <strong class="text-on-surface">(KA-03-MB-4412)</strong></span>
+</p>
+</div>
+<!-- Cockpit Elapsed Timer Cluster -->
+<div class="flex items-center gap-5 bg-surface-container-low p-3.5 rounded-xl border border-surface-container-high self-start lg:self-auto">
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-on-surface-variant">ELAPSED TIME</span>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-extrabold text-primary font-mono tracking-tight" id="activeTimer">01:14:22</span>
+<span class="text-xs text-on-surface-variant font-medium">/ 02:00:00</span>
+</div>
+<!-- Dynamic Mini Progress Bar -->
+<div class="w-36 h-1.5 bg-surface-container-high rounded-full mt-1.5 overflow-hidden">
+<div class="h-full bg-secondary-container rounded-full" style="width: 62%;"></div>
+</div>
+</div>
+<div class="h-10 w-px bg-outline-variant/60"></div>
+<!-- Rapid Action: Curriculum Checklist Modal Launcher -->
+<button class="px-3.5 py-2 rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface hover:border-primary font-label-sm text-label-sm font-semibold flex items-center gap-1.5 transition-colors shadow-sm" onclick="document.getElementById('checklistModal').classList.toggle('hidden')" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="checklist">checklist</span>
+            Checklist (4/6)
+          </button>
+</div>
+</div>
+</section>
+<!-- Main Grid: Interactive Stage (Map + Telemetry Dashboard) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Center Stage: Simulated Interactive Live Cockpit Map (8 Cols) -->
+<section class="lg:col-span-8 flex flex-col gap-4">
+<div class="relative bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden shadow-sm flex flex-col h-[560px]">
+<!-- Turn-By-Turn Direction Overlay (Top Floating Bar) -->
+<div class="absolute top-4 left-4 right-4 z-20 flex flex-wrap items-center justify-between gap-3 bg-primary-container text-on-primary p-3.5 rounded-xl shadow-lg border border-primary-container/80 backdrop-blur-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[24px]" data-icon="turn_slight_right">turn_slight_right</span>
+</div>
+<div>
+<div class="text-xs text-secondary-fixed font-semibold tracking-wide">UPCOMING MANEUVER</div>
+<div class="font-headline-sm text-headline-sm font-bold text-surface-bright leading-tight">
+                  Figure-8 Steering Practice in 400m
+                </div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded bg-surface-container-highest/20 text-xs font-mono text-surface-variant font-medium">
+                Speed: 28 km/h
+              </span>
+<span class="px-2.5 py-1 rounded bg-on-tertiary-container/30 text-tertiary-fixed text-xs font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed animate-ping"></span>
+                GPS Locked
+              </span>
+</div>
+</div>
+<!-- Rich Map Canvas Simulation -->
+<div class="relative w-full flex-1 road-grid bg-[#EBF0F9] flex items-center justify-center overflow-hidden">
+<!-- Map Background Ambient Graphic Illustration -->
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">
+<!-- City Park / Green Zones -->
+<rect fill="#D2E8D8" height="140" opacity="0.6" rx="16" width="180" x="40" y="40"></rect>
+<rect fill="#D2E8D8" height="200" opacity="0.5" rx="20" width="220" x="520" y="240"></rect>
+<!-- Road System Grid -->
+<!-- 100 Feet Ring Road -->
+<path d="M-20,160 Q 240,150 420,220 T 900,210" fill="none" stroke="#CBD5E1" stroke-linecap="round" stroke-width="32"></path>
+<path d="M-20,160 Q 240,150 420,220 T 900,210" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-width="26"></path>
+<!-- Secondary Cross Avenues -->
+<line stroke="#E2E8F0" stroke-width="20" x1="260" x2="260" y1="0" y2="580"></line>
+<line stroke="#FFFFFF" stroke-width="14" x1="260" x2="260" y1="0" y2="580"></line>
+<!-- Active Route Path Track (Indiranagar pickup to RTO Ground) -->
+<path d="M 120,440 L 260,340 L 260,200 L 420,220 L 580,180 L 680,260" fill="none" id="activeDriveRoute" stroke="#FC7123" stroke-dasharray="10 4" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"></path>
+<!-- Figure 8 practice loop path preview at checkpoint -->
+<path d="M 680,260 C 720,220 780,220 780,260 C 780,300 680,340 680,380 C 680,420 740,420 780,380" fill="none" opacity="0.4" stroke="#0F1E36" stroke-dasharray="4 4" stroke-width="4"></path>
+</svg>
+<!-- Marker 1: Pickup Location Indiranagar -->
+<div class="absolute" style="left: 100px; top: 415px;">
+<div class="relative group cursor-pointer flex flex-col items-center">
+<div class="bg-primary-container text-on-primary text-[11px] font-bold px-2 py-0.5 rounded shadow whitespace-nowrap mb-1">
+                  Pickup: Indiranagar 12th Main
+                </div>
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest border-2 border-primary-container flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[16px] text-primary-container" data-icon="location_on">location_on</span>
+</div>
+</div>
+</div>
+<!-- Marker 2: Active Car Position (Real-time Trainer Vehicle) -->
+<div class="absolute z-10" style="left: 390px; top: 190px;">
+<div class="relative flex flex-col items-center">
+<!-- Vehicle pulse glow -->
+<div class="absolute -inset-2 bg-secondary-container/20 rounded-full animate-ping"></div>
+<!-- Speed Tag -->
+<div class="bg-primary text-on-primary font-mono text-[11px] font-bold px-2 py-0.5 rounded-full shadow mb-1 border border-secondary-container">
+                  28 km/h
+                </div>
+<!-- Car Icon Pin -->
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-primary flex items-center justify-center shadow-xl border-2 border-surface-container-lowest transform -rotate-12">
+<span class="material-symbols-outlined text-[20px]" data-icon="directions_car">directions_car</span>
+</div>
+</div>
+</div>
+<!-- Marker 3: Destination RTO Ground Checkpoint -->
+<div class="absolute" style="left: 650px; top: 230px;">
+<div class="relative group cursor-pointer flex flex-col items-center">
+<div class="bg-tertiary-container text-tertiary-fixed text-[11px] font-bold px-2 py-0.5 rounded shadow whitespace-nowrap mb-1 border border-tertiary-fixed/30">
+                  Target: RTO Practice Grounds
+                </div>
+<div class="w-8 h-8 rounded-full bg-on-tertiary-container text-on-tertiary flex items-center justify-center shadow-lg border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[18px]" data-icon="flag">flag</span>
+</div>
+</div>
+</div>
+<!-- Simulated Map Controls (Layer & Zoom) -->
+<div class="absolute bottom-4 right-4 z-20 flex flex-col gap-1.5 bg-surface-container-lowest border border-outline-variant p-1 rounded-xl shadow-md">
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface text-sm font-bold" title="Zoom In">+</button>
+<div class="h-px bg-outline-variant"></div>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface text-sm font-bold" title="Zoom Out">−</button>
+<div class="h-px bg-outline-variant"></div>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container flex items-center justify-center text-secondary-container text-sm font-bold" title="Recenter Car">
+<span class="material-symbols-outlined text-[18px]" data-icon="my_location">my_location</span>
+</button>
+</div>
+<!-- Map Footer Overlay Info -->
+<div class="absolute bottom-4 left-4 z-20 bg-surface-container-lowest/90 backdrop-blur-sm border border-outline-variant px-3 py-1.5 rounded-lg text-xs text-on-surface-variant flex items-center gap-3">
+<span class="flex items-center gap-1 font-semibold text-on-surface">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+                Indiranagar Sector 4 Track
+              </span>
+<span>•</span>
+<span>Weather: 26°C Clear / Dry Asphalt</span>
+</div>
+</div>
+<!-- Bottom Micro Status Strip on Map Card -->
+<div class="bg-surface-container-low px-4 py-2.5 border-t border-surface-container-high flex flex-wrap items-center justify-between text-xs text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface">Driver Cockpit Status:</span>
+<span class="text-tertiary-container bg-tertiary-fixed px-2 py-0.5 rounded font-semibold text-[11px]">Seatbelt Fastened</span>
+<span class="text-primary-container bg-surface-variant px-2 py-0.5 rounded font-semibold text-[11px]">Dual Camera Active</span>
+</div>
+<div class="flex items-center gap-3">
+<span>Telemetry Sync: <strong>Live (0.4s ping)</strong></span>
+</div>
+</div>
+</div>
+<!-- Real-Time Telemetry 4-Card Bento Strip -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+<!-- Distance Covered -->
+<div class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-3.5 shadow-sm">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-label-sm">Distance</span>
+<span class="material-symbols-outlined text-secondary-container text-[18px]" data-icon="straighten">straighten</span>
+</div>
+<div class="text-2xl font-extrabold text-primary tracking-tight">8.4 <span class="text-xs font-normal text-on-surface-variant">km</span></div>
+<div class="text-[11px] text-on-surface-variant font-medium mt-0.5">3.6 km to track end</div>
+</div>
+<!-- Dual-Pedal Interventions -->
+<div class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-3.5 shadow-sm">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-label-sm">Interventions</span>
+<span class="material-symbols-outlined text-on-tertiary-container text-[18px]" data-icon="safety_check">safety_check</span>
+</div>
+<div class="text-2xl font-extrabold text-on-tertiary-container tracking-tight">0 <span class="text-xs font-normal text-on-surface-variant">Overrides</span></div>
+<div class="text-[11px] text-tertiary-container font-semibold mt-0.5">Smooth handling</div>
+</div>
+<!-- Average Speed -->
+<div class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-3.5 shadow-sm">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-label-sm">Avg Speed</span>
+<span class="material-symbols-outlined text-primary-container text-[18px]" data-icon="speed">speed</span>
+</div>
+<div class="text-2xl font-extrabold text-primary tracking-tight">22 <span class="text-xs font-normal text-on-surface-variant">km/h</span></div>
+<div class="text-[11px] text-on-surface-variant font-medium mt-0.5">RTO limit: 30 km/h</div>
+</div>
+<!-- Clutch Engagement Quality -->
+<div class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-3.5 shadow-sm">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-label-sm">Clutch Quality</span>
+<span class="material-symbols-outlined text-secondary-container text-[18px]" data-icon="settings_suggest">settings_suggest</span>
+</div>
+<div class="text-2xl font-extrabold text-primary tracking-tight">94%</div>
+<div class="text-[11px] text-on-tertiary-container font-semibold mt-0.5">Optimal friction zone</div>
+</div>
+</div>
+</section>
+<!-- Right Column: Lesson Cockpit Sidecard & Active Actions (4 Cols) -->
+<aside class="lg:col-span-4 flex flex-col gap-5">
+<!-- Live Instructor On-Duty Card -->
+<div class="bg-surface-container-lowest border border-outline-variant/70 rounded-2xl p-5 shadow-sm">
+<div class="flex items-center justify-between pb-4 border-b border-surface-container-high">
+<span class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Certified Instructor</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-bold text-on-tertiary-container bg-tertiary-fixed/30 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[13px]" data-icon="verified">verified</span>
+              RTO Gold Certified
+            </span>
+</div>
+<div class="flex items-center gap-3.5 pt-4">
+<img alt="Instructor Rajesh Kumar" class="w-14 h-14 rounded-xl object-cover border border-outline-variant" data-alt="A professional certified Indian driving instructor in his late 30s wearing a clean branded navy blue polo shirt, smiling with reassuring confidence, studio portrait with clean lighting and neutral slate gray background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI4ipEo-v10cDKzHGb9IF6rB0voomoE4pxdMSZ5VI2zd-z1ZvI-M8EhEBL6RJ1eQfOW2q2DuWMKHKru4bdpsVqko9MMyhZPIRZM4lvEUQaNks9IQZZG_FAJ-noI7AumZtBc52kPxNb6MGYbRxGPhOhddfJPwHcXRAeXHj1Bk_9To1zVjEL0bI5EST1vD8TJB7LjqOE8hPs7uJZOZW2Iv2ySOFtkqjfz3TS51beqMf5bbi0RndybFI5"/>
+<div>
+<div class="font-headline-sm text-headline-sm text-primary font-bold">Rajesh Kumar</div>
+<div class="text-xs text-on-surface-variant">Senior Fleet Trainer • 8+ Yrs Exp</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xs font-bold text-secondary-container flex items-center">
+                  ★ 4.98
+                </span>
+<span class="text-xs text-on-surface-variant">•</span>
+<span class="text-xs text-on-surface-variant">98.2% 1st-Attempt Pass</span>
+</div>
+</div>
+</div>
+<div class="mt-4 p-3 bg-surface-container-low rounded-xl border border-surface-container text-xs text-on-surface-variant flex flex-col gap-1.5">
+<div class="flex justify-between items-center">
+<span class="font-medium text-on-surface">Dual-Pedal Sensitivity:</span>
+<span class="font-mono font-bold text-primary">Standard Safety Mode</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-medium text-on-surface">In-Car Feedback:</span>
+<span class="text-on-tertiary-container font-semibold">Active Audio Guidance</span>
+</div>
+</div>
+<!-- Quick Instructor Connect -->
+<div class="mt-4 grid grid-cols-2 gap-2">
+<button class="py-2 px-3 rounded-lg border border-outline-variant text-xs font-semibold hover:bg-surface-container flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="mic">mic</span>
+              Intercom
+            </button>
+<button class="py-2 px-3 rounded-lg border border-outline-variant text-xs font-semibold hover:bg-surface-container flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="notes">notes</span>
+              Add Note
+            </button>
+</div>
+</div>
+<!-- Real-Time Lesson Drill Progress & Assessment Tracker -->
+<div class="bg-surface-container-lowest border border-outline-variant/70 rounded-2xl p-5 shadow-sm flex flex-col flex-1">
+<div class="flex items-center justify-between mb-3">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold">Session Drill Plan</h2>
+<span class="text-xs font-bold text-secondary-container">66% Completed</span>
+</div>
+<ul class="space-y-3 mb-6">
+<!-- Item 1: Complete -->
+<li class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px] shrink-0 mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="flex-1">
+<div class="text-xs font-bold text-on-surface line-through text-on-surface-variant">Pre-Drive 5-Point Mirror &amp; Seat Adjustment</div>
+<div class="text-[11px] text-on-surface-variant">Completed in 4 mins • Excellent Cockpit Routine</div>
+</div>
+</li>
+<!-- Item 2: Complete -->
+<li class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px] shrink-0 mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="flex-1">
+<div class="text-xs font-bold text-on-surface line-through text-on-surface-variant">Smooth 1st to 2nd Gear Shift Synchronization</div>
+<div class="text-[11px] text-on-surface-variant">Completed • RPM alignment within safe limits</div>
+</div>
+</li>
+<!-- Item 3: In Progress (Active) -->
+<li class="flex items-start gap-2.5 p-2.5 rounded-lg border-2 border-secondary-container/40 bg-secondary-fixed/10">
+<span class="material-symbols-outlined text-secondary-container text-[20px] shrink-0 mt-0.5 animate-spin" data-icon="progress_activity">progress_activity</span>
+<div class="flex-1">
+<div class="text-xs font-bold text-primary flex items-center justify-between">
+<span>RTO Figure-8 Maneuver Track</span>
+<span class="text-[10px] bg-secondary-container text-on-primary px-1.5 py-0.2 rounded">DRILLING NOW</span>
+</div>
+<div class="text-[11px] text-on-surface-variant mt-0.5">Focus: Hand-over-hand steering and steady 10 km/h throttle</div>
+</div>
+</li>
+<!-- Item 4: Upcoming -->
+<li class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container-lowest border border-dashed border-outline-variant">
+<span class="material-symbols-outlined text-outline-variant text-[20px] shrink-0 mt-0.5" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+<div class="flex-1">
+<div class="text-xs font-bold text-on-surface">Gradient Handbrake Hill Restart (Uphill Stop)</div>
+<div class="text-[11px] text-on-surface-variant">Scheduled for last 30 minutes</div>
+</div>
+</li>
+</ul>
+<!-- Action Buttons Area: Emergency SOS & Workflow Transition -->
+<div class="mt-auto pt-4 border-t border-surface-container-high flex flex-col gap-3">
+<!-- Primary Action: End Lesson & View Progress -->
+<a class="w-full bg-secondary-container text-on-primary py-3.5 px-4 rounded-xl font-label-lg text-label-lg font-bold hover:bg-secondary active:scale-[0.98] transition-all shadow-md flex items-center justify-center gap-2 group" href="../driveme_learner_progress/code.html">
+<span>End Lesson &amp; View Progress</span>
+<span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<!-- High-Visibility Emergency SOS Button -->
+<button class="w-full bg-error-container text-on-error-container border border-error/30 hover:bg-error hover:text-on-error py-2.5 px-4 rounded-xl font-label-sm text-label-sm font-bold active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-sm" title="Instantly alerts DriveMe 24/7 Safety Desk &amp; RTO Safety Coordinator" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="crisis_alert">crisis_alert</span>
+<span>🚨 SOS Emergency Support</span>
+</button>
+<p class="text-[11px] text-center text-on-surface-variant">
+              Direct hotlink to DriveMe Safety Dispatch &amp; RTO On-Site Team
+            </p>
+</div>
+</div>
+</aside>
+</div>
+<!-- Additional Quick Live Features: Instructor Telemetry Teleprompter -->
+<section class="mt-8 bg-surface-container-low border border-surface-container-high rounded-xl p-5">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="record_voice_over">record_voice_over</span>
+</div>
+<div>
+<div class="text-xs font-bold text-on-surface-variant">COACHING AUDIO CUE • 2 MINS AGO</div>
+<div class="text-sm font-semibold text-primary">"Relax your grip on the steering wheel during the wide arc; let the wheel self-center smoothly."</div>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end md:self-auto">
+<span class="text-xs text-on-surface-variant font-medium">Session recorded for test review</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-primary-container text-surface-bright">
+            HD 1080p Telemetry
+          </span>
+</div>
+</div>
+</section>
+</main>
+<!-- Interactive Modal / Slide-Over: Curriculum & Checklist (Toggleable) -->
+<div class="hidden fixed inset-0 z-50 bg-primary-container/60 backdrop-blur-sm flex items-center justify-center p-4" id="checklistModal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-outline-variant">
+<div class="flex items-center justify-between pb-4 border-b border-surface-container-high">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Module 04 Complete Drill Plan</h3>
+<p class="text-xs text-on-surface-variant">Official RTO Practical Evaluation Criteria</p>
+</div>
+<button class="p-1 rounded-lg hover:bg-surface-container text-on-surface-variant" onclick="document.getElementById('checklistModal').classList.add('hidden')" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="close">close</span>
+</button>
+</div>
+<div class="mt-4 space-y-3 max-h-80 overflow-y-auto pr-1">
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low">
+<input checked="" class="w-5 h-5 rounded text-secondary-container border-outline-variant focus:ring-secondary-container" disabled="" type="checkbox"/>
+<span class="text-xs font-semibold text-on-surface line-through">1. Cockpit Drill: Mirrors, seat, seatbelt, doors lock check</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low">
+<input checked="" class="w-5 h-5 rounded text-secondary-container border-outline-variant focus:ring-secondary-container" disabled="" type="checkbox"/>
+<span class="text-xs font-semibold text-on-surface line-through">2. Gear shifting between 1st and 2nd in congested traffic</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl bg-secondary-fixed/20 border border-secondary-container/40">
+<input class="w-5 h-5 rounded text-secondary-container border-outline-variant focus:ring-secondary-container" type="checkbox"/>
+<span class="text-xs font-bold text-primary">3. RTO Figure-8 tracking: Forward steering precision (Current)</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low">
+<input class="w-5 h-5 rounded text-secondary-container border-outline-variant focus:ring-secondary-container" type="checkbox"/>
+<span class="text-xs font-semibold text-on-surface">4. Parallel parking within designated boundary cones</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low">
+<input class="w-5 h-5 rounded text-secondary-container border-outline-variant focus:ring-secondary-container" type="checkbox"/>
+<span class="text-xs font-semibold text-on-surface">5. Gradient hill start using handbrake friction hold</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low">
+<input class="w-5 h-5 rounded text-secondary-container border-outline-variant focus:ring-secondary-container" type="checkbox"/>
+<span class="text-xs font-semibold text-on-surface">6. Emergency stop reaction test (Dual control safety verification)</span>
+</label>
+</div>
+<div class="mt-6 flex justify-end gap-3">
+<button class="px-4 py-2 rounded-xl bg-primary-container text-on-primary text-xs font-bold hover:bg-primary transition-colors" onclick="document.getElementById('checklistModal').classList.add('hidden')" type="button">
+          Dismiss &amp; Continue Drive
+        </button>
+</div>
+</div>
+</div>
+<!-- Standard DriveMe Footer (Shared Component: Footer) -->
+<footer class="bg-primary-container text-surface-container-lowest border-t border-primary-fixed-variant mt-16">
+<div class="w-full py-spacing-2xl px-gutter-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<!-- Brand & Tagline -->
+<div class="flex flex-col items-center md:items-start gap-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-extrabold text-surface-container-lowest tracking-tight">Drive</span>
+<span class="font-headline-sm text-headline-sm font-extrabold text-secondary-container tracking-tight">Me</span>
+<span class="text-[10px] bg-on-primary-fixed-variant px-2 py-0.5 rounded text-surface-variant font-bold ml-2">24/7 SUPPORT: 1800-DRIVE-ME</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-primary-container">
+          © 2025 DriveMe. Learn. Drive. Grow. All rights reserved.
+        </p>
+</div>
+<!-- Footer Links (Immutable Strings from Shared Component) -->
+<nav aria-label="Footer Links" class="flex flex-wrap justify-center items-center gap-6">
+<a class="font-label-sm text-label-sm text-on-primary-container hover:text-surface-container-lowest hover:underline transition-all" href="#">
+          Terms of Service
+        </a>
+<a class="font-label-sm text-label-sm text-on-primary-container hover:text-surface-container-lowest hover:underline transition-all" href="#">
+          Privacy Policy
+        </a>
+<a class="font-label-sm text-label-sm text-on-primary-container hover:text-surface-container-lowest hover:underline transition-all" href="#">
+          Safety &amp; Standards
+        </a>
+<a class="font-label-sm text-label-sm text-on-primary-container hover:text-surface-container-lowest hover:underline transition-all" href="#">
+          Instructor Directory
+        </a>
+<a class="font-label-sm text-label-sm text-on-primary-container hover:text-surface-container-lowest hover:underline transition-all" href="#">
+          Help Center
+        </a>
+</nav>
+</div>
+</footer>
+<!-- Inline Script for Elapsed Timer Simulation -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let totalSeconds = 74 * 60 + 22; // 01:14:22
+      const timerElement = document.getElementById('activeTimer');
+      
+      setInterval(() => {
+        totalSeconds++;
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        const pad = (num) => String(num).padStart(2, '0');
+        if (timerElement) {
+          timerElement.textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+        }
+      }, 1000);
+    });
+  </script>
+
+</body></html>

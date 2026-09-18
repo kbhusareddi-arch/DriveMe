@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DriveMe - Trainer Profile: Rajesh Kumar</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed-variant": "#005236",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#002416",
+            "surface-container-low": "#f2f3ff",
+            "inverse-surface": "#283044",
+            "secondary-fixed": "#ffdbcc",
+            "primary-container": "#0f1e36",
+            "secondary-fixed-dim": "#ffb694",
+            "surface-container": "#eaedff",
+            "on-primary-container": "#7886a3",
+            "surface-tint": "#515f7a",
+            "on-tertiary-container": "#009969",
+            "secondary-container": "#fc7123",
+            "primary": "#000412",
+            "tertiary": "#000703",
+            "outline": "#75777e",
+            "on-primary-fixed-variant": "#394761",
+            "on-secondary-container": "#5b2100",
+            "surface-dim": "#d2d9f4",
+            "surface-container-highest": "#dae2fd",
+            "primary-fixed-dim": "#b8c7e6",
+            "on-error": "#ffffff",
+            "surface-container-high": "#e2e7ff",
+            "tertiary-fixed": "#6ffbbe",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#131b2e",
+            "on-secondary-fixed": "#351000",
+            "tertiary-fixed-dim": "#4edea3",
+            "inverse-on-surface": "#eef0ff",
+            "surface-bright": "#faf8ff",
+            "primary-fixed": "#d7e3ff",
+            "background": "#faf8ff",
+            "on-primary": "#ffffff",
+            "inverse-primary": "#b8c7e6",
+            "on-secondary-fixed-variant": "#7b2f00",
+            "secondary": "#a14000",
+            "error": "#ba1a1a",
+            "surface-variant": "#dae2fd",
+            "surface": "#faf8ff",
+            "on-primary-fixed": "#0c1b33",
+            "on-surface-variant": "#44474d",
+            "on-error-container": "#93000a",
+            "on-background": "#131b2e",
+            "outline-variant": "#c5c6ce",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "spacing-xl": "2rem",
+            "gutter-desktop": "1.5rem",
+            "spacing-sm": "0.75rem",
+            "container-max": "1280px",
+            "spacing-md": "1rem",
+            "spacing-2xl": "3rem",
+            "spacing-xs": "0.5rem",
+            "gutter-mobile": "1rem",
+            "spacing-2xs": "0.25rem",
+            "spacing-lg": "1.5rem",
+            "spacing-3xl": "4rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-base": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "badge-micro": ["Plus Jakarta Sans"],
+            "body-medium": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-base": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "800" }],
+            "badge-micro": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface font-body-base antialiased min-h-screen flex flex-col">
+<!-- Shared TopNavBar Component -->
+<header class="bg-surface-container-lowest dark:bg-primary border-b border-outline-variant/30 dark:border-outline/20 shadow-sm dark:shadow-none sticky top-0 z-40">
+<div class="flex justify-between items-center w-full px-6 lg:px-12 max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2" href="#">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-secondary-container shadow-md">
+<span class="material-symbols-outlined text-2xl" data-icon="sports_motorsports">sports_motorsports</span>
+</div>
+<div>
+<span class="text-headline-md font-headline-md font-extrabold tracking-tight text-primary dark:text-surface block leading-none">DriveMe</span>
+<span class="text-[10px] tracking-widest font-extrabold text-on-surface-variant block mt-1">LEARN. DRIVE. GROW.</span>
+</div>
+</a>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-on-surface dark:hover:text-surface transition-colors duration-150 active:scale-[0.98]" href="../driveme_home_page/code.html">Home</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-on-surface dark:hover:text-surface transition-colors duration-150 active:scale-[0.98]" href="#">How It Works</a>
+<a class="text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary dark:border-secondary-fixed pb-1 active:scale-[0.98]" href="../driveme_find_trainer/code.html">Find a Trainer</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-on-surface dark:hover:text-surface transition-colors duration-150 active:scale-[0.98]" href="../driveme_driving_exam_guide/code.html">Exam Guide</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-on-surface dark:hover:text-surface transition-colors duration-150 active:scale-[0.98]" href="#">Help</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 font-label-lg text-label-lg rounded-xl text-on-surface hover:bg-surface-container transition-colors duration-150">Login</button>
+<button class="px-5 py-2.5 bg-secondary-container text-surface-container-lowest font-label-lg text-label-lg rounded-xl font-semibold shadow-sm hover:brightness-105 active:scale-[0.98] transition-all">Get Started</button>
+</div>
+</div>
+</header>
+<!-- Flow Breadcrumb & Step Progress Bar -->
+<section class="bg-surface-container-low border-b border-outline-variant/30 py-3.5 px-6 lg:px-12">
+<div class="max-w-container-max mx-auto flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<a class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-primary font-label-lg text-label-lg transition-colors" href="../driveme_find_trainer/code.html"><span class="material-symbols-outlined text-lg" data-icon="arrow_back">arrow_back</span><span>Back to Trainer Search</span></a>
+<span class="h-4 w-px bg-outline-variant/60"></span>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-container text-surface-container-lowest text-badge-micro font-badge-micro uppercase tracking-wider">Step 3 of 5</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">Trainer Profile Evaluation</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-label-sm font-label-sm text-on-surface-variant">
+<span class="hidden sm:inline">Workflow: Find Trainer → <strong>Trainer Profile</strong> → Select Vehicle</span>
+<a class="inline-flex items-center gap-1 text-secondary-container font-semibold hover:underline" href="#">
+<span class="material-symbols-outlined text-base" data-icon="help">help</span>
+<span>Help & FAQ</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Main Content Container -->
+<main class="flex-1 w-full max-w-container-max mx-auto px-6 lg:px-12 py-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT COLUMN: Trainer Identity, Fleet, Packages, Reviews (8 Cols) -->
+<div class="lg:col-span-8 space-y-8">
+<!-- 1. Trainer Identity & Hero Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-6 sm:p-8 shadow-sm">
+<div class="flex flex-col sm:flex-row gap-6 items-start">
+<!-- Profile Image Container with Status Overlay -->
+<div class="relative shrink-0">
+<img class="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl object-cover border-2 border-outline-variant/40 shadow-sm" data-alt="Close up professional portrait of Rajesh Kumar, an experienced Indian driving instructor in his early forties wearing a clean collared navy blue uniform polo with DriveMe badge. He has a warm, reassuring smile with high-trust expression in natural daylight setting next to a modern dual-control training car. Clean cinematic focus with soft bokeh background representing urban Bangalore street." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL-rxqPubVnz7mvsbogaLEa8xuucoZM7U2D7CbeC0kqgHVn6QDEPWCbIUpq1lzFehcE8XVaOJCXO-mSWxInBO-JzCbH6kOQlOXwgym_-R1toQt2Y1KeEHegRTLylNs5K3DyKTquAMimn1Fj1kIKivU8o7FFSTnSOEKnBqeSCjaGNwsUMDBYX5G5DCYxhw33h1EEOrWiarXMzAmv3lGSdia5uWXeiVcUQHF9PW--atTSRGCNt6bFm94"/>
+<span class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-on-tertiary-fixed-variant text-tertiary-fixed text-badge-micro font-badge-micro px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs" data-icon="verified_user">verified_user</span>
+                Verified Coach
+              </span>
+</div>
+<!-- Identity Info -->
+<div class="flex-1 space-y-2.5">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-tertiary-container text-badge-micro font-badge-micro mb-1">
+<span class="material-symbols-outlined text-xs text-on-tertiary-container" data-icon="stars" data-weight="fill">stars</span>
+                    Government Certified Instructor
+                  </div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight">Rajesh Kumar</h1>
+<p class="text-body-base font-body-medium text-on-surface-variant">Senior Dual-Control Road Coach • RTO License #KA-03-2012-004</p>
+</div>
+</div>
+<!-- Badges Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2">
+<div class="bg-surface-container-low rounded-lg p-2.5 text-center border border-outline-variant/30">
+<span class="material-symbols-outlined text-secondary-container text-lg block mx-auto mb-0.5" data-icon="policy">policy</span>
+<span class="text-label-sm font-label-sm text-on-surface block font-bold leading-tight">Police Cleared</span>
+<span class="text-[11px] text-on-surface-variant block">Verified 2025</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2.5 text-center border border-outline-variant/30">
+<span class="material-symbols-outlined text-on-tertiary-container text-lg block mx-auto mb-0.5" data-icon="workspace_premium">workspace_premium</span>
+<span class="text-label-sm font-label-sm text-on-surface block font-bold leading-tight">98.6% Pass Rate</span>
+<span class="text-[11px] text-on-surface-variant block">First-Attempt</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2.5 text-center border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary-container text-lg block mx-auto mb-0.5" data-icon="calendar_month">calendar_month</span>
+<span class="text-label-sm font-label-sm text-on-surface block font-bold leading-tight">12+ Years</span>
+<span class="text-[11px] text-on-surface-variant block">Field Coaching</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2.5 text-center border border-outline-variant/30">
+<span class="material-symbols-outlined text-secondary-container text-lg block mx-auto mb-0.5" data-icon="star" data-weight="fill">star</span>
+<span class="text-label-sm font-label-sm text-on-surface block font-bold leading-tight">4.95 / 5.0</span>
+<span class="text-[11px] text-on-surface-variant block">320+ Reviews</span>
+</div>
+</div>
+<!-- Metadata: Languages & Pickup -->
+<div class="pt-3 border-t border-outline-variant/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-outline" data-icon="translate">translate</span>
+<span><strong class="text-on-surface">Languages:</strong> English, Hindi, Kannada</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-tertiary-container font-semibold">
+<span class="material-symbols-outlined text-base" data-icon="pin_drop">pin_drop</span>
+<span>Doorstep pickup within 6 km</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Coverage Neighborhoods Bar -->
+<div class="mt-6 pt-4 border-t border-outline-variant/30 bg-surface-container-low/50 -mx-6 -mb-6 p-6 rounded-b-xl flex flex-wrap items-center gap-2">
+<span class="text-label-sm font-label-sm text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary-container" data-icon="location_on">location_on</span>
+              Neighborhood Coverage:
+            </span>
+<span class="px-2.5 py-1 bg-surface-container-lowest rounded-md text-label-sm font-label-sm border border-outline-variant/40 text-on-surface">Indiranagar</span>
+<span class="px-2.5 py-1 bg-surface-container-lowest rounded-md text-label-sm font-label-sm border border-outline-variant/40 text-on-surface">Koramangala</span>
+<span class="px-2.5 py-1 bg-surface-container-lowest rounded-md text-label-sm font-label-sm border border-outline-variant/40 text-on-surface">Domlur</span>
+<span class="px-2.5 py-1 bg-surface-container-lowest rounded-md text-label-sm font-label-sm border border-outline-variant/40 text-on-surface">HSR Layout</span>
+</div>
+</div>
+<!-- 2. About Rajesh & Core Teaching Strengths -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-6 sm:p-8 shadow-sm space-y-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container text-2xl" data-icon="person">person</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">About Rajesh</h2>
+</div>
+<p class="text-body-lg font-body-lg text-on-surface-variant leading-relaxed">
+            Specializes in beginner nervousness alleviation, strict RTO 8-track and H-reverse track precision, and high-density Bangalore traffic maneuvering. Over 1,400 students successfully licensed since 2012. Patient guidance tailored specifically for first-time drivers with step-by-step cognitive de-escalation routines.
+          </p>
+<div>
+<h3 class="text-label-lg font-label-lg text-on-surface mb-3">Core Teaching Strengths</h3>
+<div class="flex flex-wrap gap-2.5">
+<span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 text-primary-container font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-sm text-secondary-container" data-icon="check_circle">check_circle</span>
+                Clutch Control Mastery
+              </span>
+<span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 text-primary-container font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-sm text-secondary-container" data-icon="check_circle">check_circle</span>
+                Parallel Parking Rehearsal
+              </span>
+<span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 text-primary-container font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-sm text-secondary-container" data-icon="check_circle">check_circle</span>
+                Defensive Highway Driving
+              </span>
+<span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 text-primary-container font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-sm text-secondary-container" data-icon="check_circle">check_circle</span>
+                Zero-Panic Dual Brakes
+              </span>
+</div>
+</div>
+</div>
+<!-- 3. Trainer Fleet & Dual-Control Vehicles -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-6 sm:p-8 shadow-sm space-y-6">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container" data-icon="directions_car">directions_car</span>
+                Training Vehicles Managed by Rajesh
+              </h2>
+<p class="text-body-base font-body-base text-on-surface-variant">All fleet units are 100% certified dual-pedal equipped with dual dashcams and commercial driving insurance.</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface text-label-sm font-label-sm">2 Active Vehicles</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<!-- Vehicle Card 1 -->
+<div class="border border-outline-variant/40 rounded-xl overflow-hidden bg-surface-container-lowest flex flex-col justify-between hover:border-outline transition-colors">
+<div class="relative h-44 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Modern clean white Maruti Suzuki Swift Dzire training sedan parked on pristine tarmac with visible magnetic DriveMe Academy decals. Crisp bright daylight photography showcasing safety dual-control stickers and rooftop trainer marker against a modern driving test facility backdrop with orange cones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcryTK-LphVEUO_tBK9ndvE4L35G9SEKOrcwcmYjpFmnXYuytd5-_55qpXU1IaGZY8XSy0QBJAqRScxXPsb6_eDGz6EWXSsyW7dixdj8AzgPINzDCYUWpIWUVJJE4iaEvdod02qVHOl9jNfF0Ohb827Ouj77RGSHjOn-AT9x1bJLDrIXhGy3MulTaCfDbZzcZwpOMgxt9n3x6ZuKqlIrS42wA1lvvO1pSKufpMuwcG25a8W9cTD-DR"/>
+<div class="absolute top-3 left-3 bg-primary-container/90 text-surface-container-lowest text-badge-micro font-badge-micro px-2.5 py-1 rounded-md uppercase tracking-wider backdrop-blur-sm">
+                  Manual 5-Speed
+                </div>
+<div class="absolute top-3 right-3 bg-on-tertiary-fixed-variant text-tertiary-fixed text-badge-micro font-badge-micro px-2 py-0.5 rounded-full font-bold">
+                  Available
+                </div>
+</div>
+<div class="p-5 space-y-3 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-bold">Maruti Suzuki Swift Dzire</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Dual-Control Sedan • Reg: KA-03-MB-4412</p>
+</div>
+<div class="space-y-1.5 text-body-base font-body-base text-on-surface-variant text-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-tertiary-container text-base" data-icon="tune">tune</span>
+<span>Dual-Control Secondary Brake & Clutch</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base" data-icon="videocam">videocam</span>
+<span>AC & Dual Road-Facing Dashcams</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base" data-icon="verified">verified</span>
+<span>Govt Inspection: Passed March 2025</span>
+</div>
+</div>
+<div class="pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-tertiary-container font-semibold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+                    Ready for Instant Assignment
+                  </span>
+<a class="text-secondary-container font-label-lg text-label-lg hover:underline inline-flex items-center gap-0.5" href="#">
+                    Details <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Vehicle Card 2 -->
+<div class="border border-outline-variant/40 rounded-xl overflow-hidden bg-surface-container-lowest flex flex-col justify-between hover:border-outline transition-colors">
+<div class="relative h-44 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Sleek silver Hyundai i20 premium hatchback driving school vehicle parked in a well-lit modern driving academy bay. Clean reflections, safety dual pedal badging on the door, pristine tires, and clear Bangalore commercial license plate visible. Bright, authoritative, high-trust digital style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmVNyByVyGXHva8Te-FKRkL-CK88_dmZYFk2M4QCMxJrOrz0FU-0ctW8ds263tsTiHf9CCIQs0odz-krU-RpqRkJGMcYpR6NDsLtWrC3y2pJj9j-rbQbpERaY4Hpb_xmDvkiv8khfrM1iobIR8d0SV-tMZP7EBFFpizPC_qsNELiKULiArF8Yut2nRAthUCmXjyOfqTJhFUl_0MxERElM07wrxIYCzZVaYiX9_-fEgYskGlTMAtfkb"/>
+<div class="absolute top-3 left-3 bg-primary-container/90 text-surface-container-lowest text-badge-micro font-badge-micro px-2.5 py-1 rounded-md uppercase tracking-wider backdrop-blur-sm">
+                  Automatic (CVT)
+                </div>
+<div class="absolute top-3 right-3 bg-on-tertiary-fixed-variant text-tertiary-fixed text-badge-micro font-badge-micro px-2 py-0.5 rounded-full font-bold">
+                  Available
+                </div>
+</div>
+<div class="p-5 space-y-3 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-bold">Hyundai i20 (Automatic)</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Dual-Control Hatchback • Reg: KA-03-NC-8820</p>
+</div>
+<div class="space-y-1.5 text-body-base font-body-base text-on-surface-variant text-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-tertiary-container text-base" data-icon="tune">tune</span>
+<span>Secondary Instructor Emergency Brake</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base" data-icon="ac_unit">ac_unit</span>
+<span>Full Climate Control & Pro Sensor Kit</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base" data-icon="verified">verified</span>
+<span>Govt Inspection: Passed Feb 2025</span>
+</div>
+</div>
+<div class="pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-tertiary-container font-semibold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+                    Ready for Instant Assignment
+                  </span>
+<a class="text-secondary-container font-label-lg text-label-lg hover:underline inline-flex items-center gap-0.5" href="#">
+                    Details <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Lesson Packages & Options -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-6 sm:p-8 shadow-sm space-y-6">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container" data-icon="sell">sell</span>
+              Training Packages with Rajesh
+            </h2>
+<p class="text-body-base font-body-base text-on-surface-variant">Select standard single assessments or complete license acquisition packages.</p>
+</div>
+<div class="space-y-4">
+<!-- Package 1 -->
+<label class="relative flex items-center justify-between p-4 sm:p-5 rounded-xl border border-outline-variant/50 hover:border-primary-container cursor-pointer transition-all bg-surface-container-low/40 hover:bg-surface-container-low">
+<div class="flex items-center gap-4">
+<input class="w-5 h-5 text-secondary-container focus:ring-secondary-container border-outline-variant" name="lesson_pkg" type="radio"/>
+<div>
+<h4 class="text-label-lg font-label-lg text-on-surface font-bold">1-Hour Single Evaluation Lesson</h4>
+<p class="text-body-base font-body-base text-on-surface-variant text-xs">Diagnostic drive, steering confidence check & tailored learning plan</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm text-on-surface font-bold">₹650</span>
+<span class="block text-[11px] text-on-surface-variant">1 Hour session</span>
+</div>
+</label>
+<!-- Package 2 (Popular) -->
+<label class="relative flex items-center justify-between p-4 sm:p-5 rounded-xl border-2 border-secondary-container cursor-pointer transition-all bg-surface-container-lowest shadow-sm">
+<div class="absolute -top-2.5 right-6 bg-secondary-container text-surface-container-lowest text-badge-micro font-badge-micro px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                Most Popular Choice
+              </div>
+<div class="flex items-center gap-4">
+<input checked="" class="w-5 h-5 text-secondary-container focus:ring-secondary-container border-outline-variant" name="lesson_pkg" type="radio"/>
+<div>
+<h4 class="text-label-lg font-label-lg text-on-surface font-bold">10-Hour Foundation License Package</h4>
+<p class="text-body-base font-body-base text-on-surface-variant text-xs">Complete clutch-throttle balance, slopes, parallel parking & city traffic</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm text-secondary-container font-bold">₹6,000</span>
+<span class="block text-[11px] text-on-surface-variant">₹600 / hr • Save ₹500</span>
+</div>
+</label>
+<!-- Package 3 -->
+<label class="relative flex items-center justify-between p-4 sm:p-5 rounded-xl border border-outline-variant/50 hover:border-primary-container cursor-pointer transition-all bg-surface-container-low/40 hover:bg-surface-container-low">
+<div class="flex items-center gap-4">
+<input class="w-5 h-5 text-secondary-container focus:ring-secondary-container border-outline-variant" name="lesson_pkg" type="radio"/>
+<div>
+<h4 class="text-label-lg font-label-lg text-on-surface font-bold">15-Hour Complete RTO Track + Traffic Mastery</h4>
+<p class="text-body-base font-body-base text-on-surface-variant text-xs">Includes dedicated RTO test day dual-control vehicle support & simulation</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm text-on-surface font-bold">₹8,500</span>
+<span class="block text-[11px] text-on-surface-variant">Includes Exam Car Support</span>
+</div>
+</label>
+</div>
+</div>
+<!-- 5. Learner Reviews & Real Testimonials -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-6 sm:p-8 shadow-sm space-y-6">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container" data-icon="rate_review">rate_review</span>
+                Learner Reviews & Real Testimonials
+              </h2>
+<p class="text-body-base font-body-base text-on-surface-variant">100% verified learners trained under Rajesh in Bangalore</p>
+</div>
+<div class="flex items-center gap-1 text-label-lg font-label-lg font-bold text-on-surface bg-surface-container-low px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-secondary-container text-base" data-icon="star" data-weight="fill">star</span>
+<span>4.95 out of 5.0</span>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Review 1 -->
+<div class="border border-outline-variant/30 rounded-xl p-5 bg-surface-container-low/30 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center font-bold text-sm">
+                    SK
+                  </div>
+<div>
+<h5 class="text-label-lg font-label-lg text-on-surface">Sneha Krishnan</h5>
+<p class="text-[11px] text-on-surface-variant">Trained on Maruti Swift Dzire • Koramangala</p>
+</div>
+</div>
+<div class="flex items-center text-secondary-container">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+</div>
+</div>
+<p class="text-body-base font-body-base text-on-surface-variant italic">
+                "Passed RTO 8-track test on day 18! Rajesh Sir's calm temperament removed my dread of gear stalling on steep flyovers. His dual pedal intervention was completely discreet and kept me feeling secure from day one."
+              </p>
+<div class="text-badge-micro font-badge-micro text-on-tertiary-container font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="verified">verified</span>
+                Verified License Received • KA-01 Koramangala RTO
+              </div>
+</div>
+<!-- Review 2 -->
+<div class="border border-outline-variant/30 rounded-xl p-5 bg-surface-container-low/30 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary text-surface-container-lowest flex items-center justify-center font-bold text-sm">
+                    AM
+                  </div>
+<div>
+<h5 class="text-label-lg font-label-lg text-on-surface">Aditya Menon</h5>
+<p class="text-[11px] text-on-surface-variant">Trained on Hyundai i20 Auto • Indiranagar</p>
+</div>
+</div>
+<div class="flex items-center text-secondary-container">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+</div>
+</div>
+<p class="text-body-base font-body-base text-on-surface-variant italic">
+                "I was hesitant about Bangalore traffic, but Rajesh’s defensive lane techniques made 100-feet road Indiranagar effortless. Punctual doorstep pickup every single morning right at 7:00 AM."
+              </p>
+<div class="text-badge-micro font-badge-micro text-on-tertiary-container font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="verified">verified</span>
+                Verified License Received • KA-03 Indiranagar RTO
+              </div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Sticky Booking & Action Sidebar (4 Cols) -->
+<div class="lg:col-span-4 lg:sticky lg:top-28 space-y-6">
+<!-- Booking Action Card -->
+<div class="bg-surface-container-lowest rounded-2xl border-2 border-primary-container p-6 shadow-md space-y-5">
+<div>
+<span class="text-badge-micro font-badge-micro uppercase tracking-wider text-secondary-container font-bold block mb-1">Instant Coach Matching</span>
+<h3 class="text-headline-md font-headline-md text-on-surface font-extrabold">Ready to train with Rajesh?</h3>
+</div>
+<!-- Price & Slot Tag -->
+<div class="bg-surface-container-low p-4 rounded-xl space-y-2 border border-outline-variant/30">
+<div class="flex items-baseline justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Starting Rate:</span>
+<div class="text-right">
+<span class="text-headline-lg font-headline-lg text-primary-container font-extrabold">₹650</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant"> / hour</span>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant font-medium">All-inclusive: Fuel + Dual-control vehicle + Comprehensive insurance included.</p>
+<div class="pt-2 border-t border-outline-variant/30 flex items-center gap-2 text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-secondary-container text-base" data-icon="schedule">schedule</span>
+<span class="text-on-surface"><strong>Next Slot:</strong> Tomorrow, 7:00 AM - 8:30 AM</span>
+</div>
+</div>
+<!-- Workflow Action Buttons -->
+<div class="space-y-3 pt-2">
+<!-- Primary Action Button leading to SELECT VEHICLE step -->
+<a class="w-full py-3.5 px-4 bg-secondary-container hover:bg-secondary text-surface-container-lowest font-label-lg text-label-lg rounded-xl font-bold flex items-center justify-center gap-2 shadow-sm transition-transform active:scale-[0.98] text-center" href="../driveme_select_vehicle/code.html">
+<span>Select Trainer & Choose Vehicle</span>
+<span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<!-- Secondary Action Button -->
+<a class="w-full py-2.5 px-4 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg rounded-xl font-semibold flex items-center justify-center gap-1.5 border border-outline-variant/40 transition-colors text-center" href="../driveme_find_trainer/code.html">
+<span class="material-symbols-outlined text-base" data-icon="arrow_back">arrow_back</span>
+<span>Back to All Trainers</span>
+</a>
+</div>
+<!-- WhatsApp Chat Inquiry -->
+<div class="pt-4 border-t border-outline-variant/30 text-center">
+<a class="inline-flex items-center gap-2 text-on-tertiary-container hover:underline text-label-sm font-label-sm font-semibold" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="chat">chat</span>
+<span>Have questions before booking? Chat via WhatsApp</span>
+</a>
+</div>
+<!-- Trust Checklist -->
+<div class="pt-4 border-t border-outline-variant/30 space-y-2.5 text-xs text-on-surface-variant">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-on-tertiary-container text-base shrink-0" data-icon="check_circle">check_circle</span>
+<span>Free Doorstep Pickup & Drop in serviced pin codes</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-on-tertiary-container text-base shrink-0" data-icon="check_circle">check_circle</span>
+<span>100% Dual-Control Secondary Foot Pedals for Safety</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-on-tertiary-container text-base shrink-0" data-icon="check_circle">check_circle</span>
+<span>Reschedule up to 12 hrs before lesson free of cost</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-on-tertiary-container text-base shrink-0" data-icon="check_circle">check_circle</span>
+<span>Official RTO Track Rehearsal included with multi-hour plans</span>
+</div>
+</div>
+</div>
+<!-- Instructor Safety Guarantee Badge -->
+<div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/30 flex items-start gap-3.5">
+<span class="material-symbols-outlined text-secondary-container text-2xl shrink-0" data-icon="shield">shield</span>
+<div>
+<h4 class="text-label-lg font-label-lg text-on-surface font-bold">DriveMe Road Safety Shield</h4>
+<p class="text-body-base font-body-base text-on-surface-variant text-xs mt-0.5">
+              Every DriveMe session includes ₹5,00,000 accidental safety cover and real-time live telematics tracking.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Shared Footer Component -->
+<footer class="bg-primary-container dark:bg-primary border-t border-outline-variant/20 dark:border-outline/10 text-secondary dark:text-secondary-fixed mt-16">
+<div class="w-full max-w-container-max mx-auto px-6 lg:px-12 py-16 flex flex-col gap-12">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div>
+<span class="text-headline-md font-headline-md font-black text-surface-container-lowest block">DriveMe</span>
+<p class="text-surface-dim text-body-base font-body-base mt-2 max-w-md">India's premier certified driver training and dual-control mobility ecosystem. Building confident, road-safe drivers every single day.</p>
+</div>
+<div class="flex flex-wrap gap-4 text-label-sm font-label-sm">
+<a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#">About Us</a>
+<a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#">Safety Standards</a>
+<a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#">Become a Trainer</a>
+<a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#">Curriculum</a>
+<a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#">Pricing Plans</a>
+<a class="text-surface-dim hover:text-surface-container-lowest transition-colors" href="#">DMV Resources</a>
+</div>
+</div>
+<div class="pt-8 border-t border-outline-variant/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-label-sm font-label-sm">
+<p class="text-surface-dim dark:text-outline-variant">© 2025 DriveMe Academy Inc. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-surface-dim hover:text-surface-container-lowest hover:underline transition-all" href="#">Privacy Policy</a>
+<a class="text-surface-dim hover:text-surface-container-lowest hover:underline transition-all" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

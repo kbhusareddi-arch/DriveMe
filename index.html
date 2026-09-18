@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DriveMe | Learn to Drive. Drive with Confidence.</title>
+  <meta name="description" content="DriveMe is India's most trusted driving school platform. Book certified instructors, learn at your pace, and get RTO-ready with expert guidance."/>
+  <meta http-equiv="refresh" content="0; url=driveme_home_page/code.html"/>
+  <link rel="canonical" href="driveme_home_page/code.html"/>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0F1E36;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .container { padding: 2rem; }
+    .logo { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .logo span { color: #F26A1B; }
+    .tagline { color: #94a3b8; font-size: 0.9rem; margin-bottom: 2rem; }
+    .spinner {
+      width: 40px; height: 40px;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-top-color: #F26A1B;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 1.5rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .link { color: #F26A1B; text-decoration: underline; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">Drive<span>Me</span></div>
+    <p class="tagline">Learn. Drive. Grow.</p>
+    <div class="spinner"></div>
+    <p style="color:#64748b; font-size:0.8rem;">Redirecting you to DriveMe Academy…</p>
+    <br/>
+    <a class="link" href="driveme_home_page/code.html">Click here if not redirected</a>
+  </div>
+  <script>
+    window.location.replace('driveme_home_page/code.html');
+  </script>
+</body>
+</html>

@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DriveMe - Secure Checkout &amp; Payment</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms & Container-Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed-variant": "#005236",
+            "on-background": "#131b2e",
+            "inverse-surface": "#283044",
+            "primary-fixed": "#d7e3ff",
+            "tertiary-fixed-dim": "#4edea3",
+            "tertiary-fixed": "#6ffbbe",
+            "on-tertiary-container": "#009969",
+            "on-secondary-container": "#5b2100",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed": "#351000",
+            "surface": "#faf8ff",
+            "primary-container": "#0f1e36",
+            "outline-variant": "#c5c6ce",
+            "surface-variant": "#dae2fd",
+            "error-container": "#ffdad6",
+            "inverse-on-surface": "#eef0ff",
+            "surface-bright": "#faf8ff",
+            "secondary": "#a14000",
+            "surface-container": "#eaedff",
+            "surface-container-low": "#f2f3ff",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "surface-tint": "#515f7a",
+            "surface-container-highest": "#dae2fd",
+            "background": "#faf8ff",
+            "on-surface": "#131b2e",
+            "inverse-primary": "#b8c7e6",
+            "on-error": "#ffffff",
+            "on-error-container": "#93000a",
+            "surface-container-high": "#e2e7ff",
+            "on-primary-container": "#7886a3",
+            "secondary-fixed-dim": "#ffb694",
+            "on-primary-fixed": "#0c1b33",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#ffdbcc",
+            "on-tertiary-fixed": "#002113",
+            "primary-fixed-dim": "#b8c7e6",
+            "tertiary-container": "#002416",
+            "primary": "#000412",
+            "on-primary-fixed-variant": "#394761",
+            "secondary-container": "#fc7123",
+            "on-surface-variant": "#44474d",
+            "surface-dim": "#d2d9f4",
+            "on-secondary-fixed-variant": "#7b2f00",
+            "outline": "#75777e",
+            "tertiary": "#000703"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-mobile": "1rem",
+            "spacing-2xl": "3rem",
+            "spacing-xs": "0.5rem",
+            "spacing-3xl": "4rem",
+            "spacing-lg": "1.5rem",
+            "container-max": "1280px",
+            "spacing-md": "1rem",
+            "spacing-2xs": "0.25rem",
+            "spacing-sm": "0.75rem",
+            "gutter-desktop": "1.5rem",
+            "spacing-xl": "2rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "body-medium": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-base": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "badge-micro": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "800" }],
+            "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-base": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "badge-micro": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-flex;
+      vertical-align: middle;
+      user-select: none;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-base antialiased min-h-screen flex flex-col selection:bg-secondary-container selection:text-surface-container-lowest">
+<!-- ================= TOP NAV BAR (Shared Component Anchor) ================= -->
+<header class="w-full bg-surface-container-lowest dark:bg-primary border-b border-outline-variant/30 dark:border-outline/20 shadow-sm sticky top-0 z-40">
+<div class="flex justify-between items-center w-full px-6 lg:px-12 max-w-container-max mx-auto h-20">
+<!-- Brand Logo / Identity -->
+<a class="flex items-center gap-3 group focus:outline-none" href="../driveme_home_page/code.html">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center shadow-md relative overflow-hidden">
+<svg class="w-7 h-7" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 18H52C70 18 84 32 84 50C84 68 70 82 52 82H22V18Z" fill="#0F1E36"></path>
+<path d="M22 82L44 32H54L76 82H60L54 66H44L38 82H22Z" fill="#FFFFFF"></path>
+<path d="M38 82L45 52H53L60 82H49L47 70H41L38 82Z" fill="#FC7123"></path>
+<rect fill="#FC7123" height="8" rx="2" width="4" x="47" y="38"></rect>
+<rect fill="#FFFFFF" height="9" rx="3" width="6" x="46" y="52"></rect>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-md font-headline-md font-extrabold tracking-tight text-primary-container dark:text-surface leading-none flex items-center gap-1">
+            Drive<span class="text-secondary-container">Me</span>
+</span>
+<span class="text-[10px] font-bold tracking-widest text-on-surface-variant uppercase mt-0.5">LEARN. DRIVE. GROW.</span>
+</div>
+</a>
+<!-- Desktop Navigation Links (Shared Component Anchor with Active logic) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-on-surface dark:hover:text-surface hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150 text-label-lg font-label-lg" href="../driveme_home_page/code.html">Home</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-on-surface dark:hover:text-surface hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150 text-label-lg font-label-lg" href="#">How It Works</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-on-surface dark:hover:text-surface hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150 text-label-lg font-label-lg" href="../driveme_find_trainer/code.html">Find a Trainer</a>
+<a class="text-on-surface-variant dark:text-surface-dim font-medium hover:text-on-surface dark:hover:text-surface hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150 text-label-lg font-label-lg" href="../driveme_driving_exam_guide/code.html">Exam Guide</a>
+<a class="text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary dark:border-secondary-fixed pb-1 text-label-lg font-label-lg" href="#">Help</a>
+</nav>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/40 text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-base text-tertiary-container fill-icon" data-icon="verified_user">verified_user</span>
+<span class="text-on-tertiary-container font-semibold">256-Bit Safe Checkout</span>
+</div>
+<a class="text-label-lg font-label-lg text-on-surface-variant hover:text-primary-container px-3 py-2 font-semibold transition-colors active:scale-[0.98]" href="../driveme_learner_login/code.html">Login</a>
+<a class="text-label-lg font-label-lg bg-secondary-container hover:bg-secondary text-surface-container-lowest font-semibold px-5 py-2.5 rounded-xl shadow-sm transition-all duration-150 active:scale-[0.98]" href="../driveme_learner_login/code.html">Get Started</a>
+</div>
+</div>
+</header>
+<!-- ================= SUB-NAV: STEP PROGRESS TRACKER ================= -->
+<div class="w-full bg-surface-container-lowest border-b border-outline-variant/30 py-3 hidden lg:block">
+<div class="max-w-container-max mx-auto px-6 lg:px-12 flex items-center justify-between">
+<div class="flex items-center gap-1 xl:gap-2 text-label-sm font-label-sm overflow-x-auto py-1">
+<!-- 01 Profile -->
+<span class="flex items-center gap-1 text-on-tertiary-container font-semibold">
+<span class="w-5 h-5 rounded-full bg-tertiary-fixed-dim/30 flex items-center justify-center text-[11px] font-bold text-on-tertiary-fixed-variant">✓</span>
+          01 Profile
+        </span>
+<span class="text-outline-variant">›</span>
+<!-- 02 Goal -->
+<span class="flex items-center gap-1 text-on-tertiary-container font-semibold">
+<span class="w-5 h-5 rounded-full bg-tertiary-fixed-dim/30 flex items-center justify-center text-[11px] font-bold text-on-tertiary-fixed-variant">✓</span>
+          02 Goal
+        </span>
+<span class="text-outline-variant">›</span>
+<!-- 03 Trainer -->
+<span class="flex items-center gap-1 text-on-tertiary-container font-semibold">
+<span class="w-5 h-5 rounded-full bg-tertiary-fixed-dim/30 flex items-center justify-center text-[11px] font-bold text-on-tertiary-fixed-variant">✓</span>
+          03 Trainer
+        </span>
+<span class="text-outline-variant">›</span>
+<!-- 04 Vehicle -->
+<span class="flex items-center gap-1 text-on-tertiary-container font-semibold">
+<span class="w-5 h-5 rounded-full bg-tertiary-fixed-dim/30 flex items-center justify-center text-[11px] font-bold text-on-tertiary-fixed-variant">✓</span>
+          04 Vehicle
+        </span>
+<span class="text-outline-variant">›</span>
+<!-- 05 Time -->
+<span class="flex items-center gap-1 text-on-tertiary-container font-semibold">
+<span class="w-5 h-5 rounded-full bg-tertiary-fixed-dim/30 flex items-center justify-center text-[11px] font-bold text-on-tertiary-fixed-variant">✓</span>
+          05 Time
+        </span>
+<span class="text-outline-variant">›</span>
+<!-- 06 Pickup -->
+<span class="flex items-center gap-1 text-on-tertiary-container font-semibold">
+<span class="w-5 h-5 rounded-full bg-tertiary-fixed-dim/30 flex items-center justify-center text-[11px] font-bold text-on-tertiary-fixed-variant">✓</span>
+          06 Pickup
+        </span>
+<span class="text-outline-variant">›</span>
+<!-- 07 Review -->
+<span class="flex items-center gap-1 text-on-tertiary-container font-semibold">
+<span class="w-5 h-5 rounded-full bg-tertiary-fixed-dim/30 flex items-center justify-center text-[11px] font-bold text-on-tertiary-fixed-variant">✓</span>
+          07 Review
+        </span>
+<span class="text-outline-variant">›</span>
+<!-- 08 Payment (Active) -->
+<span class="flex items-center gap-1.5 bg-primary-container text-surface-container-lowest px-3 py-1 rounded-full font-bold shadow-xs">
+<span class="w-4 h-4 rounded-full bg-secondary-container text-surface-container-lowest flex items-center justify-center text-[10px]">8</span>
+          08 Payment (Secure Checkout)
+        </span>
+</div>
+<!-- Quick Session Timer Countdown Badge -->
+<div class="flex items-center gap-2 bg-secondary-fixed/40 border border-secondary/20 px-3 py-1 rounded-full text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-sm text-secondary fill-icon" data-icon="timer">timer</span>
+<span>Slot reserved: <strong class="font-bold text-on-secondary-fixed" id="timer-display">14:52</strong></span>
+</div>
+</div>
+</div>
+
+<!-- ================= MAIN CONTENT CONTAINER ================= -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-6 lg:px-12 py-8 lg:py-12">
+<!-- Top Action Breadcrumb & Title Cluster -->
+<div class="mb-8">
+<div class="flex items-center gap-3 mb-3">
+<a class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-outline-variant/50 hover:border-primary-container text-on-surface-variant hover:text-primary-container text-label-sm font-label-sm font-semibold transition-all shadow-xs" href="../driveme_review_booking/code.html">
+<span class="material-symbols-outlined text-base" data-icon="arrow_back">arrow_back</span>
+          Back to Review Booking
+        </a>
+<span class="text-outline-variant font-medium text-sm">•</span>
+<span class="inline-flex items-center gap-1 text-on-tertiary-container bg-tertiary-fixed-dim/20 px-2.5 py-0.5 rounded-full text-xs font-bold">
+<span class="material-symbols-outlined text-xs fill-icon" data-icon="verified">verified</span>
+          Booking Ref: DM-9824B
+        </span>
+</div>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-headline-lg font-headline-lg text-primary-container tracking-tight">Complete your payment</h1>
+<p class="text-body-base font-body-base text-on-surface-variant mt-1 max-w-2xl">
+            Safe, encrypted transaction. Your slot is reserved for 15:00 minutes while you complete payment.
+          </p>
+</div>
+<div class="hidden md:flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant bg-surface-container-lowest px-4 py-2 rounded-xl border border-outline-variant/40 shadow-xs">
+<span class="material-symbols-outlined text-secondary-container text-lg fill-icon" data-icon="shield">shield</span>
+<span>100% Guaranteed Dual-Pedal Fleet</span>
+</div>
+</div>
+</div>
+<!-- TWO-COLUMN DESKTOP LAYOUT (12-Column Grid) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- ================= LEFT COLUMN: BOOKING SUMMARY (5 Cols) ================= -->
+<section class="lg:col-span-5 space-y-6">
+<!-- Summary Card: Level 1 Elevation -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 shadow-sm overflow-hidden">
+<!-- Card Header / Title -->
+<div class="bg-surface-container-low px-6 py-4 border-b border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-icon="receipt_long">receipt_long</span>
+<h2 class="text-headline-sm font-headline-sm text-primary-container">Booking Summary</h2>
+</div>
+<span class="text-badge-micro font-badge-micro uppercase tracking-wider bg-surface-container-lowest border border-outline-variant/50 text-on-surface-variant px-2 py-0.5 rounded">
+              Single Slot
+            </span>
+</div>
+<!-- Structured Info Rows -->
+<div class="p-6 space-y-5">
+<!-- Trainer Row -->
+<div class="flex items-start gap-3.5 pb-4 border-b border-outline-variant/20">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary-container font-bold text-lg overflow-hidden shrink-0 border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="Portrait of an experienced and certified male driving instructor named Rajesh Kumar, smiling confidently in front of a modern dual-control training vehicle, clear natural day lighting, clean professional attire with security lanyard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdCZyAueA8-U4UDVIH0dnmHudUg42v9yJEqexUjIGmYKqby0TB5T2NWbpJE-4O8-HjTKWyqAq99jwhkeG61zNaCjVJhCgUJV5faQUMjEawrjO4551YBoP4vvvKbr8SNJeQ8qpBJPsj8DLi7ixrnOwL738QWhTr2-Sqj-ibmBpw43vQw-HPZo9qWPqRnF5sZuvK9vwJYae1GmyuDAeVaiV8CYrNHlYzQPM7pYW1yzUy7Em6o9Z0cmWo"/>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between">
+<h3 class="text-headline-sm font-headline-sm text-primary-container text-base">Rajesh Kumar</h3>
+<div class="flex items-center gap-1 text-xs font-bold text-on-surface bg-surface-container-high px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-xs text-on-tertiary-container fill-icon" data-icon="star">star</span>
+<span>4.95</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-1.5 mt-1 text-xs">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-semibold">
+<span class="material-symbols-outlined text-xs fill-icon" data-icon="verified">verified</span>
+                    Govt Certified
+                  </span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant">Police Cleared</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant font-medium">1,420+ Lessons</span>
+</div>
+</div>
+</div>
+<!-- Vehicle Row -->
+<div class="flex items-start gap-3.5 pb-4 border-b border-outline-variant/20">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center text-secondary-container shrink-0 border border-outline-variant/30">
+<span class="material-symbols-outlined text-xl" data-icon="directions_car">directions_car</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between">
+<h4 class="text-label-lg font-label-lg text-primary-container">Maruti Suzuki Swift Dzire</h4>
+<span class="text-badge-micro font-badge-micro bg-primary-container text-surface-container-lowest px-2 py-0.5 rounded">MANUAL</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-0.5">Dual-Control Pedals (Co-driver brake &amp; clutch)</p>
+<div class="inline-flex items-center gap-1 text-[11px] font-bold text-on-tertiary-container bg-tertiary-fixed-dim/20 px-2 py-0.5 rounded-full mt-1.5">
+<span class="material-symbols-outlined text-xs fill-icon" data-icon="shield_with_heart">shield_with_heart</span>
+                  Insured Fleet • RTO Registered
+                </div>
+</div>
+</div>
+<!-- Schedule & Duration Row -->
+<div class="flex items-start gap-3.5 pb-4 border-b border-outline-variant/20">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center text-primary-container shrink-0 border border-outline-variant/30">
+<span class="material-symbols-outlined text-xl" data-icon="calendar_month">calendar_month</span>
+</div>
+<div class="flex-grow">
+<span class="text-label-lg font-label-lg text-primary-container block">Thursday, Oct 24, 2025</span>
+<span class="text-label-sm font-label-sm text-secondary font-bold">07:00 AM – 09:00 AM (2 Hours)</span>
+<p class="text-xs text-on-surface-variant mt-0.5">Focus: RTO Track Maneuvers &amp; Parallel Parking Masterclass</p>
+</div>
+</div>
+<!-- Doorstep Pickup Row -->
+<div class="flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center text-primary-container shrink-0 border border-outline-variant/30">
+<span class="material-symbols-outlined text-xl" data-icon="pin_drop">pin_drop</span>
+</div>
+<div class="flex-grow">
+<span class="text-label-lg font-label-lg text-primary-container block">Doorstep Pickup Included</span>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-0.5">402, Oakwood Residency, 12th Main, Indiranagar, Bengaluru, 560038</p>
+</div>
+</div>
+</div>
+<!-- Price & Fare Breakdown Details -->
+<div class="bg-surface-container-low p-6 border-t border-outline-variant/30 space-y-3">
+<h4 class="text-label-sm font-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Order Breakdown</h4>
+<div class="flex justify-between text-body-base font-body-base text-on-surface">
+<span>Lesson Fee (2 Hours @ ₹650/hr)</span>
+<span class="font-medium">₹1,300</span>
+</div>
+<div class="flex justify-between text-body-base font-body-base text-on-surface">
+<span class="flex items-center gap-1">
+                Dual-Control Fleet &amp; Fuel
+                <span class="material-symbols-outlined text-xs text-on-tertiary-container fill-icon" data-icon="check_circle">check_circle</span>
+</span>
+<span class="text-on-tertiary-container font-semibold">₹0 (Included)</span>
+</div>
+<div class="flex justify-between text-body-base font-body-base text-on-surface">
+<span>Processing &amp; RTO Compliance Fee</span>
+<span class="font-medium">₹99</span>
+</div>
+<div class="flex justify-between text-body-base font-body-base text-on-surface">
+<span>Taxes (GST @ 18%)</span>
+<span class="font-medium">₹72</span>
+</div>
+<!-- Promo Applied -->
+<div class="flex justify-between text-body-base font-body-base text-on-tertiary-container bg-surface-container-lowest p-2.5 rounded-lg border border-tertiary-fixed-dim/40">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base fill-icon" data-icon="loyalty">loyalty</span>
+<span class="font-semibold text-xs tracking-wider">PROMO (DRIVEFIRST)</span>
+</div>
+<span class="font-bold">-₹150</span>
+</div>
+<!-- Total Line -->
+<div class="pt-3 border-t border-outline-variant/40 flex justify-between items-baseline">
+<div>
+<span class="text-headline-sm font-headline-sm text-primary-container font-bold">Total Payable</span>
+<span class="text-[11px] text-on-surface-variant block font-medium">All taxes &amp; fuel included</span>
+</div>
+<div class="text-right">
+<span class="text-headline-lg font-headline-lg text-primary-container font-extrabold text-2xl">₹1,321</span>
+</div>
+</div>
+</div>
+<!-- Trust Badges Under Summary -->
+<div class="p-4 bg-surface-container-lowest border-t border-outline-variant/20 flex flex-col gap-2 text-xs text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-tertiary-container text-base fill-icon" data-icon="verified_user">verified_user</span>
+<span><strong>100% Dual-Pedal Safety Shield:</strong> Trainer can brake immediately if needed.</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-base" data-icon="event_repeat">event_repeat</span>
+<span><strong>Free cancellation:</strong> Reschedule or cancel up to 12 hrs before session.</span>
+</div>
+</div>
+</div>
+<!-- Mini Help Assistance Pill Card -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/40 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container text-2xl" data-icon="support_agent">support_agent</span>
+<div>
+<p class="text-label-sm font-label-sm font-bold text-primary-container">Need assistance with your payment?</p>
+<p class="text-xs text-on-surface-variant">Dedicated Bangalore RTO Desk: 1800-209-3748</p>
+</div>
+</div>
+<button class="text-secondary hover:text-secondary-container font-bold text-xs underline">Contact</button>
+</div>
+</section>
+<!-- ================= RIGHT COLUMN: PAYMENT METHODS & FORM (7 Cols) ================= -->
+<section class="lg:col-span-7">
+<!-- Interactive Main Payment Container -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 shadow-sm p-6 lg:p-8">
+<!-- Heading -->
+<div class="flex items-center justify-between pb-6 border-b border-outline-variant/30">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-primary-container">Select Payment Method</h2>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-0.5">All transactions are secured via 256-bit SSL encryption</p>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-on-tertiary-container bg-tertiary-fixed-dim/20 px-3 py-1 rounded-full font-bold">
+<span class="material-symbols-outlined text-xs fill-icon" data-icon="lock">lock</span>
+              PCI-DSS Compliant
+            </div>
+</div>
+<!-- DYNAMIC CHECKOUT STATE CONTAINERS (Controlled by Demo switcher) -->
+<!-- STATE 1: DEFAULT FORM (UPI / CARD / NETBANKING / WALLETS) -->
+<div class="mt-6 space-y-6" id="state-default-content">
+<!-- Method Selection Tabs -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+<!-- Tab 1: UPI (Active Default) -->
+<button class="flex flex-col items-center justify-center p-3.5 rounded-xl border-2 border-secondary-container bg-surface-container-lowest text-primary-container shadow-xs transition-all text-center" id="tab-upi" onclick="selectPaymentTab('upi')" type="button">
+<span class="material-symbols-outlined text-secondary-container text-2xl mb-1" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="text-label-sm font-label-sm font-bold">UPI / QR</span>
+<span class="text-[10px] text-on-tertiary-container font-semibold mt-0.5">Fast &amp; Free</span>
+</button>
+<!-- Tab 2: Credit / Debit Cards -->
+<button class="flex flex-col items-center justify-center p-3.5 rounded-xl border border-outline-variant/50 bg-surface-container-lowest hover:bg-surface-container-low text-on-surface-variant hover:text-primary-container transition-all text-center" id="tab-card" onclick="selectPaymentTab('card')" type="button">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="credit_card">credit_card</span>
+<span class="text-label-sm font-label-sm font-bold">Cards</span>
+<span class="text-[10px] text-on-surface-variant mt-0.5">Visa, MC, RuPay</span>
+</button>
+<!-- Tab 3: NetBanking -->
+<button class="flex flex-col items-center justify-center p-3.5 rounded-xl border border-outline-variant/50 bg-surface-container-lowest hover:bg-surface-container-low text-on-surface-variant hover:text-primary-container transition-all text-center" id="tab-netbanking" onclick="selectPaymentTab('netbanking')" type="button">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="account_balance">account_balance</span>
+<span class="text-label-sm font-label-sm font-bold">NetBanking</span>
+<span class="text-[10px] text-on-surface-variant mt-0.5">50+ Banks</span>
+</button>
+<!-- Tab 4: Wallets -->
+<button class="flex flex-col items-center justify-center p-3.5 rounded-xl border border-outline-variant/50 bg-surface-container-lowest hover:bg-surface-container-low text-on-surface-variant hover:text-primary-container transition-all text-center" id="tab-wallets" onclick="selectPaymentTab('wallets')" type="button">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-label-sm font-label-sm font-bold">Wallets</span>
+<span class="text-[10px] text-on-surface-variant mt-0.5">Paytm, Amazon</span>
+</button>
+</div>
+<!-- TAB PANE 1: UPI FORM (ACTIVE BY DEFAULT) -->
+<div class="space-y-6 pt-2" id="pane-upi">
+<!-- Quick App Selector Grid -->
+<div>
+<label class="block text-label-sm font-label-sm font-bold text-primary-container mb-2.5">
+                  Popular UPI Apps
+                </label>
+<div class="grid grid-cols-3 gap-3">
+<label class="cursor-pointer border-2 border-secondary-container bg-surface-container-low/60 rounded-xl p-3 flex flex-col items-center text-center gap-1 relative shadow-xs">
+<input checked="" class="absolute top-2 right-2 text-secondary focus:ring-secondary-container h-4 w-4" name="upi_app" type="radio"/>
+<div class="w-8 h-8 rounded-full bg-white shadow-xs flex items-center justify-center font-black text-xs text-primary-container">
+                      GPay
+                    </div>
+<span class="text-label-sm font-label-sm font-bold text-primary-container mt-1">Google Pay</span>
+<span class="text-[10px] text-on-tertiary-container font-semibold">Instant Auth</span>
+</label>
+<label class="cursor-pointer border border-outline-variant/50 hover:border-outline bg-surface-container-lowest rounded-xl p-3 flex flex-col items-center text-center gap-1 relative transition-all">
+<input class="absolute top-2 right-2 text-secondary focus:ring-secondary-container h-4 w-4" name="upi_app" type="radio"/>
+<div class="w-8 h-8 rounded-full bg-[#5f259f] text-white shadow-xs flex items-center justify-center font-bold text-xs">
+                      Pe
+                    </div>
+<span class="text-label-sm font-label-sm font-bold text-primary-container mt-1">PhonePe</span>
+<span class="text-[10px] text-on-surface-variant">Recommended</span>
+</label>
+<label class="cursor-pointer border border-outline-variant/50 hover:border-outline bg-surface-container-lowest rounded-xl p-3 flex flex-col items-center text-center gap-1 relative transition-all">
+<input class="absolute top-2 right-2 text-secondary focus:ring-secondary-container h-4 w-4" name="upi_app" type="radio"/>
+<div class="w-8 h-8 rounded-full bg-[#002e6e] text-white shadow-xs flex items-center justify-center font-bold text-xs">
+                      Paytm
+                    </div>
+<span class="text-label-sm font-label-sm font-bold text-primary-container mt-1">Paytm UPI</span>
+<span class="text-[10px] text-on-surface-variant">Fast checkout</span>
+</label>
+</div>
+</div>
+<!-- OR Divider -->
+<div class="relative flex items-center justify-center my-4">
+<div class="border-t border-outline-variant/30 w-full"></div>
+<span class="bg-surface-container-lowest px-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">OR ENTER UPI ID / VPA</span>
+</div>
+<!-- UPI ID Field with Inline Verify -->
+<div>
+<label class="block text-label-sm font-label-sm font-bold text-primary-container mb-1.5" for="upi-id-input">
+                  Virtual Payment Address (UPI ID)
+                </label>
+<div class="flex gap-2">
+<div class="relative flex-grow">
+<input class="w-full h-12 bg-surface-container-lowest border border-outline-variant rounded-xl px-3.5 text-body-base font-body-base text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary-container focus:border-secondary-container transition-all" id="upi-id-input" placeholder="e.g. yourname@oksbi or 9876543210@paytm" type="text" value="learner.driveme@okhdfcbank"/>
+<span class="absolute right-3.5 top-3.5 text-on-tertiary-container material-symbols-outlined text-lg fill-icon" data-icon="check_circle">check_circle</span>
+</div>
+<button class="px-5 h-12 rounded-xl bg-surface-container-high hover:bg-surface-variant text-primary-container font-label-lg font-label-lg font-semibold transition-all" type="button">
+                    Verify
+                  </button>
+</div>
+<p class="text-xs text-on-tertiary-container font-semibold mt-1.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs fill-icon" data-icon="verified">verified</span>
+                  Verified Name: LEARNER DRIVEME (HDFC Bank Ltd)
+                </p>
+</div>
+<!-- Dynamic QR Code Collapsible Option -->
+<div class="border border-outline-variant/40 rounded-xl p-4 bg-surface-container-low/40">
+<div class="flex items-center justify-between cursor-pointer" onclick="toggleQrCode()">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-xl" data-icon="qr_code_2">qr_code_2</span>
+<div>
+<span class="text-label-sm font-label-sm font-bold text-primary-container block">Scan QR Code to Pay</span>
+<span class="text-xs text-on-surface-variant">Scan using any UPI App (BHIM, Cred, GPay)</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant transition-transform" data-icon="expand_more" id="qr-toggle-icon">expand_more</span>
+</div>
+<div class="hidden pt-4 mt-3 border-t border-outline-variant/30 flex flex-col items-center text-center" id="qr-container">
+<div class="w-44 h-44 bg-white p-3 rounded-xl border border-outline-variant/40 shadow-xs flex flex-col items-center justify-center relative">
+<svg class="w-full h-full" fill="#0F1E36" viewbox="0 0 100 100">
+<!-- Stylized QR Pattern Mock -->
+<rect fill="#0F1E36" height="28" rx="4" width="28" x="5" y="5"></rect>
+<rect fill="#FFFFFF" height="18" rx="2" width="18" x="10" y="10"></rect>
+<rect fill="#0F1E36" height="10" rx="1" width="10" x="14" y="14"></rect>
+<rect fill="#0F1E36" height="28" rx="4" width="28" x="67" y="5"></rect>
+<rect fill="#FFFFFF" height="18" rx="2" width="18" x="72" y="10"></rect>
+<rect fill="#0F1E36" height="10" rx="1" width="10" x="76" y="14"></rect>
+<rect fill="#0F1E36" height="28" rx="4" width="28" x="5" y="67"></rect>
+<rect fill="#FFFFFF" height="18" rx="2" width="18" x="10" y="72"></rect>
+<rect fill="#0F1E36" height="10" rx="1" width="10" x="14" y="76"></rect>
+<!-- Center Brand Badge in QR -->
+<circle cx="50" cy="50" fill="#FC7123" r="10"></circle>
+<path d="M47 46L53 50L47 54V46Z" fill="#FFFFFF"></path>
+<!-- Random QR Dots -->
+<rect height="6" rx="1" width="6" x="38" y="8"></rect>
+<rect height="6" rx="1" width="6" x="48" y="8"></rect>
+<rect height="6" rx="1" width="6" x="38" y="20"></rect>
+<rect height="6" rx="1" width="6" x="48" y="26"></rect>
+<rect height="6" rx="1" width="6" x="8" y="38"></rect>
+<rect height="6" rx="1" width="6" x="20" y="38"></rect>
+<rect height="6" rx="1" width="6" x="8" y="48"></rect>
+<rect height="6" rx="1" width="6" x="67" y="38"></rect>
+<rect height="6" rx="1" width="6" x="78" y="38"></rect>
+<rect height="6" rx="1" width="6" x="67" y="48"></rect>
+<rect height="6" rx="1" width="6" x="88" y="48"></rect>
+<rect height="6" rx="1" width="6" x="38" y="67"></rect>
+<rect height="6" rx="1" width="6" x="48" y="67"></rect>
+<rect height="6" rx="1" width="6" x="38" y="78"></rect>
+<rect height="6" rx="1" width="6" x="67" y="67"></rect>
+<rect height="6" rx="1" width="6" x="78" y="78"></rect>
+<rect height="6" rx="1" width="6" x="88" y="67"></rect>
+<rect height="6" rx="1" width="6" x="88" y="88"></rect>
+<rect height="6" rx="1" width="6" x="67" y="88"></rect>
+</svg>
+</div>
+<span class="text-xs font-semibold text-primary-container mt-2">Scan &amp; Pay ₹1,321</span>
+<span class="text-[11px] text-on-surface-variant">Expires with session timer</span>
+</div>
+</div>
+</div>
+<!-- TAB PANE 2: CARD FORM (Hidden by default, shown when Cards clicked) -->
+<div class="space-y-4 pt-2 hidden" id="pane-card">
+<div>
+<label class="block text-label-sm font-label-sm font-bold text-primary-container mb-1.5">Card Number</label>
+<div class="relative">
+<input class="w-full h-12 bg-surface-container-lowest border border-outline-variant rounded-xl px-3.5 pl-11 text-body-base font-body-base text-on-surface focus:ring-2 focus:ring-secondary-container" placeholder="4532 •••• •••• 8891" type="text"/>
+<span class="absolute left-3.5 top-3.5 text-on-surface-variant material-symbols-outlined text-lg" data-icon="credit_card">credit_card</span>
+<div class="absolute right-3.5 top-3.5 flex items-center gap-1 text-xs font-bold text-primary-container">
+<span>VISA</span>
+<span>MC</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-label-sm font-label-sm font-bold text-primary-container mb-1.5">Expiry Date</label>
+<input class="w-full h-12 bg-surface-container-lowest border border-outline-variant rounded-xl px-3.5 text-body-base font-body-base text-on-surface focus:ring-2 focus:ring-secondary-container" placeholder="MM / YY" type="text"/>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm font-bold text-primary-container mb-1.5">CVV / CVC</label>
+<div class="relative">
+<input class="w-full h-12 bg-surface-container-lowest border border-outline-variant rounded-xl px-3.5 text-body-base font-body-base text-on-surface focus:ring-2 focus:ring-secondary-container" maxlength="4" placeholder="•••" type="password"/>
+<span class="material-symbols-outlined text-base absolute right-3.5 top-3.5 text-outline-variant" data-icon="help_outline">help_outline</span>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm font-bold text-primary-container mb-1.5">Cardholder Name</label>
+<input class="w-full h-12 bg-surface-container-lowest border border-outline-variant rounded-xl px-3.5 text-body-base font-body-base text-on-surface focus:ring-2 focus:ring-secondary-container" placeholder="Name as printed on card" type="text"/>
+</div>
+<div class="flex items-center gap-2 text-xs text-on-surface-variant pt-1">
+<input checked="" class="rounded border-outline-variant text-secondary focus:ring-secondary-container" id="save-card" type="checkbox"/>
+<label for="save-card">Securely save card for future refresher lessons (RBI tokenized compliant)</label>
+</div>
+</div>
+<!-- TAB PANE 3: NETBANKING (Hidden by default) -->
+<div class="space-y-4 pt-2 hidden" id="pane-netbanking">
+<label class="block text-label-sm font-label-sm font-bold text-primary-container mb-1.5">Select Your Bank</label>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+<button class="p-3 border border-outline-variant/60 rounded-xl text-left hover:border-primary-container flex items-center gap-2" type="button">
+<span class="w-7 h-7 rounded-full bg-primary-container text-white text-[10px] font-bold flex items-center justify-center">HDFC</span>
+<span class="text-xs font-bold text-primary-container">HDFC Bank</span>
+</button>
+<button class="p-3 border border-outline-variant/60 rounded-xl text-left hover:border-primary-container flex items-center gap-2" type="button">
+<span class="w-7 h-7 rounded-full bg-secondary-container text-white text-[10px] font-bold flex items-center justify-center">ICICI</span>
+<span class="text-xs font-bold text-primary-container">ICICI Bank</span>
+</button>
+<button class="p-3 border border-outline-variant/60 rounded-xl text-left hover:border-primary-container flex items-center gap-2" type="button">
+<span class="w-7 h-7 rounded-full bg-blue-700 text-white text-[10px] font-bold flex items-center justify-center">SBI</span>
+<span class="text-xs font-bold text-primary-container">State Bank of India</span>
+</button>
+<button class="p-3 border border-outline-variant/60 rounded-xl text-left hover:border-primary-container flex items-center gap-2" type="button">
+<span class="w-7 h-7 rounded-full bg-red-700 text-white text-[10px] font-bold flex items-center justify-center">AXIS</span>
+<span class="text-xs font-bold text-primary-container">Axis Bank</span>
+</button>
+<button class="p-3 border border-outline-variant/60 rounded-xl text-left hover:border-primary-container flex items-center gap-2" type="button">
+<span class="w-7 h-7 rounded-full bg-red-600 text-white text-[10px] font-bold flex items-center justify-center">KOT</span>
+<span class="text-xs font-bold text-primary-container">Kotak Mahindra</span>
+</button>
+<button class="p-3 border border-outline-variant/60 rounded-xl text-left hover:border-primary-container flex items-center gap-2" type="button">
+<span class="w-7 h-7 rounded-full bg-surface-container-high text-primary-container text-[10px] font-bold flex items-center justify-center">+45</span>
+<span class="text-xs font-bold text-primary-container">Other Banks</span>
+</button>
+</div>
+</div>
+<!-- TAB PANE 4: WALLETS (Hidden by default) -->
+<div class="space-y-3 pt-2 hidden" id="pane-wallets">
+<label class="block text-label-sm font-label-sm font-bold text-primary-container mb-1.5">Select Mobile Wallet</label>
+<div class="space-y-2">
+<label class="flex items-center justify-between p-3.5 border border-outline-variant/50 rounded-xl cursor-pointer hover:border-primary-container">
+<div class="flex items-center gap-3">
+<input checked="" class="text-secondary focus:ring-secondary-container" name="wallet" type="radio"/>
+<span class="text-sm font-bold text-primary-container">Amazon Pay</span>
+</div>
+<span class="text-xs text-on-tertiary-container font-semibold">Get ₹50 cashback</span>
+</label>
+<label class="flex items-center justify-between p-3.5 border border-outline-variant/50 rounded-xl cursor-pointer hover:border-primary-container">
+<div class="flex items-center gap-3">
+<input class="text-secondary focus:ring-secondary-container" name="wallet" type="radio"/>
+<span class="text-sm font-bold text-primary-container">Mobikwik</span>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">Link &amp; Pay</span>
+</label>
+</div>
+</div>
+<!-- Primary Direct Conversion CTA Button (Brand Road Orange) -->
+<div class="pt-4">
+<button class="w-full py-4 px-6 rounded-xl bg-secondary-container hover:bg-secondary text-surface-container-lowest font-headline-sm font-headline-sm font-bold text-center shadow-lg hover:shadow-xl transition-all duration-150 active:scale-[0.98] flex items-center justify-center gap-2 group" onclick="setCheckoutState(\'processing\'); setTimeout(() => { window.location.href = \'../driveme_booking_confirmation/code.html\'; }, 1500);" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="lock">lock</span>
+<span>Pay ₹1,321 &amp; Confirm Booking</span>
+<span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div class="flex items-center justify-center gap-3 mt-3 text-xs text-on-surface-variant text-center">
+<span>By continuing, you agree to DriveMe's Session Terms &amp; Code of Conduct.</span>
+</div>
+</div>
+</div>
+<!-- STATE 2: PROCESSING ANIMATION STATE (Hidden by default) -->
+<div class="hidden py-12 px-4 flex flex-col items-center justify-center text-center space-y-6" id="state-processing-content">
+<div class="relative w-24 h-24">
+<!-- Outer glowing ring -->
+<div class="absolute inset-0 rounded-full border-4 border-surface-container-high animate-ping opacity-30"></div>
+<div class="w-24 h-24 rounded-full border-4 border-surface-container-high border-t-secondary-container animate-spin"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl text-primary-container" data-icon="currency_rupee">currency_rupee</span>
+</div>
+</div>
+<div class="space-y-2 max-w-md">
+<h3 class="text-headline-md font-headline-md text-primary-container font-bold">Contacting Bank / Verifying UPI...</h3>
+<p class="text-body-base font-body-base text-on-surface-variant">
+                Please approve the payment request of <strong class="text-primary-container">₹1,321</strong> on your UPI app or banking window. Do not press back or refresh.
+              </p>
+</div>
+<!-- Animated step ticks -->
+<div class="w-full max-w-sm bg-surface-container-low p-4 rounded-xl space-y-2.5 text-left text-xs">
+<div class="flex items-center justify-between text-on-tertiary-container font-semibold">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm fill-icon" data-icon="check_circle">check_circle</span>
+                  Security handshake completed
+                </span>
+<span>0.2s</span>
+</div>
+<div class="flex items-center justify-between text-primary-container font-bold">
+<span class="flex items-center gap-2">
+<span class="w-3.5 h-3.5 rounded-full border-2 border-secondary-container border-t-transparent animate-spin"></span>
+                  Awaiting confirmation from NPCI / Bank gateway
+                </span>
+<span class="text-secondary animate-pulse">Waiting</span>
+</div>
+<div class="flex items-center justify-between text-outline-variant font-medium">
+<span class="flex items-center gap-2">
+<span class="w-3.5 h-3.5 rounded-full bg-outline-variant/40"></span>
+                  Issuing confirmed slot permit DM-9824B
+                </span>
+<span>Queued</span>
+</div>
+</div>
+<button class="text-xs text-on-surface-variant hover:text-primary-container underline" onclick="setCheckoutState('default')">
+              Cancel &amp; Return to payment options
+            </button>
+</div>
+<!-- STATE 3: PAYMENT SUCCESSFUL STATE (Hidden by default) -->
+<div class="hidden py-8 px-4 flex flex-col items-center justify-center text-center space-y-6" id="state-success-content">
+<div class="w-20 h-20 rounded-full bg-tertiary-fixed-dim/40 border-4 border-on-tertiary-container/20 flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-4xl fill-icon" data-icon="check_circle">check_circle</span>
+</div>
+<div class="space-y-2 max-w-md">
+<span class="inline-block bg-tertiary-fixed-dim/30 text-on-tertiary-fixed-variant px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                Booking Confirmed • Receipt #DM-9824B
+              </span>
+<h3 class="text-headline-lg font-headline-lg text-primary-container font-bold">Payment of ₹1,321 Successful!</h3>
+<p class="text-body-base font-body-base text-on-surface-variant">
+                Your driving lesson with <strong>Rajesh Kumar</strong> has been locked in for <strong>Thursday, Oct 24 @ 07:00 AM</strong>.
+              </p>
+</div>
+<!-- Confirmation details ticket -->
+<div class="w-full max-w-md bg-surface-container-low border border-outline-variant/40 rounded-xl p-5 text-left space-y-3">
+<div class="flex justify-between text-xs pb-2 border-b border-outline-variant/30">
+<span class="text-on-surface-variant">UPI Ref / Bank Transaction ID:</span>
+<strong class="text-primary-container">UPI/429810982310/AXIS</strong>
+</div>
+<div class="flex justify-between text-xs pb-2 border-b border-outline-variant/30">
+<span class="text-on-surface-variant">Instructor Vehicle Dispatched:</span>
+<strong class="text-primary-container">Maruti Dzire (KA-03-MG-4412)</strong>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Pickup Location:</span>
+<strong class="text-primary-container truncate max-w-[200px]">Oakwood Residency, Indiranagar</strong>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-3 w-full max-w-md">
+<a class="w-full py-3.5 px-5 rounded-xl bg-primary-container text-surface-container-lowest text-label-lg font-label-lg font-bold text-center hover:bg-primary transition-all" href="#">
+                Download Official Receipt (PDF)
+              </a>
+<a class="w-full py-3.5 px-5 rounded-xl bg-secondary-container hover:bg-secondary text-surface-container-lowest text-label-lg font-label-lg font-bold text-center transition-all" href="../driveme_booking_confirmation/code.html">Confirm & View Booking Receipt →</a>
+</div>
+</div>
+<!-- STATE 4: PAYMENT FAILED / DECLINED STATE (Hidden by default) -->
+<div class="hidden py-8 px-4 space-y-6" id="state-failed-content">
+<!-- Alert Banner -->
+<div class="p-4 rounded-xl bg-error-container/60 border border-error/30 text-on-error-container flex items-start gap-3.5">
+<span class="material-symbols-outlined text-error text-2xl shrink-0 fill-icon" data-icon="error">error</span>
+<div>
+<h4 class="text-headline-sm font-headline-sm text-error font-bold text-base">Transaction timed out or declined by issuing bank</h4>
+<p class="text-xs mt-1 text-on-error-container">
+                  Error Code: [NPCI_RESP_U30] – Bank server did not respond within the time limit. If any amount was debited, it will be automatically refunded to your original method within 2 banking hours.
+                </p>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl space-y-3">
+<h5 class="text-label-sm font-label-sm font-bold text-primary-container">Why did this happen?</h5>
+<ul class="text-xs text-on-surface-variant space-y-1.5 list-disc pl-4">
+<li>UPI PIN request was canceled on mobile notification</li>
+<li>Temporary connectivity downtime at the issuing bank</li>
+<li>Daily UPI transaction limit exceeded for this account</li>
+</ul>
+</div>
+<!-- Action Buttons for Recovery -->
+<div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
+<button class="w-full py-3.5 px-5 rounded-xl bg-secondary-container hover:bg-secondary text-surface-container-lowest text-label-lg font-label-lg font-bold text-center shadow-md transition-all flex items-center justify-center gap-2" onclick="setCheckoutState('default')">
+<span class="material-symbols-outlined text-lg" data-icon="refresh">refresh</span>
+                Retry Payment (₹1,321)
+              </button>
+<button class="w-full py-3.5 px-5 rounded-xl bg-surface-container-lowest border-2 border-primary-container hover:bg-surface-container-low text-primary-container text-label-lg font-label-lg font-bold text-center transition-all flex items-center justify-center gap-2" onclick="selectPaymentTab('card'); setCheckoutState('default');">
+<span class="material-symbols-outlined text-lg" data-icon="credit_card">credit_card</span>
+                Switch to Credit / Debit Card
+              </button>
+</div>
+</div>
+<!-- Bottom Footer Badges inside Checkout Card -->
+<div class="mt-8 pt-6 border-t border-outline-variant/30 flex flex-wrap items-center justify-between gap-4 text-xs text-on-surface-variant">
+<div class="flex items-center gap-4 flex-wrap">
+<span class="flex items-center gap-1 font-semibold text-primary-container">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="encrypted">encrypted</span>
+                256-Bit SSL Secured
+              </span>
+<span>•</span>
+<span>PCI-DSS Level 1</span>
+<span>•</span>
+<span>Reserve Bank of India Guidelines Compliant</span>
+</div>
+<span class="text-[11px] text-outline font-medium">Sandbox Demo Environment (No real charges)</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- ================= COMPREHENSIVE DRIVE ME FOOTER (Shared Component Anchor) ================= -->
+<footer class="w-full bg-primary-container dark:bg-primary border-t border-outline-variant/20 dark:border-outline/10 mt-16 text-surface-dim">
+<div class="w-full max-w-container-max mx-auto px-6 lg:px-12 py-16 flex flex-col gap-12">
+<!-- Upper Section: Brand + Links Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
+<!-- Brand Description (2 Cols) -->
+<div class="lg:col-span-2 space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-lowest flex items-center justify-center shadow-md">
+<svg class="w-7 h-7" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 18H52C70 18 84 32 84 50C84 68 70 82 52 82H22V18Z" fill="#0F1E36"></path>
+<path d="M22 82L44 32H54L76 82H60L54 66H44L38 82H22Z" fill="#0F1E36"></path>
+<path d="M38 82L45 52H53L60 82H49L47 70H41L38 82Z" fill="#FC7123"></path>
+<rect fill="#FC7123" height="8" rx="2" width="4" x="47" y="38"></rect>
+<rect fill="#0F1E36" height="9" rx="3" width="6" x="46" y="52"></rect>
+</svg>
+</div>
+<span class="text-headline-md font-headline-md font-black text-surface-container-lowest">
+              Drive<span class="text-secondary-container">Me</span>
+</span>
+</div>
+<p class="text-body-base font-body-base text-on-primary-container max-w-sm">
+            India's premier certified driving education and on-demand instructor network. Building confident, defensive, accident-free drivers through rigorous technology and verified dual-pedal fleet standards.
+          </p>
+<div class="flex items-center gap-3 text-xs text-on-primary-container pt-1">
+<span class="px-2.5 py-1 rounded bg-surface-variant/10 border border-surface-variant/20 text-surface-container-lowest font-semibold">ISO 9001:2015</span>
+<span class="px-2.5 py-1 rounded bg-surface-variant/10 border border-surface-variant/20 text-surface-container-lowest font-semibold">MoRTH Aligned</span>
+</div>
+</div>
+<!-- Links Column 1 -->
+<div class="space-y-3">
+<h4 class="text-headline-sm font-headline-sm text-surface-container-lowest text-base font-bold">Programs &amp; Standards</h4>
+<ul class="space-y-2 text-label-sm font-label-sm">
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest hover:underline transition-all duration-150" href="#">About Us</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest hover:underline transition-all duration-150" href="#">Safety Standards</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest hover:underline transition-all duration-150" href="#">Become a Trainer</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest hover:underline transition-all duration-150" href="#">Curriculum</a></li>
+</ul>
+</div>
+<!-- Links Column 2 -->
+<div class="space-y-3">
+<h4 class="text-headline-sm font-headline-sm text-surface-container-lowest text-base font-bold">Resources &amp; Pricing</h4>
+<ul class="space-y-2 text-label-sm font-label-sm">
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest hover:underline transition-all duration-150" href="#">Pricing Plans</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest hover:underline transition-all duration-150" href="#">DMV Resources</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest hover:underline transition-all duration-150" href="#">LL Practice Tests</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest hover:underline transition-all duration-150" href="#">Simulator Labs</a></li>
+</ul>
+</div>
+<!-- Links Column 3: Trust & Legal -->
+<div class="space-y-3">
+<h4 class="text-headline-sm font-headline-sm text-surface-container-lowest text-base font-bold">Trust &amp; Legal</h4>
+<ul class="space-y-2 text-label-sm font-label-sm">
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest hover:underline transition-all duration-150" href="#">Privacy Policy</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest hover:underline transition-all duration-150" href="#">Terms of Service</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest hover:underline transition-all duration-150" href="#">Refund &amp; Cancellation</a></li>
+<li><a class="text-surface-dim dark:text-outline-variant hover:text-surface-container-lowest hover:underline transition-all duration-150" href="#">Security Disclosures</a></li>
+</ul>
+</div>
+</div>
+<!-- Lower Section: Copyright & System Integrity -->
+<div class="pt-8 border-t border-outline-variant/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-on-primary-container">
+<p class="text-body-base font-body-base text-surface-dim text-xs">
+          © 2025 DriveMe Academy Inc. All rights reserved.
+        </p>
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-1.5 text-tertiary-fixed">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
+            All 42 RTO Booking Clusters Operational
+          </span>
+<a class="hover:text-surface-container-lowest transition-colors" href="#">Server Status</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- ================= MICRO-INTERACTION SCRIPT ================= -->
+<script>
+    // State Switcher Demo Controller
+    function setCheckoutState(state) {
+      // Hide all states
+      document.getElementById('state-default-content').classList.add('hidden');
+      document.getElementById('state-processing-content').classList.add('hidden');
+      document.getElementById('state-success-content').classList.add('hidden');
+      document.getElementById('state-failed-content').classList.add('hidden');
+
+      // Reset switcher button styles
+      const buttons = ['default', 'processing', 'success', 'failed'];
+      buttons.forEach(btn => {
+        const el = document.getElementById('btn-state-' + btn);
+        if (el) {
+          el.className = "px-3 py-1 rounded-md text-xs font-medium text-surface-variant hover:text-surface-container-lowest bg-surface-variant/10 hover:bg-surface-variant/20 transition-all";
+        }
+      });
+
+      // Show selected state
+      const targetEl = document.getElementById('state-' + state + '-content');
+      if (targetEl) {
+        targetEl.classList.remove('hidden');
+      }
+
+      // Highlight current switcher button
+      const activeBtn = document.getElementById('btn-state-' + state);
+      if (activeBtn) {
+        activeBtn.className = "px-3 py-1 rounded-md text-xs font-bold transition-all bg-secondary-container text-surface-container-lowest";
+      }
+
+      // Auto-simulate success when entering processing after 3 seconds
+      if (state === 'processing') {
+        setTimeout(() => {
+          if (!document.getElementById('state-processing-content').classList.contains('hidden')) {
+            setCheckoutState('success');
+          }
+        }, 3200);
+      }
+    }
+
+    // Payment Tab Selector (UPI, Card, NetBanking, Wallets)
+    function selectPaymentTab(tabName) {
+      const tabs = ['upi', 'card', 'netbanking', 'wallets'];
+      tabs.forEach(t => {
+        const tabBtn = document.getElementById('tab-' + t);
+        const pane = document.getElementById('pane-' + t);
+        if (tabBtn && pane) {
+          if (t === tabName) {
+            tabBtn.className = "flex flex-col items-center justify-center p-3.5 rounded-xl border-2 border-secondary-container bg-surface-container-lowest text-primary-container shadow-xs transition-all text-center";
+            pane.classList.remove('hidden');
+          } else {
+            tabBtn.className = "flex flex-col items-center justify-center p-3.5 rounded-xl border border-outline-variant/50 bg-surface-container-lowest hover:bg-surface-container-low text-on-surface-variant hover:text-primary-container transition-all text-center";
+            pane.classList.add('hidden');
+          }
+        }
+      });
+    }
+
+    // QR Code dropdown toggle
+    function toggleQrCode() {
+      const container = document.getElementById('qr-container');
+      const icon = document.getElementById('qr-toggle-icon');
+      if (container.classList.contains('hidden')) {
+        container.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+      } else {
+        container.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Dynamic 15:00 countdown timer simulation
+    let secondsLeft = 14 * 60 + 52;
+    setInterval(() => {
+      if (secondsLeft > 0) {
+        secondsLeft--;
+        const mins = Math.floor(secondsLeft / 60);
+        const secs = secondsLeft % 60;
+        const timerEl = document.getElementById('timer-display');
+        if (timerEl) {
+          timerEl.textContent = (mins < 10 ? '0' : '') + mins + ':' + (secs < 10 ? '0' : '') + secs;
+        }
+      }
+    }, 1000);
+  </script>
+
+</body></html>
